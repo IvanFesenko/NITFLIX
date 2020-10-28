@@ -16,6 +16,10 @@ async function fetchTrending() {
   }
 }
 
+async function fetchMovieInfo() {
+  const url = `https://api.themoviedb.org/3/find/${external_id}?api_key=8978731d3453660c119868bf0fe3e32f&language=en-US&external_source=imdb_id`;
+}
+
 function makeImagePath(path, size) {
   return `${conf.imageBaseURL}/${conf.logoSizes[size]}${path}`;
 }
@@ -23,7 +27,6 @@ function makeImagePath(path, size) {
 function generateTrendingList() {
   fetchTrending().then(res => {
     //make fullImagePath
-
     console.log(res);
     res = res.map(item => {
       item.backdrop_path = makeImagePath(item.backdrop_path, 5);

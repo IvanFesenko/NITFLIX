@@ -51,6 +51,9 @@
   "dependencies": {
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
-    "handlebars": "^4.7.6"
+    "firebase": "^8.0.0",
+    "handlebars": "^4.7.6",
+    "normalize.css": "^8.0.1",
+    "swiper": "^6.3.4"
   }
 }

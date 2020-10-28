@@ -1,0 +1,44 @@
+@mixin for-size($size) {
+  @if $size == mobile {
+    @media (max-width: rem(767)) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media (min-width: rem(768)) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (min-width: rem(1280)) {
+      @content;
+    }
+  } @else if $size == hd-desktop {
+    @media (min-width: rem(1680)) {
+      @content;
+    }
+  }
+}
+
+@function rem($px) {
+  @return ($px / 16) + rem;
+}
+
+@mixin flexible($justify: center) {
+  display: flex;
+  justify-content: $justify;
+}
+
+@mixin pseudo($width, $height, $content: '') {
+  content: $content;
+  width: $width;
+  height: $height;
+}
+
+@mixin background-settings(
+  $repeat: no-repeat,
+  $position: center,
+  $size: cover
+) {
+  background-repeat: $repeat;
+  background-position: $position;
+  background-size: $size;
+}

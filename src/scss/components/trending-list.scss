@@ -1,0 +1,21 @@
+.trending {
+  &__container {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__wrapper {
+    position: relative;
+    border-radius: rem(30);
+    overflow: hidden;
+  }
+
+  &____average {
+    position: absolute;
+    right: rem(30);
+    bottom: rem(30);
+    color: #ffffff;
+  }
+}

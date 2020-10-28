@@ -1,5 +1,6 @@
 .trending {
   &__container {
+    color: #ffffff;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -8,14 +9,36 @@
 
   &__wrapper {
     position: relative;
-    border-radius: rem(30);
+    border-radius: 30px;
     overflow: hidden;
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
   }
 
-  &____average {
+  &__main-title {
+    color: #000000;
+    font-size: 45px;
+  }
+
+  &__title {
     position: absolute;
-    right: rem(30);
-    bottom: rem(30);
-    color: #ffffff;
+
+    font-size: 40px;
+    font-style: italic;
+
+    left: 10px;
+    bottom: 10px;
+
+    text-shadow: 2px 2px 1px #000000;
+  }
+
+  &__average {
+    position: absolute;
+    font-size: 30px;
+
+    right: 20px;
+    top: 20px;
   }
 }

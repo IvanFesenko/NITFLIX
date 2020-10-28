@@ -2,10 +2,10 @@ import 'normalize.css';
 import 'swiper/swiper-bundle.css';
 import './scss/fonts.scss';
 
-import './css/styles.css';
-
 //helpers
 import './scss/helpers/mixins.scss';
+
+import './css/styles.css';
 
 import './scss/base.scss';
 import './scss/header.scss';

@@ -26,6 +26,7 @@ function generateTrendingList() {
     res = res.map(item => {
       item.backdrop_path = makeImagePath(item.backdrop_path, 5);
       item.poster_path = makeImagePath(item.poster_path, 4);
+
       return item;
     });
 

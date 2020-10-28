@@ -22,7 +22,9 @@ function makeImagePath(path, size) {
 
 function generateTrendingList() {
   fetchTrending().then(res => {
-    //make fullPath
+    //make fullImagePath
+
+    console.log(res);
     res = res.map(item => {
       item.backdrop_path = makeImagePath(item.backdrop_path, 5);
       item.poster_path = makeImagePath(item.poster_path, 4);

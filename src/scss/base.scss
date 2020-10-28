@@ -1,16 +1,17 @@
-.container {
-  margin: 0 auto;
-  width: 960px;
-}
-
 html {
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 img {
@@ -52,4 +53,17 @@ li {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.container {
+  margin: 0 auto;
+  width: 300px;
+
+  @include for-size(tablet) {
+    width: 710px;
+  }
+
+  @include for-size(desktop) {
+    width: 960px;
+  }
 }

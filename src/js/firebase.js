@@ -52,8 +52,8 @@ export async function registration() {
   try {
     const auth = firebase.auth();
     const user = await auth.createUserWithEmailAndPassword(
-      Refs.email.value,
-      Refs.password.value,
+      Refs.inputEmail.value,
+      Refs.inputPassword.value,
     );
     addUserToDB(user);
   } catch {
@@ -65,8 +65,8 @@ export async function basicAuthorization() {
   try {
     const auth = firebase.auth();
     await auth.signInWithEmailAndPassword(
-      Refs.email.value,
-      Refs.password.value,
+      Refs.inputPassword.value,
+      Refs.inputPassword.value,
     );
   } catch {
     alert('Failed to login');

@@ -4,4 +4,6 @@ export default {
   logInBtn: document.querySelector('#loginbtn'),
   singUpBtn: document.querySelector('#singupbtn'),
   logOutBtn: document.querySelector('#logOut'),
+  inputEmail: document.querySelector('#inputEmail'),
+  inputPassword: document.querySelector('#inputPassword'),
 };

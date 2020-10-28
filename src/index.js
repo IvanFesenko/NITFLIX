@@ -9,5 +9,4 @@ import './scss/header.scss';
 import './scss/main.scss';
 import './scss/footer.scss';
 
-import './js/script.js';
 import './js/trending-api';

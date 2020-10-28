@@ -1,7 +1,7 @@
 {{#each this}}
-<div class="tranding__wrapper">
-    <h3 class="tranding__title"></h3>
-    <img src="" alt="" class="tranding__image">
-    <span class="tranding__average"></span>
+<div class="trending__wrapper">
+    <h3 class="trending__title">{{this.title}}</h3>
+    <img src="{{this.backdrop_path}}" alt="{{this.title}}" class="trending__image">
+    <span class="trending__average"></span>
 </div>
 {{/each}}

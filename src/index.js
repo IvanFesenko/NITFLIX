@@ -12,6 +12,7 @@ import './scss/header.scss';
 import './scss/main.scss';
 import './scss/footer.scss';
 
+import './js/script.js';
 //components
 import './scss/components/trending-list.scss';
 

@@ -59,7 +59,7 @@
 
   &__overlay {
     position: absolute;
-    top: 500px;
+    opacity: 0;
 
     padding: 25px;
 
@@ -85,5 +85,5 @@
   top: -100px;
 }
 .trending__wrapper:hover .trending__overlay {
-  top: 0;
+  opacity: 1;
 }

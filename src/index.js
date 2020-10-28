@@ -1,4 +1,6 @@
-import './css/styles.css';
-import './scss/base.scss';
+import 'normalize.css';
+import 'swiper/swiper-bundle.css';
+import './scss/main.scss';
 
+//main JS
 import './js/script.js';

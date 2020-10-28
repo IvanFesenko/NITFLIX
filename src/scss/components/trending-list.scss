@@ -1,0 +1,89 @@
+.trending {
+  &__container {
+    color: #ffffff;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__wrapper {
+    position: relative;
+    border-radius: rem(30);
+    overflow: hidden;
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__main-title {
+    color: #000000;
+    font-size: 45px;
+  }
+
+  &__title {
+    position: absolute;
+
+    font-size: 30px;
+    font-style: italic;
+
+    left: 10px;
+    bottom: 10px;
+
+    text-shadow: 2px 2px 1px #000000;
+
+    transition: all 0.5s ease-in;
+  }
+
+  &__release-date {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+
+    font-size: 12px;
+    font-style: italic;
+
+    transition: all 0.5s ease-in;
+  }
+
+  &__average {
+    position: absolute;
+    font-size: 30px;
+
+    right: 20px;
+    top: 20px;
+
+    transition: all 0.5s ease-in;
+  }
+
+  &__overlay {
+    position: absolute;
+    opacity: 0;
+
+    padding: 25px;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    transition: all 0.5s ease-in;
+  }
+
+  &__overview {
+    color: #000000;
+  }
+}
+
+.trending__wrapper:hover .trending__title {
+  bottom: -200px;
+}
+.trending__wrapper:hover .trending__release-date {
+  top: -100px;
+}
+.trending__wrapper:hover .trending__average {
+  top: -100px;
+}
+.trending__wrapper:hover .trending__overlay {
+  opacity: 1;
+}

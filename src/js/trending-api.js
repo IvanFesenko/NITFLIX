@@ -4,8 +4,8 @@ const trendingApi = {
   apiKey: '8978731d3453660c119868bf0fe3e32f',
   baseURL: 'https://api.themoviedb.org/3',
   imageBaseURL: 'https://image.tmdb.org/t/p',
-  logo_sizes: ['w45', 'w92', 'w154', 'w185', 'w300', 'w500', 'original'],
-  poster_sizes: ['w92', 'w154', 'w185', 'w342', 'w500', 'w780', 'original'],
+  logoSizes: ['w45', 'w92', 'w154', 'w185', 'w300', 'w500', 'original'],
+  posterSizes: ['w92', 'w154', 'w185', 'w342', 'w500', 'w780', 'original'],
 
   async fetchTrending() {
     const url = `${this.baseURL}/trending/movie/day?api_key=${this.apiKey}`;
@@ -21,6 +21,12 @@ const trendingApi = {
       console.log(error);
     }
   },
+
+  makeImagePath(path) {
+    return `${this.imageBaseURL}/${this.logoSizes[4]}${path}`;
+  },
 };
 
 trendingApi.fetchTrending();
+
+console.log(trendingApi.makeImagePath('/3Ysvp4ODDC6sucdQ9quHWkMiKED.jpg'));

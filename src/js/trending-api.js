@@ -16,8 +16,16 @@ async function fetchTrending() {
   }
 }
 
-async function fetchMovieInfo() {
-  const url = `https://api.themoviedb.org/3/find/${external_id}?api_key=8978731d3453660c119868bf0fe3e32f&language=en-US&external_source=imdb_id`;
+async function fetchMovieInfo(id) {
+  const url = `https://api.themoviedb.org/3/movie/531219?api_key=${conf.apiKey}&append_to_response=videos`;
+
+  try {
+    const response = await axios.get(url);
+    const data = response.data;
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function makeImagePath(path, size) {
@@ -42,3 +50,5 @@ function generateTrendingList() {
 }
 
 generateTrendingList();
+
+fetchMovieInfo();

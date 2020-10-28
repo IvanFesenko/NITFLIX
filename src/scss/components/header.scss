@@ -1,3 +1,15 @@
 .navigation {
   padding-top: 24px;
 }
+
+.googleBtn {
+  // background: url('../../images/sign-in-with-google.svg') 0 50% no-repeat;
+  border-radius: 1px;
+  width: 140px;
+  height: 30px;
+  color: rgba(0, 0, 0, 0.54);
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 0;
+  border-color: transparent;
+  text-align: center;
+  border-radius: 3px;
+}

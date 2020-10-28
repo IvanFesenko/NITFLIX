@@ -8,19 +8,59 @@
   </head>
   <body>
     <header class="header">
-      <nav class="navigation">
-        <a href="#" class="logo"
-          ><img src="./images/logo.png" alt="" class="logo__img"
-        /></a>
-      </nav>
+      <div class="container">
+        <nav class="navigation">
+          <a href="#" class="logo"
+            ><img src="./images/logo.png" alt="" class="logo__img"
+          /></a>
+          <form action="#" class="form__registration">
+            <input
+              type="email"
+              id="inputEmail"
+              class="form__registration-email"
+              placeholder="Email address *"
+              required
+            />
+            <input
+              type="password"
+              id="inputPassword"
+              class="form__registration-password"
+              placeholder="Password *"
+              required
+            />
+
+            <button
+              class="btn btn-success btn-block auth-btn"
+              id="loginbtn"
+              type="button"
+            >
+              Sign in
+            </button>
+
+            <button
+              class="btn btn-success btn-block auth-btn"
+              id="singupbtn"
+              type="button"
+            >
+              Sign up
+            </button>
+          </form>
+        </nav>
+      </div>
     </header>
     <main>
-      <form action="#" class="search-form">
-        <input type="text" class="search-form__input" />
-      </form>
+      <div class="container">
+        <form action="#" class="search-form">
+          <input type="text" class="search-form__input" />
+        </form>
+      </div>
     </main>
     <footer class="footer">
-      <p class="copyright">Made by <a href="#" class="copyright__link"></a></p>
+      <div class="container">
+        <p class="copyright">
+          Made by <a href="#" class="copyright__link">FSDev</a>
+        </p>
+      </div>
     </footer>
   </body>
 </html>

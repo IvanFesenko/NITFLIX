@@ -1,4 +1,4 @@
-.trending {
+.movie {
   &__container {
     color: #ffffff;
     margin: 0 auto;
@@ -33,15 +33,10 @@
     transition: transform 0.3s linear;
   }
 
-  &__main-title {
-    color: #000000;
-    font-size: 45px;
-  }
-
   &__title {
     position: absolute;
 
-    font-size: 30px;
+    font-size: 20px;
     font-style: italic;
 
     left: 10px;
@@ -96,17 +91,4 @@
   &__overview {
     color: #000000;
   }
-}
-
-.trending__wrapper:hover .trending__title {
-  bottom: -200px;
-}
-.trending__wrapper:hover .trending__release-date {
-  top: -100px;
-}
-.trending__wrapper:hover .trending__average {
-  top: -100px;
-}
-.trending__wrapper:hover .trending__overlay {
-  opacity: 1;
 }

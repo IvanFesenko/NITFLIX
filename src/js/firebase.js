@@ -4,6 +4,11 @@ import 'firebase/database';
 import Refs from './refs';
 import { onLogInState, onLogOutState } from './registration';
 
+export const LISTS = {
+  watched: 'watched',
+  queue: 'queue',
+};
+
 firebase.initializeApp({
   apiKey: 'AIzaSyDuvnT4jggcdrgUHF7AnWYw3zZH5CnwRSA',
   authDomain: 'nitflix-992cf.firebaseapp.com',
@@ -90,6 +95,30 @@ export function logOut() {
   firebase.auth().signOut();
 }
 
-function getCurrentUser() {
-  return firebase.auth().currentUser;
+function getCurrentUserID() {
+  return firebase.auth().currentUser.uid;
+}
+
+export async function addMovieToList(movie, list) {
+  try {
+    const userID = getCurrentUserID();
+    const db = firebase.database();
+    const userList = db.ref(`/userLists/${userID}/${list}`);
+    userList.push(movie);
+  } catch {
+    console.error('Add error');
+  }
+}
+
+export async function getMoviesList(list) {
+  try {
+    const { id } = movie;
+    const db = firebase.database();
+    const userList = db.ref(`/userLists/${userID}/${list}`);
+    const dataSnapshot = await userList.once('value');
+    const data = dataSnapshot.val();
+    return Object.values(data);
+  } catch {
+    console.error('Cannot read data from DB!');
+  }
 }

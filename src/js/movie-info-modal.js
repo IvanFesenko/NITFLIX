@@ -6,14 +6,16 @@ function handleCloseModal() {
   onCloseMovieModal();
 }
 
-function handleOpenModal() {
-  onOpenMovieModal();
+function handleOpenModal(event) {
+  const id = event.target.dataset.id;
+  onOpenMovieModal(id);
+
   refs.modalBlurContainer.classList.add('js-blur-on');
 }
 
-function onOpenMovieModal() {
+function onOpenMovieModal(id) {
   apiService
-    .getMovieInfo(531219)
+    .getMovieInfo(id)
     .then(({ data }) => data)
     .then(res => {
       //make image full path

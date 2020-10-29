@@ -66,3 +66,7 @@
   opacity: 1;
   pointer-events: initial;
 }
+
+.js-blur-on {
+  filter: blur(5px);
+}

@@ -2,6 +2,15 @@ import refs from './refs';
 import apiService from './APIservice';
 import movieModalTempl from '../templates/movie-modal.hbs';
 
+function handleCloseModal() {
+  onCloseMovieModal();
+}
+
+function handleOpenModal() {
+  onOpenMovieModal();
+  refs.modalBlurContainer.classList.add('js-blur-on');
+}
+
 function onOpenMovieModal() {
   apiService
     .getMovieInfo(531219)
@@ -18,15 +27,16 @@ function onOpenMovieModal() {
       document.querySelector('.js-movie-modal').classList.add('is-open');
 
       //add ref for close modal
-      const closeBtnRef = document.getElementById('close-movie-modal');
-      const backdrop = document.querySelector('.js-movie-modal__overlay');
-      backdrop.addEventListener('click', onClickOnBackDrop);
-      closeBtnRef.addEventListener('click', handleCloseModal);
+      addRefsForModal();
     });
 }
 
-function handleCloseModal() {
-  onCloseMovieModal();
+function addRefsForModal() {
+  const closeBtnRef = document.getElementById('close-movie-modal');
+  const backdrop = document.querySelector('.js-movie-modal__overlay');
+
+  backdrop.addEventListener('click', onClickOnBackDrop);
+  closeBtnRef.addEventListener('click', handleCloseModal);
 }
 
 function onClickOnBackDrop() {
@@ -56,8 +66,8 @@ function onCloseMovieModal() {
 
   //remove modal from html
   removeModalFromHtml();
+
+  refs.modalBlurContainer.classList.remove('js-blur-on');
 }
 
-refs.movieContainer.addEventListener('click', event => {
-  onOpenMovieModal();
-});
+refs.movieContainer.addEventListener('click', handleOpenModal);

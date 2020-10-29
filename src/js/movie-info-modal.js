@@ -13,6 +13,11 @@ function handleOpenModal(event) {
   refs.modalBlurContainer.classList.add('js-blur-on');
 }
 
+function makeMarkup(res) {
+  const markup = movieModalTempl(res);
+  refs.body.insertAdjacentHTML('beforeend', markup);
+}
+
 function onOpenMovieModal(id) {
   apiService
     .getMovieInfo(id)
@@ -23,8 +28,7 @@ function onOpenMovieModal(id) {
       res.poster_path = apiService.makeImagePath(res.poster_path, 3);
 
       //make markup
-      const markup = movieModalTempl(res);
-      refs.body.insertAdjacentHTML('beforeend', markup);
+      makeMarkup(res);
 
       document.querySelector('.js-movie-modal').classList.add('is-open');
 

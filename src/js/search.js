@@ -1,13 +1,8 @@
 import refs from './refs';
 import apiService from './APIservice';
-import moviesListTemplate from '../templates/moviesListTemplate.hbs';
+import { renderMarkup } from './renderMarkup';
 
 const { searchForm, searchFormInput, movieContainer, mainTitle } = refs;
-
-const renderMoviesByQuery = results => {
-  const markup = moviesListTemplate(results);
-  movieContainer.insertAdjacentHTML('beforeend', markup);
-};
 
 const onSearch = e => {
   e.preventDefault();
@@ -29,7 +24,7 @@ const onSearch = e => {
             item.poster_path = apiService.makeImagePath(item.poster_path, 4);
             return item;
           });
-          renderMoviesByQuery(results);
+          renderMarkup(results);
         } else {
           mainTitle.textContent =
             'No results were found for your search. Try again!';

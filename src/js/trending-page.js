@@ -1,6 +1,5 @@
 import apiService from './APIservice';
-import refs from './refs';
-import moviesListTemplate from '../templates/moviesListTemplate.hbs';
+import { renderMarkup } from './renderMarkup';
 
 function generateTrendingList() {
   apiService
@@ -14,13 +13,8 @@ function generateTrendingList() {
         item.poster_path = apiService.makeImagePath(item.poster_path, 4);
         return item;
       });
-      makeMarkup(res);
+      renderMarkup(res);
     });
-}
-
-function makeMarkup(res) {
-  const markup = moviesListTemplate(res);
-  refs.movieContainer.insertAdjacentHTML('beforeend', markup);
 }
 
 generateTrendingList();

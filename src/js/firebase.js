@@ -102,6 +102,7 @@ function getCurrentUserID() {
 export async function addMovieToList(movie, list) {
   try {
     const userID = getCurrentUserID();
+
     const db = firebase.database();
     const userList = db.ref(`/userLists/${userID}/${list}`);
     userList.push(movie);
@@ -117,6 +118,19 @@ export async function getMoviesList(list) {
     const dataSnapshot = await userList.once('value');
     const data = dataSnapshot.val();
     return Object.values(data);
+  } catch {
+    console.error('Cannot read data from DB!');
+  }
+}
+
+async function movieAdded(userID, id, list) {
+  try {
+    const db = firebase.database();
+    const userList = db.ref(`/userMovies/${userID}/${list}`);
+    const dataSnapshot = await userList.once('value');
+    const data = dataSnapshot.val();
+    const moviesID = Object.values(data);
+    return moviesID.includes(id);
   } catch {
     console.error('Cannot read data from DB!');
   }

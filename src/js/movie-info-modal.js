@@ -6,14 +6,21 @@ function handleCloseModal() {
   onCloseMovieModal();
 }
 
-function handleOpenModal() {
-  onOpenMovieModal();
+function handleOpenModal(event) {
+  const id = event.target.dataset.id;
+  onOpenMovieModal(id);
+
   refs.modalBlurContainer.classList.add('js-blur-on');
 }
 
-function onOpenMovieModal() {
+function makeMarkup(res) {
+  const markup = movieModalTempl(res);
+  refs.body.insertAdjacentHTML('beforeend', markup);
+}
+
+function onOpenMovieModal(id) {
   apiService
-    .getMovieInfo(531219)
+    .getMovieInfo(id)
     .then(({ data }) => data)
     .then(res => {
       //make image full path
@@ -21,8 +28,7 @@ function onOpenMovieModal() {
       res.poster_path = apiService.makeImagePath(res.poster_path, 3);
 
       //make markup
-      const markup = movieModalTempl(res);
-      refs.body.insertAdjacentHTML('beforeend', markup);
+      makeMarkup(res);
 
       document.querySelector('.js-movie-modal').classList.add('is-open');
 

@@ -2,11 +2,11 @@ import refs from './refs';
 import apiService from './APIservice';
 import moviesListTemplate from '../templates/moviesListTemplate.hbs';
 
-const { searchForm, searchFormInput, trendingContainer, mainTitle } = refs;
+const { searchForm, searchFormInput, movieContainer, mainTitle } = refs;
 
 const renderMoviesByQuery = results => {
   const markup = moviesListTemplate(results);
-  trendingContainer.insertAdjacentHTML('beforeend', markup);
+  movieContainer.insertAdjacentHTML('beforeend', markup);
 };
 
 const onSearch = e => {
@@ -15,7 +15,7 @@ const onSearch = e => {
   const value = searchFormInput.value.trim();
   console.log(value);
   if (value) {
-    trendingContainer.innerHTML = '';
+    movieContainer.innerHTML = '';
     apiService
       .getSearchResult(value)
       .then(({ data }) => data.results)

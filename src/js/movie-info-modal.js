@@ -35,18 +35,27 @@ function onClickOnBackDrop() {
   }
 }
 
+function removeEventListenerFromModal() {
+  document
+    .getElementById('close-movie-modal')
+    .removeEventListener('click', handleCloseModal);
+  document.querySelector('click', onClickOnBackDrop);
+}
+
+function removeModalFromHtml() {
+  const modal = document.querySelector('.js-movie-modal');
+  refs.body.removeChild(modal);
+}
+
 function onCloseMovieModal() {
   const modal = document.querySelector('.js-movie-modal');
   modal.classList.remove('is-open');
 
   //removeEventListener
-  document
-    .getElementById('close-movie-modal')
-    .removeEventListener('click', handleCloseModal);
-  document.querySelector('click', onClickOnBackDrop);
+  removeEventListenerFromModal();
 
   //remove modal from html
-  refs.body.removeChild(modal);
+  removeModalFromHtml();
 }
 
 refs.movieContainer.addEventListener('click', event => {

@@ -5,16 +5,32 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    @include for-size(tablet) {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      justify-content: space-between;
+    }
   }
 
   &__wrapper {
     position: relative;
     border-radius: rem(30);
     overflow: hidden;
-
     &:not(:last-child) {
       margin-bottom: 15px;
     }
+    @include for-size(tablet) {
+      flex-basis: rem(340);
+    }
+    @include for-size(desktop) {
+      flex-basis: rem(465);
+    }
+    &:hover {
+      box-shadow: 0px 10px 13px -7px #000000;
+      transform: scale(1.05);
+    }
+    transition: transform 0.3s linear;
   }
 
   &__main-title {
@@ -65,9 +81,16 @@
 
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 49, 0.7),
+      rgba(197, 146, 55, 0.7) 100%
+    );
+    // background-color: rgba(255, 255, 255, 0.8);
     transition: all 0.5s ease-in;
+  }
+  &__image {
+    transition: transform 0.3s linear;
   }
 
   &__overview {

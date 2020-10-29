@@ -12,16 +12,43 @@ function onOpenMovieModal() {
       res.poster_path = apiService.makeImagePath(res.poster_path, 3);
 
       //make markup
-      console.log(res);
       const markup = movieModalTempl(res);
       refs.body.insertAdjacentHTML('beforeend', markup);
 
       document.querySelector('.js-movie-modal').classList.add('is-open');
+
+      //add ref for close modal
+      const closeBtnRef = document.getElementById('close-movie-modal');
+      const backdrop = document.querySelector('.js-movie-modal__overlay');
+      backdrop.addEventListener('click', onClickOnBackDrop);
+      closeBtnRef.addEventListener('click', handleCloseModal);
     });
 }
 
-window.addEventListener('click', event => {
-  console.log(event.target);
-});
+function handleCloseModal() {
+  onCloseMovieModal();
+}
 
-onOpenMovieModal();
+function onClickOnBackDrop() {
+  if (event.target === event.currentTarget) {
+    onCloseMovieModal();
+  }
+}
+
+function onCloseMovieModal() {
+  const modal = document.querySelector('.js-movie-modal');
+  modal.classList.remove('is-open');
+
+  //removeEventListener
+  document
+    .getElementById('close-movie-modal')
+    .removeEventListener('click', handleCloseModal);
+  document.querySelector('click', onClickOnBackDrop);
+
+  //remove modal from html
+  refs.body.removeChild(modal);
+}
+
+refs.movieContainer.addEventListener('click', event => {
+  onOpenMovieModal();
+});

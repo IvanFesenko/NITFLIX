@@ -1,65 +1,68 @@
-// .movie-modal {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
+.movie-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
 
-//   width: 100vw;
-//   height: 100vh;
+  width: 100vw;
+  height: 100vh;
 
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-//   opacity: 0;
-//   pointer-events: none;
-//   transition: opacity 200ms linear;
-//   z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms linear;
+  z-index: 10;
 
-//   // &__overlay {
-//   //   position: absolute;
-//   //   top: 0;
-//   //   left: 0;
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-//   //   width: 100vw;
-//   //   height: 100vh;
-//   //   background-color: rgba(0, 0, 0, 0.9);
-//   // }
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
 
-//   &__content {
-//     position: absolute;
+  &__content {
+    position: absolute;
 
-//     padding: 25px;
-//     background-color: #fff;
+    padding: 25px;
+    background-color: #fff;
 
-//     // width: 600px;
-//     // height: 600px;
+    width: 600px;
 
-//     transform: scale(0.9);
-//     transition: transform 200ms ease-in-out;
-//     border-radius: 30px;
-//   }
+    transform: scale(0.9);
+    transition: transform 200ms ease-in-out;
+    border-radius: 30px;
+  }
 
-//   &__close {
-//     position: absolute;
-//     top: 8px;
-//     right: 8px;
-//     background-color: transparent;
-//     transition: background-color 200ms ease-in-out;
-//     outline: none;
-//     border: none;
+  &__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: transparent;
+    transition: background-color 200ms ease-in-out;
+    outline: none;
+    border: none;
 
-//     width: 48px;
-//     height: 48px;
+    width: 48px;
+    height: 48px;
 
-//     background-image: url('../images/svg/icon-close.svg');
-//     background-position: center;
-//     background-size: 60%;
-//     background-repeat: no-repeat;
-//     cursor: pointer;
-//   }
-// }
+    background-image: url('../images/svg/icon-close.svg');
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
 
-// .movie-modal.is-open {
-//   opacity: 1;
-//   pointer-events: initial;
-// }
+  &__image {
+    width: 150px;
+  }
+}
+
+.movie-modal.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}

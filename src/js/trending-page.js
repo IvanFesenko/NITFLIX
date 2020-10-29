@@ -17,8 +17,13 @@ function generateTrendingList() {
       });
 
       //make markup
+<<<<<<< HEAD
       const markup = moviesListTemplate(res);
       refs.trendingContainer.insertAdjacentHTML('beforeend', markup);
+=======
+      const markup = trendingTemplate(res);
+      refs.movieContainer.insertAdjacentHTML('beforeend', markup);
+>>>>>>> dev
     });
 }
 

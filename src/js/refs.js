@@ -6,4 +6,5 @@ export default {
   logOutBtn: document.querySelector('#logOut'),
   inputEmail: document.querySelector('#inputEmail'),
   inputPassword: document.querySelector('#inputPassword'),
+  searchForm: document.querySelector('.search-form'),
 };

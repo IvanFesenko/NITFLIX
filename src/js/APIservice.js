@@ -24,6 +24,7 @@ class APIService {
   getData = async url => {
     try {
       const response = await axios.get(url);
+
       return response;
     } catch (error) {
       console.log(error);
@@ -39,7 +40,8 @@ class APIService {
     );
 
   getSearchResult = query => {
-    this.temp = `${this.baseURL}/search/tv?api_key=${this.API_KEY}&query=${query}&language=ru-RU`;
+    this.temp = `${this.baseURL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=1&include_adult=true&query=${query}`;
+
     return this.getData(this.temp);
   };
 

@@ -16,18 +16,12 @@ async function fetchTrending() {
   }
 }
 
-function makeImagePath(path, size) {
-  return `${conf.imageBaseURL}/${conf.logoSizes[size]}${path}`;
-}
-
 function generateTrendingList() {
   fetchTrending().then(res => {
     //make fullImagePath
-
-    console.log(res);
     res = res.map(item => {
-      item.backdrop_path = makeImagePath(item.backdrop_path, 5);
-      item.poster_path = makeImagePath(item.poster_path, 4);
+      item.backdrop_path = conf.makeImagePath(item.backdrop_path, 5);
+      item.poster_path = conf.makeImagePath(item.poster_path, 4);
 
       return item;
     });

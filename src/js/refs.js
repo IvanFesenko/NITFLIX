@@ -1,5 +1,7 @@
 export default {
+  body: document.querySelector('body'),
   trendingContainer: document.querySelector('.js-trending__container'),
+
   googleBtn: document.querySelector('#googleIn'),
   logInBtn: document.querySelector('#loginbtn'),
   singUpBtn: document.querySelector('#singupbtn'),

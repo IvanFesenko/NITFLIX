@@ -99,6 +99,14 @@ function getCurrentUserID() {
   return firebase.auth().currentUser.uid;
 }
 
+async function getUserDataFromDB(ref, userID, path) {
+  const db = firebase.database();
+  const userList = db.ref(`/${ref}/${userID}/${path}`);
+  const dataSnapshot = await userList.once('value');
+  const data = dataSnapshot.val();
+  return Object.values(data);
+}
+
 export async function addMovieToList(movie, list) {
   try {
     const userID = getCurrentUserID();
@@ -128,8 +136,8 @@ export async function getMoviesList(list) {
 async function movieAdded(userID, id, list) {
   try {
     const db = firebase.database();
-    const userList = db.ref(`/userMovies/${userID}/${list}`);
-    const dataSnapshot = await userList.once('value');
+    const userMovies = db.ref(`/userMovies/${userID}/${list}`);
+    const dataSnapshot = await userMovies.once('value');
     const data = dataSnapshot.val();
     const moviesID = Object.values(data);
     return moviesID.includes(id);

@@ -1,31 +1,40 @@
 import refs from './refs';
-import conf from './api-conf';
-
+import apiService from './APIservice';
 import movieModalTempl from '../templates/movie-modal.hbs';
-import fetchMovieInfo from './movie-info-api';
 
 function onOpenMovieModal() {
-  const data = fetchMovieInfo(531219);
-  console.log(data);
-  // fetchMovieInfo(531219).then(res => {
-  //   //make image full path
-  //   res.backdrop_path = conf.makeImagePath(res.backdrop_path, 5);
-  //   res.poster_path = conf.makeImagePath(res.poster_path, 3);
+  apiService
+    .getMovieInfo(531219)
+    .then(({ data }) => data)
+    .then(res => {
+      //make image full path
+      res.backdrop_path = apiService.makeImagePath(res.backdrop_path, 5);
+      res.poster_path = apiService.makeImagePath(res.poster_path, 3);
 
-  //   //make markup
-  //   console.log(res);
-  //   const markup = movieModalTempl(res);
-  //   refs.body.insertAdjacentHTML('beforeend', markup);
+      //make markup
+      const markup = movieModalTempl(res);
+      refs.body.insertAdjacentHTML('beforeend', markup);
 
-  //   document.querySelector('.js-movie-modal').classList.add('is-open');
-  // });
+      document.querySelector('.js-movie-modal').classList.add('is-open');
+
+      //close btn ref
+      const closeBtnRef = document.getElementById('close-movie-modal');
+      closeBtnRef.addEventListener('click', handleCloseModal);
+    });
+}
+
+function handleCloseModal() {
+  onCloseMovieModal();
 }
 
 function onCloseMovieModal() {
   const modal = document.querySelector('.js-movie-modal');
   modal.classList.remove('is-open');
+  document
+    .getElementById('close-movie-modal')
+    .removeEventListener('click', handleCloseModal);
 }
 
-refs.trendingContainer.addEventListener('click', event => {
+refs.movieContainer.addEventListener('click', event => {
   onOpenMovieModal();
 });

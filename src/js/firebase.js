@@ -112,7 +112,6 @@ export async function addMovieToList(movie, list) {
 
 export async function getMoviesList(list) {
   try {
-    const { id } = movie;
     const db = firebase.database();
     const userList = db.ref(`/userLists/${userID}/${list}`);
     const dataSnapshot = await userList.once('value');

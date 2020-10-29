@@ -17,8 +17,10 @@ function onOpenMovieModal() {
 
       document.querySelector('.js-movie-modal').classList.add('is-open');
 
-      //close btn ref
+      //add ref for close modal
       const closeBtnRef = document.getElementById('close-movie-modal');
+      const backdrop = document.querySelector('.js-movie-modal__overlay');
+      backdrop.addEventListener('click', onClickOnBackDrop);
       closeBtnRef.addEventListener('click', handleCloseModal);
     });
 }
@@ -27,12 +29,24 @@ function handleCloseModal() {
   onCloseMovieModal();
 }
 
+function onClickOnBackDrop() {
+  if (event.target === event.currentTarget) {
+    onCloseMovieModal();
+  }
+}
+
 function onCloseMovieModal() {
   const modal = document.querySelector('.js-movie-modal');
   modal.classList.remove('is-open');
+
+  //removeEventListener
   document
     .getElementById('close-movie-modal')
     .removeEventListener('click', handleCloseModal);
+  document.querySelector('click', onClickOnBackDrop);
+
+  //remove modal from html
+  refs.body.removeChild(modal);
 }
 
 refs.movieContainer.addEventListener('click', event => {

@@ -7,9 +7,9 @@ export default async function fetchMovieInfo(id) {
 
   try {
     const response = await axios.get(url);
-    const results = response.data;
+    const { data } = response;
 
-    return results;
+    return data;
   } catch (error) {
     console.log(error);
   }

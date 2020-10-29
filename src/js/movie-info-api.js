@@ -1,5 +1,5 @@
-import conf from './api-conf';
 import axios from 'axios';
+import conf from './api-conf';
 
 //добавить id
 export default async function fetchMovieInfo(id) {

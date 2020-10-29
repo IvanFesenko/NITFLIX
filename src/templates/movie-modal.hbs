@@ -1,5 +1,12 @@
 <div class="movie-madal">
     <div class="movie-modal__overlay"></div>
-    <div class="movie-modal__content"></div>
+    <div class="movie-modal__content">
+        <div class="movie-modal__image-wrapper"><img src="{{poster_path}}" alt="" class="movie-modal__image"></div>
+
+        <h2 class="movie-modal__original-title">{{title}}</h2>
+        <a href="{{homepage}}" class="movie-modal__homepage">{{homepage}}</a>
+        <p class="movie-modal__overview">{{overview}}</p>
+        <p class="movie-modal__popularity">{{popularity}}</p>
+    </div>
     <button class="movie-modal__close" id="close-movie-modal"></button>
 </div>

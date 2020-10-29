@@ -97,16 +97,3 @@
     color: #000000;
   }
 }
-
-.trending__wrapper:hover .trending__title {
-  bottom: -200px;
-}
-.trending__wrapper:hover .trending__release-date {
-  top: -100px;
-}
-.trending__wrapper:hover .trending__average {
-  top: -100px;
-}
-.trending__wrapper:hover .trending__overlay {
-  opacity: 1;
-}

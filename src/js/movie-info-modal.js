@@ -12,16 +12,29 @@ function onOpenMovieModal() {
       res.poster_path = apiService.makeImagePath(res.poster_path, 3);
 
       //make markup
-      console.log(res);
       const markup = movieModalTempl(res);
       refs.body.insertAdjacentHTML('beforeend', markup);
 
       document.querySelector('.js-movie-modal').classList.add('is-open');
+
+      //close btn ref
+      const closeBtnRef = document.getElementById('close-movie-modal');
+      closeBtnRef.addEventListener('click', handleCloseModal);
     });
 }
 
-window.addEventListener('click', event => {
-  console.log(event.target);
-});
+function handleCloseModal() {
+  onCloseMovieModal();
+}
 
-onOpenMovieModal();
+function onCloseMovieModal() {
+  const modal = document.querySelector('.js-movie-modal');
+  modal.classList.remove('is-open');
+  document
+    .getElementById('close-movie-modal')
+    .removeEventListener('click', handleCloseModal);
+}
+
+refs.movieContainer.addEventListener('click', event => {
+  onOpenMovieModal();
+});

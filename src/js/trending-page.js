@@ -19,7 +19,7 @@ function generateTrendingList() {
 
       //make markup
       const markup = trendingTemplate(res);
-      refs.trendingContainer.insertAdjacentHTML('beforeend', markup);
+      refs.movieContainer.insertAdjacentHTML('beforeend', markup);
     });
 }
 

@@ -18,7 +18,11 @@ class APIService {
   }
 
   makeImagePath = (path, size) => {
-    return `${this.imageBaseURL}/${this.logoSizes[size]}${path}`;
+    if (path !== null) {
+      return `${this.imageBaseURL}/${this.logoSizes[size]}${path}`;
+    } else {
+      return null;
+    }
   };
 
   getData = async url => {

@@ -1,6 +1,5 @@
 import apiService from './APIservice';
-import refs from './refs';
-import moviesListTemplate from '../templates/moviesListTemplate.hbs';
+import { renderMarkup } from './renderMarkup';
 
 function screenSize() {
   const sreenSize = document.body.clientWidth;
@@ -25,12 +24,15 @@ function generateTrendingList() {
     .getTrending()
     .then(({ data }) => data.results)
     .then(res => {
+<<<<<<< HEAD
+=======
       //make fullImagePath
+>>>>>>> dev
       res = res.map(item => {
         item.poster_path = apiService.makeImagePath(item.poster_path, size);
         return item;
       });
-      makeMarkup(res);
+      renderMarkup(res);
     });
 }
 

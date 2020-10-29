@@ -1,7 +1,8 @@
 import refs from './refs';
-import moviesListTemplate from '../templates/moviesListTemplate.hbs';
+import MoviesCards from './components/MovieCard';
 
 export const renderMarkup = res => {
-  const markup = moviesListTemplate(res);
+  console.log(res);
+  const markup = MoviesCards(res);
   refs.movieContainer.insertAdjacentHTML('beforeend', markup);
 };

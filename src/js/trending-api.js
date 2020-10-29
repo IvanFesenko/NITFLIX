@@ -21,8 +21,8 @@ async function fetchMovieInfo(id) {
 
   try {
     const response = await axios.get(url);
-    const data = response.data;
-    console.log(data);
+    const results = response.data;
+    console.log(results);
   } catch (error) {
     console.log(error);
   }
@@ -35,7 +35,6 @@ function makeImagePath(path, size) {
 function generateTrendingList() {
   fetchTrending().then(res => {
     //make fullImagePath
-    console.log(res);
     res = res.map(item => {
       item.backdrop_path = makeImagePath(item.backdrop_path, 5);
       item.poster_path = makeImagePath(item.poster_path, 4);

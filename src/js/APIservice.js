@@ -33,6 +33,11 @@ class APIService {
   getTrending = () =>
     this.getData(`${this.baseURL}/trending/movie/day?api_key=${this.API_KEY}`);
 
+  getMovieInfo = id =>
+    this.getData(
+      `${this.baseURL}/movie/${id}?api_key=${this.API_KEY}&append_to_response=videos`,
+    );
+
   getSearchResult = query => {
     this.temp = `${this.baseURL}/search/tv?api_key=${this.API_KEY}&query=${query}&language=ru-RU`;
     return this.getData(this.temp);

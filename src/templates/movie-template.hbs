@@ -1,0 +1,11 @@
+{{#each this}}
+<div class="movie__wrapper">
+    <h3 class="movie__title">{{this.title}}</h3>
+    <div class="movie__image-wrapper">
+        <img src="{{this.backdrop_path}}" alt="{{this.title}}" class="movie__image" data-id="{{this.id}}"
+            data-id="{{this.title}}">
+    </div>
+    <span class="movie__release-date">{{this.release_date}}</span>
+    <span class="movie__average">{{this.vote_average}}</span>
+</div>
+{{/each}}

@@ -7,36 +7,47 @@
     <title>NITFLIX</title>
   </head>
   <body>
-    <header class="header">
-      <div class="container">
-        <nav class="navigation">
-          <a href="#" class="logo"
-            ><img src="./images/logo.png" alt="" class="logo__img"
-          /></a>
-          <form action="#" class="form__registration">
-            <input
-              type="email"
-              id="inputEmail"
-              class="form__registration-email"
-              placeholder="Email address *"
-              required
-            />
-            <input
-              type="password"
-              id="inputPassword"
-              class="form__registration-password"
-              placeholder="Password *"
-              required
-            />
+    <div class="js-blur-container">
+      <header class="header">
+        <div class="container">
+          <nav class="navigation">
+            <a href="#" class="logo"
+              ><img src="./images/logo.png" alt="" class="logo__img"
+            /></a>
+            <form action="#" class="form__registration">
+              <input
+                type="email"
+                id="inputEmail"
+                class="form__registration-email"
+                placeholder="Email address *"
+                required
+              />
+              <input
+                type="password"
+                id="inputPassword"
+                class="form__registration-password"
+                placeholder="Password *"
+                required
+              />
 
-            <button class="btn" id="loginbtn" type="button">Sign in</button>
+              <button class="btn" id="loginbtn" type="button">Sign in</button>
 
-            <button class="btn" id="singupbtn" type="button">Sign up</button>
-            <button class="btn googleBtn" id="googleIn" type="button">
-              Google
-            </button>
-            <button class="btn" id="logOut" type="button">Log out</button>
+              <button class="btn" id="singupbtn" type="button">Sign up</button>
+              <button class="btn googleBtn" id="googleIn" type="button">
+                Google
+              </button>
+              <button class="btn" id="logOut" type="button">Log out</button>
+            </form>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <div class="container">
+          <form action="#" class="search-form">
+            <input type="text" class="search-form__input" />
+            <button type="submit">Search</button>
           </form>
+<<<<<<< HEAD
         </nav>
       </div>
     </header>
@@ -62,5 +73,19 @@
         </p>
       </div>
     </footer>
+=======
+          <h2 class="movie__main-title">Most popular films</h2>
+          <div class="movie__container js-movie__container"></div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <p class="copyright">
+            Made with love, by <a href="#" class="copyright__link">FSDev</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+>>>>>>> dev
   </body>
 </html>

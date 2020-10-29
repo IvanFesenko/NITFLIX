@@ -3,6 +3,7 @@ export default {
 
   mainTitle: document.querySelector('.main-title'),
   movieContainer: document.querySelector('.js-movie__container'),
+  modalBlurContainer: document.querySelector('.js-blur-container'),
 
   googleBtn: document.querySelector('#googleIn'),
   logInBtn: document.querySelector('#loginbtn'),

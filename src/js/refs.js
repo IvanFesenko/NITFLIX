@@ -1,5 +1,7 @@
 export default {
   body: document.querySelector('body'),
+
+  mainTitle: document.querySelector('.main-title'),
   movieContainer: document.querySelector('.js-movie__container'),
   modalBlurContainer: document.querySelector('.js-blur-container'),
 
@@ -10,4 +12,5 @@ export default {
   inputEmail: document.querySelector('#inputEmail'),
   inputPassword: document.querySelector('#inputPassword'),
   searchForm: document.querySelector('.search-form'),
+  searchFormInput: document.querySelector('.search-form__input'),
 };

@@ -102,10 +102,12 @@ function getCurrentUserID() {
 export async function addMovieToList(movie, list) {
   try {
     const userID = getCurrentUserID();
-
-    const db = firebase.database();
-    const userList = db.ref(`/userLists/${userID}/${list}`);
-    userList.push(movie);
+    const alreadyListed = await movieAdded(userID, movie.id, list);
+    if (!alreadyListed) {
+      const db = firebase.database();
+      const userList = db.ref(`/userLists/${userID}/${list}`);
+      userList.push(movie);
+    }
   } catch {
     console.error('Add error');
   }

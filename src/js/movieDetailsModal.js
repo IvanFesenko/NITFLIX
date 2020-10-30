@@ -7,6 +7,15 @@ import moviChangeBackground from './components/MoviChangeBackground';
 
 moviChangeBackground('navigation');
 
+function addBackgroundForModal(url) {
+  const content = document.querySelector('.movie-modal__content');
+  content.style.backgroundImage = `linear-gradient(to top, rgba(255,255,255, 0.7), rgba(255,225,255, 0.6)), url(
+ "${url}")`;
+  content.style.backgroundPosition = 'top';
+  content.style.backgroundRepeat = 'no-repeat';
+  content.style.backgroundSize = '100%';
+}
+
 function onOpenMovieModal(id) {
   const size = screenSize();
   apiService
@@ -20,6 +29,8 @@ function onOpenMovieModal(id) {
 
       document.querySelector('.js-movie-modal').classList.add('is-open');
       addRefsForModal();
+      console.log(res.backdrop_path);
+      addBackgroundForModal(res.backdrop_path);
     });
 }
 

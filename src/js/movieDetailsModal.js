@@ -3,14 +3,20 @@ import apiService from './APIservice';
 import MovieDetailsCard from './components/MovieDetailsCard';
 import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
+import moviChangeBackground from './components/MoviChangeBackground';
+
+moviChangeBackground('navigation');
+
 function handleCloseModal() {
   onCloseMovieModal();
 }
 
 function handleOpenModal(event) {
   const id = event.target.dataset.id;
-  onOpenMovieModal(id);
-  refs.modalBlurContainer.classList.add('js-blur-on');
+  if (id) {
+    onOpenMovieModal(id);
+    refs.modalBlurContainer.classList.add('js-blur-on');
+  }
 }
 
 function onOpenMovieModal(id) {

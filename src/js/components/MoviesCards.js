@@ -2,12 +2,12 @@ import noPosterImg from '../../images/no-poster.jpg';
 
 const MoviesCards = results => {
   const markup = results.map(
-    ({ title, id, backdrop_path, release_date, vote_average }) => {
+    ({ title, id, poster_path, release_date, vote_average }) => {
       return `<div class="movie__wrapper">
     <h3 class="movie__title">${title}</h3>
     <div class="movie__image-wrapper">
         <img src="${
-          backdrop_path !== null ? backdrop_path : noPosterImg
+          poster_path !== null ? poster_path : noPosterImg
         }" alt="${title}" class="movie__image" data-id="${id}"
             data-id="${title}">
     </div>

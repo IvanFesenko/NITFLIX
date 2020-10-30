@@ -1,6 +1,6 @@
 'use strict';
 //js modules
 import './trending-page';
-import './movie-info-modal';
+import './MovieDetailsModal';
 import './search';
 import './firebase';

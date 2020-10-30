@@ -16,9 +16,36 @@ function addBackgroundForModal(url) {
   content.style.backgroundSize = '100%';
 }
 
-function onOpenMovieModal(id) {
+const getTrailers = id => {
+  return apiService
+    .getTrailer(id)
+    .then(({ data }) => data)
+    .then(({ results }) => {
+      console.log(results);
+      if (results.length) {
+        const trailers = results
+          .map(({ key, name }) => {
+            return `
+          <iframe 
+            width="460"
+            height="320"
+            src="https://www.youtube.com/embed/${key}"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+          <h4 class="trailerName">${name}</h4>
+          `;
+          })
+          .join(' ');
+        // refs.movieTrailers.insertAdjacentHTML('beforeend', trailers);
+        console.log(trailers);
+      }
+    });
+};
+
+const getMovieDetails = id => {
   const size = screenSize();
-  apiService
+  return apiService
     .getMovieInfo(id)
     .then(({ data }) => data)
     .then(res => {
@@ -29,9 +56,13 @@ function onOpenMovieModal(id) {
 
       document.querySelector('.js-movie-modal').classList.add('is-open');
       addRefsForModal();
-      console.log(res.backdrop_path);
       addBackgroundForModal(res.backdrop_path);
     });
+};
+
+function onOpenMovieModal(id) {
+  getMovieDetails(id);
+  getTrailers(id);
 }
 
 function addRefsForModal() {

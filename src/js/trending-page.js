@@ -8,14 +8,11 @@ function makeMarkup(res) {
 
 function generateTrendingList() {
   const size = apiService.screenSize();
+
   apiService
     .getTrending()
     .then(({ data }) => data.results)
     .then(res => {
-<<<<<<< HEAD
-=======
-      //make fullImagePath
->>>>>>> dev
       res = res.map(item => {
         item.poster_path = apiService.makeImagePath(item.poster_path, size);
         return item;

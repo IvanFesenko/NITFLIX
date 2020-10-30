@@ -17,18 +17,6 @@ class APIService {
     ];
   }
 
-  screenSize() {
-    const screen = document.body.clientWidth;
-
-    if (screen < 768) {
-      return 4;
-    } else if (screen < 1024) {
-      return 5;
-    } else {
-      return 6;
-    }
-  }
-
   makeImagePath = (path, size) => {
     if (path !== null) {
       return `${this.imageBaseURL}/${this.logoSizes[size]}${path}`;

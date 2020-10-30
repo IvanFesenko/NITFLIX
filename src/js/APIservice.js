@@ -18,7 +18,6 @@ class APIService {
   }
 
   makeImagePath = (path, size) => {
-    console.log(size);
     if (path !== null) {
       return `${this.imageBaseURL}/${this.logoSizes[size]}${path}`;
     } else {

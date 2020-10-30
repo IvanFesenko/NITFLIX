@@ -26,18 +26,22 @@ const getTrailers = id => {
         const trailers = results
           .map(({ key, name }) => {
             return `
-          <iframe 
-            width="460"
-            height="320"
-            src="https://www.youtube.com/embed/${key}"
-            frameborder="0"
-            allowfullscreen>
-          </iframe>
-          <h4 class="trailerName">${name}</h4>
+          <li class="movie-trailers-list__item">
+            <h4 class="trailerName">${name}</h4>
+            <iframe 
+              width="460"
+              height="320"
+              src="https://www.youtube.com/embed/${key}"
+              frameborder="0"
+              allowfullscreen>
+            </iframe>
+          </li>
           `;
           })
           .join(' ');
-        // refs.movieTrailers.insertAdjacentHTML('beforeend', trailers);
+        const movieTrailers = document.querySelector('.movie-trailers-list');
+
+        movieTrailers.insertAdjacentHTML('beforeend', trailers);
         console.log(trailers);
       }
     });
@@ -51,18 +55,18 @@ const getMovieDetails = id => {
     .then(res => {
       res.backdrop_path = apiService.makeImagePath(res.backdrop_path, size);
       res.poster_path = apiService.makeImagePath(res.poster_path, size);
-
       renderMarkup(res, MovieDetailsCard, refs.body);
 
       document.querySelector('.js-movie-modal').classList.add('is-open');
+
       addRefsForModal();
       addBackgroundForModal(res.backdrop_path);
     });
 };
 
-function onOpenMovieModal(id) {
-  getMovieDetails(id);
-  getTrailers(id);
+async function onOpenMovieModal(id) {
+  await getMovieDetails(id);
+  await getTrailers(id);
 }
 
 function addRefsForModal() {
@@ -118,6 +122,7 @@ function handleCloseModal() {
 }
 
 function handleOpenModal(event) {
+  event.preventDefault();
   const id = event.target.dataset.id;
   if (id) {
     onOpenMovieModal(id);

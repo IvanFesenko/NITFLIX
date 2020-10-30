@@ -6,10 +6,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 24px;
+  padding: 0 50px;
   position: fixed;
+  left: 0px;
+  top: 0px;
   height: 70px;
   z-index: 2;
+  background: transparent;
 }
 
 .logo {

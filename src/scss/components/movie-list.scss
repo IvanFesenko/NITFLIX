@@ -5,15 +5,8 @@
     padding: 15px;
 
     display: flex;
-    align-items: center;
-    flex-direction: column;
-
-    @include for-size(tablet) {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-self: start;
-    }
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 
   &__wrapper {
@@ -27,13 +20,19 @@
       margin-bottom: 15px;
     }
 
+    @include for-size(mobile) {
+      flex-basis: 300px;
+    }
+
     @include for-size(tablet) {
-      height: 600px;
       flex-basis: 300px;
     }
 
     @include for-size(desktop) {
-      height: 500px;
+      flex-basis: 230px;
+    }
+
+    @include for-size(hd-desktop) {
       flex-basis: 230px;
     }
 
@@ -44,7 +43,8 @@
   }
 
   &__description {
-    padding: 5px;
+    padding: 15px;
+    height: 100px;
     background-color: #ffffff;
 
     @include for-size(tablet) {
@@ -53,12 +53,18 @@
   }
 
   &__title {
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 15px;
+
+    @include for-size(tablet) {
+      font-size: 25px;
+    }
   }
 
   &__release-date {
-    text-align: right;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
   }
 
   &__average {

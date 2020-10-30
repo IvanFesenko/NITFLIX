@@ -7,18 +7,6 @@ import moviChangeBackground from './components/MoviChangeBackground';
 
 moviChangeBackground('navigation');
 
-function handleCloseModal() {
-  onCloseMovieModal();
-}
-
-function handleOpenModal(event) {
-  const id = event.target.dataset.id;
-  if (id) {
-    onOpenMovieModal(id);
-    refs.modalBlurContainer.classList.add('js-blur-on');
-  }
-}
-
 function onOpenMovieModal(id) {
   const size = screenSize();
   apiService
@@ -27,7 +15,9 @@ function onOpenMovieModal(id) {
     .then(res => {
       res.backdrop_path = apiService.makeImagePath(res.backdrop_path, size);
       res.poster_path = apiService.makeImagePath(res.poster_path, size);
+
       renderMarkup(res, MovieDetailsCard, refs.body);
+
       document.querySelector('.js-movie-modal').classList.add('is-open');
       addRefsForModal();
     });
@@ -39,9 +29,11 @@ function addRefsForModal() {
 
   backdrop.addEventListener('click', onClickOnBackDrop);
   closeBtnRef.addEventListener('click', handleCloseModal);
+
+  window.addEventListener('keydown', onPressEsc);
 }
 
-function onClickOnBackDrop() {
+function onClickOnBackDrop(event) {
   if (event.target === event.currentTarget) {
     onCloseMovieModal();
   }
@@ -52,6 +44,7 @@ function removeEventListenerFromModal() {
     .getElementById('close-movie-modal')
     .removeEventListener('click', handleCloseModal);
   document.querySelector('click', onClickOnBackDrop);
+  window.removeEventListener('keydown', onPressEsc);
 }
 
 function removeModalFromHtml() {
@@ -70,6 +63,24 @@ function onCloseMovieModal() {
   removeModalFromHtml();
 
   refs.modalBlurContainer.classList.remove('js-blur-on');
+}
+
+function onPressEsc(event) {
+  if (event.key === 'Escape') {
+    onCloseMovieModal();
+  }
+}
+
+function handleCloseModal() {
+  onCloseMovieModal();
+}
+
+function handleOpenModal(event) {
+  const id = event.target.dataset.id;
+  if (id) {
+    onOpenMovieModal(id);
+    refs.modalBlurContainer.classList.add('js-blur-on');
+  }
 }
 
 refs.movieContainer.addEventListener('click', handleOpenModal);

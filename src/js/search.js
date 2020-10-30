@@ -1,14 +1,14 @@
 import refs from './refs';
 import apiService from './APIservice';
 import { renderMarkup } from './renderMarkup';
-
+import screenSize from './services/screenSize';
 const { searchForm, searchFormInput, movieContainer, mainTitle } = refs;
 
 const onSearch = e => {
   e.preventDefault();
 
   const value = searchFormInput.value.trim();
-  console.log(value);
+  const size = screenSize();
   if (value) {
     movieContainer.innerHTML = '';
     apiService
@@ -19,9 +19,9 @@ const onSearch = e => {
           results = results.map(item => {
             item.backdrop_path = apiService.makeImagePath(
               item.backdrop_path,
-              5,
+              size,
             );
-            item.poster_path = apiService.makeImagePath(item.poster_path, 4);
+            item.poster_path = apiService.makeImagePath(item.poster_path, size);
             return item;
           });
           renderMarkup(results);

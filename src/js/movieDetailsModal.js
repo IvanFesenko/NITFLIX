@@ -13,10 +13,8 @@ function handleCloseModal() {
 
 function handleOpenModal(event) {
   const id = event.target.dataset.id;
-  if (id) {
-    onOpenMovieModal(id);
-    refs.modalBlurContainer.classList.add('js-blur-on');
-  }
+  onOpenMovieModal(id);
+  refs.modalBlurContainer.classList.add('js-blur-on');
 }
 
 function onOpenMovieModal(id) {

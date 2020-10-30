@@ -3,6 +3,12 @@ import apiService from './APIservice';
 import MovieDetailsCard from './components/MovieDetailsCard';
 import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
+import moviChangeBackground from './components/MoviChangeBackground'
+
+
+moviChangeBackground('navigation');
+
+
 function handleCloseModal() {
   onCloseMovieModal();
 }

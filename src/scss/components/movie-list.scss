@@ -1,52 +1,86 @@
 .movie {
   &__container {
-    color: #ffffff;
+    color: #000000;
     margin: 0 auto;
+    padding: 15px;
+
     display: flex;
     align-items: center;
     flex-direction: column;
+
     @include for-size(tablet) {
       flex-direction: row;
       flex-wrap: wrap;
-
-      justify-content: space-between;
+      justify-content: space-around;
+      align-self: start;
     }
   }
 
   &__wrapper {
     position: relative;
-    border-radius: 30px;
+    border-radius: 15px;
     overflow: hidden;
+
+    transition: transform 0.3s linear;
+
     &:not(:last-child) {
       margin-bottom: 15px;
     }
+
     @include for-size(tablet) {
-      flex-basis: 340px;
+      height: 600px;
+      flex-basis: 300px;
     }
+
     @include for-size(desktop) {
-      flex-basis: 466px;
+      flex-basis: 230px;
     }
+
     &:hover {
       box-shadow: 0px 10px 13px -7px #3b3b3b;
       transform: scale(1.05);
     }
-    transition: transform 0.3s linear;
+  }
+
+  &__description {
+    padding: 5px;
+
+    @include for-size(tablet) {
+      padding: 15px;
+    }
   }
 
   &__title {
+    font-size: 30px;
+    margin-bottom: 15px;
   }
 
   &__release-date {
+    text-align: right;
   }
 
   &__average {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 15px;
+    bottom: -10px;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+    border: rgb(139, 0, 0) 3px solid;
+
+    background-color: rgba(255, 255, 255, 0.5);
   }
 
   &__image {
-    transition: transform 0.3s linear;
+    margin-bottom: 15px;
   }
 
-  &__overview {
-    color: #000000;
+  &__image-wrapper {
+    position: relative;
   }
 }

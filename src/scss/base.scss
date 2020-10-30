@@ -57,13 +57,20 @@ li {
 
 .container {
   margin: 0 auto;
-  width: 300px;
+
+  @include for-size(mobile) {
+    max-width: 767px;
+  }
 
   @include for-size(tablet) {
-    width: 710px;
+    width: 768px;
   }
 
   @include for-size(desktop) {
-    width: 960px;
+    width: 1280px;
+  }
+
+  @include for-size(hd-desctop) {
+    width: 1680px;
   }
 }

@@ -1,5 +1,19 @@
+.header {
+  height: 85px;
+}
+
 .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-top: 24px;
+  position: fixed;
+  height: 70px;
+  z-index: 2;
+}
+
+.logo {
+  width: 100px;
 }
 
 .googleBtn {

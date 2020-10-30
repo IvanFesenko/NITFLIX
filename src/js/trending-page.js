@@ -20,16 +20,13 @@ function makeMarkup(res) {
 
 function generateTrendingList() {
   const size = screenSize();
+  console.log(screenSize());
   apiService
     .getTrending()
     .then(({ data }) => data.results)
     .then(res => {
-<<<<<<< HEAD
-=======
-      //make fullImagePath
->>>>>>> dev
       res = res.map(item => {
-        item.poster_path = apiService.makeImagePath(item.poster_path, size);
+        item.backdrop_path = apiService.makeImagePath(item.backdrop_path, size);
         return item;
       });
       renderMarkup(res);

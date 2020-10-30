@@ -10,6 +10,8 @@
   }
 
   &__wrapper {
+    cursor: pointer;
+
     position: relative;
     border-radius: 15px;
     overflow: hidden;
@@ -33,12 +35,13 @@
     }
 
     @include for-size(hd-desktop) {
+      height: 450px;
       flex-basis: 230px;
     }
 
     &:hover {
       box-shadow: 0px 10px 13px -7px #3b3b3b;
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
   }
 
@@ -50,6 +53,10 @@
     @include for-size(tablet) {
       padding: 15px;
     }
+
+    @include for-size(desktop) {
+      height: 115px;
+    }
   }
 
   &__title {
@@ -58,6 +65,10 @@
 
     @include for-size(tablet) {
       font-size: 25px;
+    }
+
+    @include for-size(hd-desktop) {
+      font-size: 20px;
     }
   }
 
@@ -71,21 +82,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     position: absolute;
     right: 15px;
     bottom: -10px;
 
-    width: 40px;
-    height: 40px;
+    transform: rotateZ(15deg);
 
-    border-radius: 50%;
-    border: rgb(139, 0, 0) 3px solid;
+    font-weight: 900;
+    font-style: italic;
 
-    background-color: rgba(255, 255, 255, 0.5);
+    width: 35px;
+    height: 35px;
+
+    border-radius: 10px;
+    border: rgb(255, 45, 45) 1px solid;
+
+    background: rgb(249, 197, 48);
+    background: linear-gradient(
+      180deg,
+      rgba(249, 197, 48, 1) 0%,
+      rgba(251, 237, 48, 1) 100%
+    );
+    z-index: 1;
   }
 
   &__image {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
   }
 
   &__image-wrapper {

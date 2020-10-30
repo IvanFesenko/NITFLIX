@@ -1,5 +1,48 @@
+.header {
+  height: 85px;
+  background: linear-gradient(
+    180deg,
+    rgb(46, 46, 46) 0%,
+    rgba(20, 20, 20, 0) 100%
+  );
+}
+
 .navigation {
-  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 50px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 70px;
+  z-index: 2;
+  background: transparent;
+}
+
+.logo {
+  width: 100px;
+  margin-right: 50px;
+}
+
+.menu {
+  display: flex;
+
+  &__item:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.search-form {
+  display: block;
+}
+
+.account-btn {
+  display: block;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }
 
 .googleBtn {

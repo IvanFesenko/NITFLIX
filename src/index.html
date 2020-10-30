@@ -12,47 +12,71 @@
         <div class="container">
           <nav class="navigation">
             <a href="#" class="logo"
-              ><img src="./images/logo.png" alt="" class="logo__img"
-            /></a>
-            <form action="#" class="form__registration">
-              <input
-                type="email"
-                id="inputEmail"
-                class="form__registration-email"
-                placeholder="Email address *"
-                required
-              />
-              <input
-                type="password"
-                id="inputPassword"
-                class="form__registration-password"
-                placeholder="Password *"
-                required
-              />
-
-              <button class="btn" id="loginbtn" type="button">Sign in</button>
-
-              <button class="btn" id="singupbtn" type="button">Sign up</button>
-              <button class="btn googleBtn" id="googleIn" type="button">
-                Google
-              </button>
-              <button class="btn" id="logOut" type="button">Log out</button>
+              ><img src="./images/logo.png" alt="" class="logo__img" />
+            </a>
+            <ul class="menu">
+              <li class="menu__item">
+                <a href="#" class="menu__link">Главная</a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__link">Сериалы</a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__link">Фильмы</a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__link">Последние</a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__link">Мой список</a>
+              </li>
+            </ul>
+            <form action="#" class="search-form">
+              <input type="text" class="search-form__input" />
+              <button type="submit">Search</button>
             </form>
+            <img
+              class="account-btn"
+              src="./images/svg/account-button.svg"
+              alt="account botton"
+            />
           </nav>
         </div>
       </header>
-      <main>
+
+      <main class="main">
         <div class="container">
-          <form action="#" class="search-form">
-            <input type="text" class="search-form__input" />
-            <button type="submit">Search</button>
-          </form>
           <h2 class="main-title">Most popular films</h2>
           <div class="movie__container js-movie__container"></div>
         </div>
       </main>
       <footer class="footer">
         <div class="container">
+          <form action="#" class="form__registration">
+            <input
+              type="email"
+              id="inputEmail"
+              class="form__registration-email"
+              placeholder="Email address *"
+              required
+            />
+            <input
+              type="password"
+              id="inputPassword"
+              class="form__registration-password"
+              placeholder="Password *"
+              required
+            />
+
+            <button class="btn" id="loginbtn" type="button">Sign in</button>
+
+            <button class="btn" id="singupbtn" type="button">Sign up</button>
+            <button class="btn googleBtn" id="googleIn" type="button">
+              Google
+            </button>
+            <button class="btn" id="logOut" type="button">Log out</button>
+          </form>
+
           <p class="copyright">
             Made with love, by <a href="#" class="copyright__link">FSDev</a>
           </p>

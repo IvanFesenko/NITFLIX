@@ -12,6 +12,14 @@ html {
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  background: linear-gradient(
+    180deg,
+    rgb(141, 141, 141) 0%,
+    rgb(70, 70, 70) 5%,
+    rgba(20, 20, 20, 1) 10%
+  );
+  // background: #141414;
+  color: #fff;
 }
 
 img {

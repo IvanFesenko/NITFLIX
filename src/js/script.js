@@ -2,4 +2,5 @@
 //js modules
 import './firebase';
 import './trending-page';
-import './movie-info-modal';
+import './MovieDetailsModal';
+import './search';

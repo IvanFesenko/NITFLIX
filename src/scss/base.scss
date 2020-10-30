@@ -7,6 +7,8 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -18,11 +20,12 @@ body {
     rgb(70, 70, 70) 5%,
     rgba(20, 20, 20, 1) 10%
   );
-  // background: #141414;
+
   color: #fff;
 }
 
 img {
+  border-style: none;
   display: block;
   max-width: 100%;
   height: auto;
@@ -35,6 +38,22 @@ h4,
 p {
   margin: 0;
   padding: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  display: inline-block;
+}
+
+button:hover,
+button:focus,
+input:hover,
+input:focus {
+  outline: none;
 }
 
 .visually-hidden {
@@ -50,7 +69,10 @@ p {
   margin: -1px;
 }
 
-a {
+a,
+a:visited,
+a:hover,
+a:focus {
   text-decoration: none;
   color: inherit;
   display: block;
@@ -63,15 +85,32 @@ li {
   list-style: none;
 }
 
+.btn {
+  display: block;
+  cursor: pointer;
+  padding: 10px 10px;
+}
+
+.is-hidden {
+  display: none;
+}
+
 .container {
   margin: 0 auto;
-  width: 300px;
+
+  @include for-size(mobile) {
+    max-width: 767px;
+  }
 
   @include for-size(tablet) {
-    width: 710px;
+    width: 768px;
   }
 
   @include for-size(desktop) {
-    width: 960px;
+    width: 1280px;
+  }
+
+  @include for-size(hd-desctop) {
+    width: 1680px;
   }
 }

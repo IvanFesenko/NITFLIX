@@ -10,36 +10,50 @@
     <div class="js-blur-container">
       <header class="header">
         <div class="container">
-          <nav class="navigation">
-            <a href="#" class="logo"
-              ><img src="./images/logo.png" alt="" class="logo__img" />
-            </a>
-            <ul class="menu">
-              <li class="menu__item">
-                <a href="#" class="menu__link">Главная</a>
-              </li>
-              <li class="menu__item">
-                <a href="#" class="menu__link">Сериалы</a>
-              </li>
-              <li class="menu__item">
-                <a href="#" class="menu__link">Фильмы</a>
-              </li>
-              <li class="menu__item">
-                <a href="#" class="menu__link">Последние</a>
-              </li>
-              <li class="menu__item">
-                <a href="#" class="menu__link">Мой список</a>
-              </li>
-            </ul>
-            <form action="#" class="search-form">
-              <input type="text" class="search-form__input" />
-              <button type="submit">Search</button>
-            </form>
-            <img
-              class="account-btn"
-              src="./images/svg/account-button.svg"
-              alt="account botton"
-            />
+          <nav class="navigation" id="navigation">
+            <div class="left-nav-wrap">
+              <a href="#" class="logo"
+                ><img src="./images/logo.png" alt="" class="logo__img" />
+              </a>
+              <ul class="menu">
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Главная</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Сериалы</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Фильмы</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Последние</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Мой список</a>
+                </li>
+              </ul>
+            </div>
+            <div class="right-nav-wrap">
+              <form action="#" class="search-form">
+                <input
+                  type="text"
+                  class="search-form__input"
+                  placeholder="Люди, жанры, персоны"
+                />
+                <button
+                  type="submit"
+                  class="search-form__btn js-search-form__btn"
+                >
+                  <i class="fas fa-search"></i>
+                </button>
+              </form>
+              <div class="account-wrap">
+                <p class="account__user">User</p>
+                <button type="button" class="account-btn" title="Выйти">
+                  <i class="far fa-user-circle"></i>
+                </button>
+              </div>
+            </div>
           </nav>
         </div>
       </header>

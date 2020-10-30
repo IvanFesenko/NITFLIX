@@ -9,7 +9,7 @@ moviChangeBackground('navigation');
 
 function addBackgroundForModal(url) {
   const content = document.querySelector('.movie-modal__content');
-  content.style.backgroundImage = `linear-gradient(to top, rgba(255,255,255, 0.7), rgba(255,225,255, 0.6)), url(
+  content.style.backgroundImage = `linear-gradient(180deg, rgba(255,255,255,0.36878501400560226) 10%, rgba(255,255,255,0.8477766106442577) 25%, rgba(255,255,255,1) 40%), url(
  "${url}")`;
   content.style.backgroundPosition = 'top';
   content.style.backgroundRepeat = 'no-repeat';
@@ -95,3 +95,5 @@ function handleOpenModal(event) {
 }
 
 refs.movieContainer.addEventListener('click', handleOpenModal);
+
+// onOpenMovieModal(590223);

@@ -17,9 +17,9 @@ export async function getQueuedMovies() {
 }
 
 export async function listedInWatched(id) {
-  return await movieInList(LISTS.watched);
+  return await movieInList(id, LISTS.watched);
 }
 
 export async function listedInQueue(id) {
-  return await movieInList(LISTS.queue);
+  return await movieInList(id, LISTS.queue);
 }

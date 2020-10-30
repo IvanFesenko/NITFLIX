@@ -1,8 +1,4 @@
-import refs from './refs';
-import MoviesCards from './components/MoviesCards';
-
-export const renderMarkup = res => {
-  const markup = MoviesCards(res);
-
-  refs.movieContainer.insertAdjacentHTML('beforeend', markup);
+const renderMarkup = (data, markup, container) => {
+  container.insertAdjacentHTML('beforeend', markup(data));
 };
+export default renderMarkup;

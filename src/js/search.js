@@ -1,8 +1,9 @@
 import refs from './refs';
 import apiService from './APIservice';
-import { renderMarkup } from './renderMarkup';
+import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
 const { searchForm, searchFormInput, movieContainer, mainTitle } = refs;
+import MoviesCards from './components/MoviesCards';
 
 const onSearch = e => {
   e.preventDefault();
@@ -24,7 +25,7 @@ const onSearch = e => {
             item.poster_path = apiService.makeImagePath(item.poster_path, size);
             return item;
           });
-          renderMarkup(results);
+          renderMarkup(results, MoviesCards, refs.movieContainer);
         } else {
           mainTitle.textContent =
             'No results were found for your search. Try again!';

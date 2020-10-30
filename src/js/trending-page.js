@@ -2,25 +2,13 @@ import apiService from './APIservice';
 import refs from './refs';
 import moviesListTemplate from '../templates/moviesListTemplate.hbs';
 
-function screenSize() {
-  const sreenSize = document.body.clientWidth;
-
-  if (screenSize < 768) {
-    return 4;
-  } else if (screenSize < 1024) {
-    return 5;
-  } else {
-    return 6;
-  }
-}
-
 function makeMarkup(res) {
   const markup = moviesListTemplate(res);
   refs.movieContainer.insertAdjacentHTML('beforeend', markup);
 }
 
 function generateTrendingList() {
-  const size = screenSize();
+  const size = apiService.screenSize();
   apiService
     .getTrending()
     .then(({ data }) => data.results)

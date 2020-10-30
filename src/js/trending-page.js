@@ -1,6 +1,8 @@
 import apiService from './APIservice';
-import { renderMarkup } from './renderMarkup';
+import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
+import MoviesCards from './components/MoviesCards';
+import refs from './refs';
 
 function generateTrendingList() {
   const size = screenSize();
@@ -13,7 +15,7 @@ function generateTrendingList() {
         item.poster_path = apiService.makeImagePath(item.poster_path, size);
         return item;
       });
-      renderMarkup(res);
+      renderMarkup(res, MoviesCards, refs.movieContainer);
     });
 }
 

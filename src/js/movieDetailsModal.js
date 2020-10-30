@@ -1,7 +1,8 @@
 import refs from './refs';
 import apiService from './APIservice';
-import movieModalTempl from '../templates/movie-modal.hbs';
-
+import MovieDetailsCard from './components/MovieDetailsCard';
+import renderMarkup from './renderMarkup';
+import screenSize from './services/screenSize';
 function handleCloseModal() {
   onCloseMovieModal();
 }
@@ -9,30 +10,19 @@ function handleCloseModal() {
 function handleOpenModal(event) {
   const id = event.target.dataset.id;
   onOpenMovieModal(id);
-
   refs.modalBlurContainer.classList.add('js-blur-on');
 }
 
-function makeMarkup(res) {
-  const markup = movieModalTempl(res);
-  refs.body.insertAdjacentHTML('beforeend', markup);
-}
-
 function onOpenMovieModal(id) {
+  const size = screenSize();
   apiService
     .getMovieInfo(id)
     .then(({ data }) => data)
     .then(res => {
-      //make image full path
-      res.backdrop_path = apiService.makeImagePath(res.backdrop_path, 5);
-      res.poster_path = apiService.makeImagePath(res.poster_path, 3);
-
-      //make markup
-      makeMarkup(res);
-
+      res.backdrop_path = apiService.makeImagePath(res.backdrop_path, size);
+      res.poster_path = apiService.makeImagePath(res.poster_path, size);
+      renderMarkup(res, MovieDetailsCard, refs.body);
       document.querySelector('.js-movie-modal').classList.add('is-open');
-
-      //add ref for close modal
       addRefsForModal();
     });
 }

@@ -1,19 +1,16 @@
 import apiService from './APIservice';
 import { renderMarkup } from './renderMarkup';
-
-function makeMarkup(res) {
-  const markup = moviesListTemplate(res);
-  refs.movieContainer.insertAdjacentHTML('beforeend', markup);
-}
+import screenSize from './services/screenSize';
 
 function generateTrendingList() {
-  const size = apiService.screenSize();
+  const size = screenSize();
 
   apiService
     .getTrending()
     .then(({ data }) => data.results)
     .then(res => {
       res = res.map(item => {
+        console.log(item);
         item.poster_path = apiService.makeImagePath(item.poster_path, size);
         return item;
       });

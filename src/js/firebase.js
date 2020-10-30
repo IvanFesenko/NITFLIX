@@ -99,26 +99,55 @@ function getCurrentUserID() {
   return firebase.auth().currentUser.uid;
 }
 
-export async function addMovieToList(movie, list) {
-  try {
-    const userID = getCurrentUserID();
-    const db = firebase.database();
-    const userList = db.ref(`/userLists/${userID}/${list}`);
-    userList.push(movie);
-  } catch {
-    console.error('Add error');
-  }
+async function getUserDataFromDB(ref, userID, path) {
+  const db = firebase.database();
+  const userList = db.ref(`/${ref}/${userID}/${path}`);
+  const dataSnapshot = await userList.once('value');
+  const data = dataSnapshot.val();
+  return Object.values(data);
 }
 
 export async function getMoviesList(list) {
   try {
-    const { id } = movie;
-    const db = firebase.database();
-    const userList = db.ref(`/userLists/${userID}/${list}`);
-    const dataSnapshot = await userList.once('value');
-    const data = dataSnapshot.val();
-    return Object.values(data);
+    const userID = getCurrentUserID();
+    return await getUserDataFromDB('userLists', userID, list);
+    // const db = firebase.database();
+    // const userList = db.ref(`/userLists/${userID}/${list}`);
+    // const dataSnapshot = await userList.once('value');
+    // const data = dataSnapshot.val();
+    // return Object.values(data);
   } catch {
     console.error('Cannot read data from DB!');
+  }
+}
+
+async function movieAdded(userID, id, list) {
+  try {
+    const moviesID = await getUserDataFromDB('userMovies', userID, list);
+    return moviesID.includes(id);
+    // const db = firebase.database();
+    // const userMovies = db.ref(`/userMovies/${userID}/${list}`);
+    // const dataSnapshot = await userMovies.once('value');
+    // const data = dataSnapshot.val();
+    // const moviesID = Object.values(data);
+    // return moviesID.includes(id);
+  } catch {
+    console.error('Cannot read data from DB!');
+  }
+}
+
+export async function addMovieToList(movie, list) {
+  try {
+    const userID = getCurrentUserID();
+    const alreadyListed = await movieAdded(userID, movie.id, list);
+    if (!alreadyListed) {
+      const db = firebase.database();
+      const userList = db.ref(`/userLists/${userID}/${list}`);
+      const userMovies = db.ref(`/userMovies/${userID}/${list}`);
+      userList.push(movie);
+      userMovies.push(movie.id);
+    }
+  } catch {
+    console.error('Add error');
   }
 }

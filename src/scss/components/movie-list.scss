@@ -33,6 +33,7 @@
     }
 
     @include for-size(desktop) {
+      height: 500px;
       flex-basis: 230px;
     }
 
@@ -44,6 +45,7 @@
 
   &__description {
     padding: 5px;
+    background-color: #ffffff;
 
     @include for-size(tablet) {
       padding: 15px;

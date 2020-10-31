@@ -3,7 +3,7 @@ import apiService from './APIservice';
 import MovieDetailsCard from './components/MovieDetailsCard';
 import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
-import moviChangeBackground from './components/MoviChangeBackground';
+import moviChangeBackground from './components/header/MoviChangeBackground';
 
 moviChangeBackground('navigation');
 

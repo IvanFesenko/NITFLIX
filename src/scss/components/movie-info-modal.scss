@@ -96,12 +96,24 @@
   &__original-title {
     font-size: 20px;
     margin-bottom: 10px;
+
+    @include for-size(desktop) {
+      font-size: 40px;
+    }
+
+    @include for-size(hd-desktop) {
+      font-size: 50px;
+    }
   }
 
   &__homepage {
     font-size: 10px;
     text-decoration: underline;
     margin-bottom: 10px;
+
+    @include for-size(desktop) {
+      font-size: 18px;
+    }
   }
 
   &__vote-block {

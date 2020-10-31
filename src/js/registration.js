@@ -1,5 +1,6 @@
 import Refs from './refs';
-
+import {onCloseModalReg} from './components/modalRegistration'
+ 
 import {
   googleAuthorization,
   logOut,
@@ -8,20 +9,17 @@ import {
 } from './firebase';
 
 export function onLogInState() {
-  Refs.googleBtn.style.display = 'none';
-  Refs.logInBtn.style.display = 'none';
-  Refs.singUpBtn.style.display = 'none';
-  Refs.logOutBtn.style.display = 'inline';
+  Refs.logOutBtn.style.display = 'block';  
+  Refs.logOutBtn.classList.remove('visually-hidden');
   Refs.accInBtn.style.display = 'none';
-  closeModalReg();
+  onCloseModalReg();
 }
 
-export function onLogOutState() {
-  Refs.googleBtn.style.display = 'inline';
-  Refs.logInBtn.style.display = 'inline';
-  Refs.singUpBtn.style.display = 'inline';
-  Refs.logOutBtn.style.display = 'none';
-  Refs.accOutBtn.style.display = 'none';
+
+export function onLogOutState() {  
+  Refs.logOutBtn.style.display = 'none'; 
+  Refs.accInBtn.style.display = 'block'; 
+  Refs.logOutBtn.classList.add('visually-hidden');
 }
 
 Refs.googleBtn.addEventListener('click', googleOnClick);
@@ -33,3 +31,4 @@ function googleOnClick(e) {
   e.preventDefault();
   googleAuthorization();
 }
+

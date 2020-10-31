@@ -2,9 +2,8 @@ export default {
   body: document.querySelector('body'),
 
   // HEADER
-  accBtn: document.querySelector('.account-btn'),
-  accInBtn: document.querySelector('.fa-user-circle'),
-  accOutBtn: document.querySelector('.fa-sign-out-alt'),
+  accBtn: document.querySelector('.account-wrap'),
+  accInBtn: document.querySelector('#singIn'),  
 
   mainTitle: document.querySelector('.main-title'),
   //START modal

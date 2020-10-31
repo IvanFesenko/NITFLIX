@@ -20,6 +20,8 @@
     border: 1px solid transparent;
     overflow: hidden;
 
+    outline: none;
+
     transition: transform 0.3s linear;
 
     // &:not(:last-child) {
@@ -39,11 +41,11 @@
     }
 
     @include for-size(hd-desktop) {
-      height: 450px;
       flex-basis: 230px;
     }
 
-    &:hover .movie__image {
+    &:hover .movie__image,
+    &:focus .movie__image {
       transform: scale(1.2);
     }
   }

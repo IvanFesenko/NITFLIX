@@ -46,6 +46,7 @@ const MovieDetailsCard = ({
           <h3 class="movie-trailers__title">Trailers</h3>
           <ul class="movie-trailers-list"></ul>
         </div>
+        <button class="movie-modal__scrollUp">go top</button>
       </div>
     </div>`;
 };

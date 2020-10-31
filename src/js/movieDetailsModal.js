@@ -45,15 +45,29 @@ const getTrailers = id => {
         const movieModalTrailersBtn = document.querySelector(
           '.movie-modal__trailers-btn',
         );
+        const movieModalScrollUp = document.querySelector(
+          '.movie-modal__scrollUp',
+        );
+        const movieModalImageWrapper = document.querySelector(
+          '.movie-modal__image-wrapper',
+        );
+
         movieModalTrailersBtn.style = 'display:block';
         movieTrailersTitle.style = 'display:block';
         movieTrailers.insertAdjacentHTML('beforeend', trailers);
 
-        const handleBtnClick = () => {
+        const handleTrailersBtnClick = () => {
           movieTrailers.scrollIntoView({ block: 'start', behavior: 'smooth' });
         };
+        const handleScrollUpBtnClick = () => {
+          movieModalImageWrapper.scrollIntoView({
+            block: 'start',
+            behavior: 'smooth',
+          });
+        };
 
-        movieModalTrailersBtn.addEventListener('click', handleBtnClick);
+        movieModalTrailersBtn.addEventListener('click', handleTrailersBtnClick);
+        movieModalScrollUp.addEventListener('click', handleScrollUpBtnClick);
       }
     });
 };

@@ -222,6 +222,11 @@
       font-size: 16px;
     }
   }
+
+  &__scrollUp {
+    position: fixed;
+    bottom: 0;
+  }
 }
 
 .movie-modal.is-open {

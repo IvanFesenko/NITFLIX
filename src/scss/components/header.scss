@@ -111,7 +111,8 @@
   margin-right: 10px;
 }
 
-.account-btn {
+.account-btn,
+.account-btn-out {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -128,6 +129,9 @@
 
   & > i {
     font-size: 26px;
-    margin-right: 10px;
   }
+}
+
+.fa-user-circle {
+  margin-right: 10px;
 }

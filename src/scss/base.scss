@@ -97,6 +97,7 @@ li {
 
 .container {
   margin: 0 auto;
+  padding: 0 15px 0 15px;
 
   @include for-size(mobile) {
     max-width: 767px;

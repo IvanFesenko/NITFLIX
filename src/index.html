@@ -45,10 +45,14 @@
                 </button>
               </form>
               <div class="account-wrap">
-                <button type="button" class="account-btn">
+                <button class="account-btn" id="singIn" type="button">
                   <i class="far fa-user-circle" title="Sing In"></i>
                 </button>
-                <button class="btn" id="logOut" type="button">
+                <button
+                  class="account-btn-out visually-hidden"
+                  id="logOut"
+                  type="button"
+                >
                   <i class="fas fa-sign-out-alt" title="Exit"></i>
                 </button>
               </div>
@@ -60,7 +64,9 @@
       <main class="main">
         <div class="container">
           <h2 class="main-title">Most popular films</h2>
-          <div class="movie__container js-movie__container"></div>
+          <div
+            class="movie__container grid-container js-movie__container"
+          ></div>
         </div>
       </main>
 

@@ -1,4 +1,4 @@
-function moviChangeBackground(idElement) {
+export default function movieChangeBackground(idElement) {
     const bgColor1 = {r:20,g:20,b:20, a:0}
     const bgColor2 = {r:20,g:20,b:20, a:1}
     
@@ -25,8 +25,4 @@ function moviChangeBackground(idElement) {
     
     document.getElementById(idElement).style.background = "rgb("+color.r+","+color.g+","+color.b+","+color.a+")";
     });
-
 }
-
-
-export default moviChangeBackground;

@@ -29,6 +29,3 @@ function onClickBackDrop(event) {
         onCloseModalReg();
     }
 }
-  
-
-  

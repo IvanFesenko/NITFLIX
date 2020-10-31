@@ -27,10 +27,10 @@ const getTrailers = id => {
           .map(({ key, name }) => {
             return `
           <li class="movie-trailers-list__item">
-            <h4 class="trailerName">${name}</h4>
+            <h4 class="movie-trailers-list__item-name">${name}</h4>
             <iframe 
-              width="460"
-              height="320"
+              class="movie-trailers-list__item-trailer""
+              
               src="https://www.youtube.com/embed/${key}"
               frameborder="0"
               allowfullscreen>
@@ -40,7 +40,11 @@ const getTrailers = id => {
           })
           .join(' ');
         const movieTrailers = document.querySelector('.movie-trailers-list');
+        const movieTrailersTitle = document.querySelector(
+          '.movie-trailers__title',
+        );
 
+        movieTrailersTitle.style = 'display:block';
         movieTrailers.insertAdjacentHTML('beforeend', trailers);
         console.log(trailers);
       }
@@ -109,6 +113,7 @@ function onCloseMovieModal() {
   removeModalFromHtml();
 
   refs.modalBlurContainer.classList.remove('js-blur-on');
+  document.querySelector('html').style = ' overflow-x: hidden;';
 }
 
 function onPressEsc(event) {
@@ -122,11 +127,11 @@ function handleCloseModal() {
 }
 
 function handleOpenModal(event) {
-  event.preventDefault();
   const id = event.target.dataset.id;
   if (id) {
     onOpenMovieModal(id);
     refs.modalBlurContainer.classList.add('js-blur-on');
+    document.querySelector('html').style = 'overflow:hidden';
   }
 }
 

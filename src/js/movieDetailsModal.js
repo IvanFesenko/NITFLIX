@@ -3,9 +3,9 @@ import apiService from './APIservice';
 import MovieDetailsCard from './components/MovieDetailsCard';
 import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
-import moviChangeBackground from './components/header/MoviChangeBackground';
+import movieChangeBackground from './components/header/MovieChangeBackground';
 
-moviChangeBackground('navigation');
+movieChangeBackground('navigation');
 
 function addBackgroundForModal(url) {
   const content = document.querySelector('.movie-modal__content');

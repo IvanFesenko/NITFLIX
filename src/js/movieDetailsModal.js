@@ -137,4 +137,4 @@ function handleOpenModal(event) {
 
 refs.movieContainer.addEventListener('click', handleOpenModal);
 
-// onOpenMovieModal(590223);
+onOpenMovieModal(590223);

@@ -43,12 +43,8 @@
       flex-basis: 230px;
     }
 
-    &:hover {
-      border: 1px red solid;
-    }
-
     &:hover .movie__image {
-      transform: scale(1.3);
+      transform: scale(1.2);
     }
   }
 
@@ -128,8 +124,4 @@
     width: 100%;
     height: 100%;
   }
-}
-
-.movie__wrapper:focus {
-  border: 1px red solid;
 }

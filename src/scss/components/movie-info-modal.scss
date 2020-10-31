@@ -114,9 +114,9 @@
   }
 
   &__close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
+    position: sticky;
+    top: 26px;
+    left: 800px;
     background-color: transparent;
 
     outline: none;
@@ -174,7 +174,6 @@
   }
 
   &__title-block {
-    // text-align: left;
     @include for-size(desktop) {
       position: absolute;
       top: 250px;
@@ -237,6 +236,18 @@
 
 .movie-trailers-list__item-name {
   text-align: center;
+}
+
+.movie-trailers-list__item:not(:last-child) {
+  margin-bottom: 15px;
+
+  @include for-size(desktop) {
+    margin-bottom: 25px;
+  }
+
+  @include for-size(hd-desktop) {
+    margin-bottom: 30px;
+  }
 }
 
 .movie-trailers {

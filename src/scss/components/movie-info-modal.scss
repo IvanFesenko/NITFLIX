@@ -28,6 +28,42 @@
     background-color: rgba(255, 255, 255, 0.3);
   }
 
+  &__trailers-btn {
+    width: 250px;
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 2px solid black;
+    cursor: pointer;
+    display: none;
+    transition: all 0.25s ease-out;
+
+    &:hover {
+      border: 2px solid red;
+    }
+
+    &:focus {
+      border: 2px solid red;
+    }
+
+    @include for-size(mobile) {
+      width: 100px;
+      font-size: 10px;
+    }
+
+    @include for-size(tablet) {
+      width: 200px;
+    }
+
+    @include for-size(desktop) {
+      width: 250px;
+    }
+
+    @include for-size(hd-desktop) {
+      width: 300px;
+    }
+  }
+
   &__content {
     position: absolute;
 

@@ -21,6 +21,8 @@ const MovieDetailsCard = ({
           <img src=${poster_path !== null ? poster_path : noPosterImg}
           alt=${title}$ class="movie-modal__image">
         </div>
+        <button class="movie-modal__trailers-btn">Show Trailers</button>
+        
         <div class="movie-modal__vote-block">
           <p class="movie-modal__vote-block-text">
             <span class="movie-modal__vote-block-averege">${vote_average}</span>

@@ -8,3 +8,19 @@
     font-size: 45px;
   }
 }
+
+.main {
+  padding-bottom: 20px;
+
+  // @include for-size(tablet) {
+  //   margin-bottom: 20px;
+  // }
+
+  @include for-size(desktop) {
+    margin-bottom: 25px;
+  }
+
+  @include for-size(hd-desktop) {
+    margin-bottom: 30px;
+  }
+}

@@ -285,11 +285,11 @@
   }
 }
 
-.animate {
-  animation: pulsing 1s;
+.animate-modal {
+  animation: animate-modal 1s;
 }
 
-@keyframes pulsing {
+@keyframes animate-modal {
   0% {
     transform: scale(0.1, 0.1);
   }

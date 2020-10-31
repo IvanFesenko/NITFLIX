@@ -67,19 +67,24 @@
 
   &:hover .search-form__input,
   &:focus .search-form__input {
-    border: 1px solid rgb(233, 34, 34);
+    border-bottom: 1px solid rgb(233, 34, 34);
   }
 
   &__input {
-    padding: 5px 30px 5px 15px;
+    padding: 5px 30px 8px 15px;
     background: transparent;
-    width: 250px;
-    border: 1px solid #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
     color: #fff;
     transition: all 0.2s linear;
 
     &::placeholder {
       color: #fff;
+      transition: all 0.2s linear;
+    }
+
+    &:focus::placeholder {
+      text-indent: 100%;
     }
   }
 
@@ -99,6 +104,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 2px;
 }
 
 .account__user {
@@ -106,30 +112,22 @@
 }
 
 .account-btn {
-  display: block;
-  width: 25px;
-  height: 25px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   background-color: transparent;
   border: none;
   color: #fff;
-  font-size: 26px;
+
   transition: all 0.2s linear;
 
   &:hover,
   &:focus {
     color: rgb(233, 34, 34);
   }
-}
 
-.googleBtn {
-  // background: url('../../images/sign-in-with-google.svg') 0 50% no-repeat;
-  border-radius: 1px;
-  width: 140px;
-  height: 30px;
-  color: rgba(0, 0, 0, 0.54);
-  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 0;
-  border-color: transparent;
-  text-align: center;
-  border-radius: 3px;
+  & > i {
+    font-size: 26px;
+    margin-right: 10px;
+  }
 }

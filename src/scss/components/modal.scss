@@ -9,7 +9,7 @@
   overflow: auto;
   transition: opacity 1000ms linear;
   z-index: 100;
-  background-color: rgba(53, 53, 53, 0.7);
+  background-color: rgba(24, 41, 54, 0.95);
   visibility: hidden;
 }
 
@@ -18,45 +18,32 @@
   width: 400px;
   height: 500px;
   border-radius: 20px;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   color: #ffffff;
   padding: 50px;
-
-  background: linear-gradient(
-      43deg,
-      hsla(329.15, 92.73%, 44.97%, 1) 0%,
-      hsla(329.15, 92.73%, 44.97%, 0) 65%
-    ),
-    linear-gradient(
-      135deg,
-      hsla(267.03, 98.81%, 44.82%, 1) 0%,
-      hsla(267.03, 98.81%, 44.82%, 0) 70%
-    ),
-    linear-gradient(
-      360deg,
-      hsla(185.94, 92.67%, 47.68%, 1) 10%,
-      hsla(185.94, 92.67%, 47.68%, 0) 80%
-    ),
-    linear-gradient(
-      315deg,
-      hsla(171.5, 91.59%, 44.59%, 1) 15%,
-      hsla(171.5, 91.59%, 44.59%, 0) 80%
-    ),
-    linear-gradient(
-      360deg,
-      hsla(282.33, 92.27%, 45.61%, 1) 60%,
-      hsla(282.33, 92.27%, 45.61%, 0) 94%
-    );
-
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #0f1c26;
+  border: 2px solid #2f4f4f;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transition: all 0.2s linear;
+
+  &:hover,
+  &:focus {
+    border: 2px solid #20bcc6;
+    box-shadow: 0 0 15px #20bcc6;
+  }
+
+  &:hover .new_login__soc-label::before,
+  &:focus .new_login__soc-label::before,
+  &:hover .new_login__soc-label::after,
+  &:focus .new_login__soc-label::after {
+    box-shadow: 0 0 20px #20bcc6;
+  }
 
   @include for-size(tablet) {
     max-width: 400px;
@@ -84,12 +71,12 @@
   }
 
   &__title {
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 20px;
   }
 
   &__text {
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 30px;
   }
 }
@@ -169,6 +156,7 @@
     position: absolute;
     top: 14px;
     left: 0;
+    transition: all 0.2s linear;
   }
 
   &::after {
@@ -180,6 +168,7 @@
     position: absolute;
     top: 14px;
     right: 0;
+    transition: all 0.2s linear;
   }
 }
 

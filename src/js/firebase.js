@@ -151,3 +151,8 @@ export async function addMovieToList(movie, list) {
     console.error('Add error');
   }
 }
+
+export async function movieInList(id, list) {
+  const userID = getCurrentUserID();
+  return movieAdded(userID, id, list);
+}

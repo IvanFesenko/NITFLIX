@@ -47,15 +47,11 @@
 
   &__description {
     padding: 15px;
-    height: 100px;
+    height: 100%;
     background-color: #ffffff;
 
     @include for-size(tablet) {
       padding: 15px;
-    }
-
-    @include for-size(desktop) {
-      height: 115px;
     }
   }
 
@@ -111,5 +107,11 @@
 
   &__image-wrapper {
     position: relative;
+  }
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 }

@@ -4,6 +4,7 @@ const MoviesCards = results => {
   const markup = results.map(
     ({ title, id, poster_path, release_date, vote_average }) => {
       return `<div class="movie__wrapper">
+      
     <div class="movie__image-wrapper">
         <img src="${
           poster_path !== null ? poster_path : noPosterImg

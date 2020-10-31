@@ -2,8 +2,11 @@ export default {
   body: document.querySelector('body'),
 
   mainTitle: document.querySelector('.main-title'),
+  //START modal
   movieContainer: document.querySelector('.js-movie__container'),
   modalBlurContainer: document.querySelector('.js-blur-container'),
+  //END modal
+
   // user Login and Registrations (Do not change key!)
   googleBtn: document.querySelector('#googleIn'),
   logInBtn: document.querySelector('#loginbtn'),

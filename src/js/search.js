@@ -26,9 +26,9 @@ const onSearch = e => {
             return item;
           });
           renderMarkup(results, MoviesCards, refs.movieContainer);
+          mainTitle.textContent = `Results for ${value}`;
         } else {
-          mainTitle.textContent =
-            'No results were found for your search. Try again!';
+          mainTitle.textContent = `No results were found for ${value}. Try again!`;
         }
       });
   }

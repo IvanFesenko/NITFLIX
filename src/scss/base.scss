@@ -110,7 +110,7 @@ li {
     width: 1280px;
   }
 
-  @include for-size(hd-desctop) {
+  @include for-size(hd-desktop) {
     width: 1680px;
   }
 }

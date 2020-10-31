@@ -3,9 +3,9 @@ import apiService from './APIservice';
 import MovieDetailsCard from './components/MovieDetailsCard';
 import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
-import moviChangeBackground from './components/header/MoviChangeBackground';
+import movieChangeBackground from './components/header/MovieChangeBackground';
 
-moviChangeBackground('navigation');
+movieChangeBackground('navigation');
 
 function addBackgroundForModal(url) {
   const content = document.querySelector('.movie-modal__content');
@@ -30,7 +30,6 @@ const getTrailers = id => {
             <h4 class="movie-trailers-list__item-name">${name}</h4>
             <iframe 
               class="movie-trailers-list__item-trailer""
-              
               src="https://www.youtube.com/embed/${key}"
               frameborder="0"
               allowfullscreen>
@@ -43,10 +42,18 @@ const getTrailers = id => {
         const movieTrailersTitle = document.querySelector(
           '.movie-trailers__title',
         );
-
+        const movieModalTrailersBtn = document.querySelector(
+          '.movie-modal__trailers-btn',
+        );
+        movieModalTrailersBtn.style = 'display:block';
         movieTrailersTitle.style = 'display:block';
         movieTrailers.insertAdjacentHTML('beforeend', trailers);
-        console.log(trailers);
+
+        const handleBtnClick = () => {
+          movieTrailers.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        };
+
+        movieModalTrailersBtn.addEventListener('click', handleBtnClick);
       }
     });
 };
@@ -137,4 +144,4 @@ function handleOpenModal(event) {
 
 refs.movieContainer.addEventListener('click', handleOpenModal);
 
-//onOpenMovieModal(590223);
+// onOpenMovieModal(590223);

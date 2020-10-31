@@ -3,7 +3,7 @@ import apiService from './APIservice';
 import MovieDetailsCard from './components/MovieDetailsCard';
 import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
-import moviChangeBackground from './components/MoviChangeBackground';
+import moviChangeBackground from './components/header/MoviChangeBackground';
 
 moviChangeBackground('navigation');
 
@@ -16,22 +16,61 @@ function addBackgroundForModal(url) {
   content.style.backgroundSize = '100%';
 }
 
-function onOpenMovieModal(id) {
+const getTrailers = id => {
+  return apiService
+    .getTrailer(id)
+    .then(({ data }) => data)
+    .then(({ results }) => {
+      console.log(results);
+      if (results.length) {
+        const trailers = results
+          .map(({ key, name }) => {
+            return `
+          <li class="movie-trailers-list__item">
+            <h4 class="movie-trailers-list__item-name">${name}</h4>
+            <iframe 
+              class="movie-trailers-list__item-trailer""
+              
+              src="https://www.youtube.com/embed/${key}"
+              frameborder="0"
+              allowfullscreen>
+            </iframe>
+          </li>
+          `;
+          })
+          .join(' ');
+        const movieTrailers = document.querySelector('.movie-trailers-list');
+        const movieTrailersTitle = document.querySelector(
+          '.movie-trailers__title',
+        );
+
+        movieTrailersTitle.style = 'display:block';
+        movieTrailers.insertAdjacentHTML('beforeend', trailers);
+        console.log(trailers);
+      }
+    });
+};
+
+const getMovieDetails = id => {
   const size = screenSize();
-  apiService
+  return apiService
     .getMovieInfo(id)
     .then(({ data }) => data)
     .then(res => {
       res.backdrop_path = apiService.makeImagePath(res.backdrop_path, size);
       res.poster_path = apiService.makeImagePath(res.poster_path, size);
-
       renderMarkup(res, MovieDetailsCard, refs.body);
 
       document.querySelector('.js-movie-modal').classList.add('is-open');
+
       addRefsForModal();
-      console.log(res.backdrop_path);
       addBackgroundForModal(res.backdrop_path);
     });
+};
+
+async function onOpenMovieModal(id) {
+  await getMovieDetails(id);
+  await getTrailers(id);
 }
 
 function addRefsForModal() {
@@ -74,6 +113,7 @@ function onCloseMovieModal() {
   removeModalFromHtml();
 
   refs.modalBlurContainer.classList.remove('js-blur-on');
+  document.querySelector('html').style = ' overflow-x: hidden;';
 }
 
 function onPressEsc(event) {
@@ -91,6 +131,7 @@ function handleOpenModal(event) {
   if (id) {
     onOpenMovieModal(id);
     refs.modalBlurContainer.classList.add('js-blur-on');
+    document.querySelector('html').style = 'overflow:hidden';
   }
 }
 

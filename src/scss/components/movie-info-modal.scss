@@ -35,12 +35,33 @@
     background-color: #fff;
 
     max-width: 280px;
+
     border-radius: 20px;
 
     overflow: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: red;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    @include for-size(mobile) {
+      max-height: 66%;
+    }
 
     @include for-size(tablet) {
       max-width: 400px;
+      max-height: 60%;
     }
 
     @media screen and (min-width: 400px) and (max-width: 767px) {
@@ -49,6 +70,7 @@
 
     @include for-size(desktop) {
       max-width: 700px;
+      max-height: 80%;
     }
 
     @include for-size(hd-desktop) {
@@ -160,4 +182,39 @@
 
 .js-blur-on {
   filter: blur(5px);
+}
+
+.movie-trailers {
+  &__title {
+    display: none;
+    margin-bottom: 8px;
+  }
+
+  &-list__item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 8px;
+
+    &-name {
+      margin-bottom: 8px;
+    }
+    &-trailer {
+      margin: 0 auto;
+      @include for-size(mobile) {
+        width: 232px;
+        height: 160px;
+      }
+
+      @include for-size(tablet) {
+        width: 340px;
+        height: 234px;
+      }
+
+      @include for-size(desktop) {
+        width: 480px;
+        height: 332px;
+      }
+    }
+  }
 }

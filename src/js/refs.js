@@ -1,10 +1,17 @@
 export default {
   body: document.querySelector('body'),
 
+  // HEADER
+  accBtn: document.querySelector('.account-btn'),
+  accInBtn: document.querySelector('.fa-user-circle'),
+  accOutBtn: document.querySelector('.fa-sign-out-alt'),
+
   mainTitle: document.querySelector('.main-title'),
   //START modal
   movieContainer: document.querySelector('.js-movie__container'),
   modalBlurContainer: document.querySelector('.js-blur-container'),
+  modalReg: document.querySelector('.modal-wrap'),
+  modalCloseBtn: document.querySelector('.modal-close-btn'),
   //END modal
 
   // user Login and Registrations (Do not change key!)

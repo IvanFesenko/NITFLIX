@@ -19,7 +19,7 @@
   color: #000000;
 
   &__overlay {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
 
@@ -134,7 +134,19 @@
     margin-bottom: 10px;
 
     @include for-size(desktop) {
-      font-size: 18px;
+      font-size: 12px;
+    }
+  }
+
+  &__title-block {
+    @include for-size(desktop) {
+      position: absolute;
+      top: 250px;
+      right: 30px;
+      width: 350px;
+    }
+    @include for-size(hd-desktop) {
+      width: 400px;
     }
   }
 
@@ -144,6 +156,7 @@
     text-align: right;
     z-index: 1;
     color: #ffffff;
+    margin-bottom: 15px;
 
     &::before {
       content: '';
@@ -168,6 +181,10 @@
 
   &__overview {
     font-size: 12px;
+
+    @include for-size(desktop) {
+      font-size: 16px;
+    }
   }
 }
 

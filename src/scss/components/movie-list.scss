@@ -39,7 +39,6 @@
     }
 
     @include for-size(hd-desktop) {
-      height: 450px;
       flex-basis: 230px;
     }
 
@@ -145,3 +144,9 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
+
+// .movie-grid {
+//   display: grid;
+//   grid-template-columns: 1fr;
+//   grid-template-rows: 80% auto;
+// }

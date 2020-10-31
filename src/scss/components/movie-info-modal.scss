@@ -7,8 +7,8 @@
   height: 100vh;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
   pointer-events: none;
 
@@ -19,10 +19,6 @@
   color: #000000;
 
   &__overlay {
-    position: relative;
-    top: 0;
-    left: 0;
-
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.3);
@@ -66,8 +62,6 @@
 
   &__content {
     position: absolute;
-
-    padding: 25px;
     background-color: #fff;
 
     max-width: 280px;
@@ -112,6 +106,11 @@
     @include for-size(hd-desktop) {
       max-width: 800px;
     }
+  }
+
+  &__content-wrapper {
+    position: relative;
+    padding: 25px;
   }
 
   &__close {
@@ -179,10 +178,11 @@
     @include for-size(desktop) {
       position: absolute;
       top: 250px;
-      right: 30px;
+      left: 290px;
       max-width: 350px;
     }
     @include for-size(hd-desktop) {
+      left: 350px;
       max-width: 400px;
     }
   }
@@ -218,6 +218,7 @@
 
   &__overview {
     font-size: 12px;
+    margin-bottom: 15px;
 
     @include for-size(desktop) {
       font-size: 16px;
@@ -232,6 +233,10 @@
 
 .js-blur-on {
   filter: blur(5px);
+}
+
+.movie-trailers-list__item-name {
+  text-align: center;
 }
 
 .movie-trailers {

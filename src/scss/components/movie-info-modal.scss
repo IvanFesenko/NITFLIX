@@ -284,3 +284,19 @@
     }
   }
 }
+
+.animate-modal {
+  animation: animate-modal 1s;
+}
+
+@keyframes animate-modal {
+  0% {
+    transform: scale(0.1, 0.1);
+  }
+  // 50% {
+  //   transform: scale(0.5, 0.5);
+  // }
+  100% {
+    transform: scale(1, 1);
+  }
+}

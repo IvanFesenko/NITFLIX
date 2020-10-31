@@ -15,7 +15,7 @@ const MovieDetailsCard = ({
 
   return `<div class="movie-modal js-movie-modal">
     <div class="movie-modal__overlay js-movie-modal__overlay"></div>
-    <div class="movie-modal__content">
+    <div class="movie-modal__content animate-modal">
       <div class="movie-modal__content-wrapper">
         <button class="movie-modal__close" id="close-movie-modal"></button>
         <div class="movie-modal__image-wrapper">

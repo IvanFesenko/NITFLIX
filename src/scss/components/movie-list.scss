@@ -12,6 +12,9 @@
   &__wrapper {
     cursor: pointer;
 
+    display: flex;
+    flex-direction: column;
+
     position: relative;
     border-radius: 15px;
     border: 1px solid transparent;
@@ -53,7 +56,14 @@
     transition: transform 1s ease-out;
   }
 
+  &__image-wrapper {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
   &__description {
+    flex-shrink: 1;
     padding: 15px;
     height: 100%;
     background-color: #ffffff;
@@ -111,11 +121,6 @@
       background-color: rgb(255, 0, 0);
       z-index: -2;
     }
-  }
-
-  &__image-wrapper {
-    position: relative;
-    overflow: hidden;
   }
 
   &__overlay {

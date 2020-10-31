@@ -112,7 +112,7 @@
     margin-bottom: 10px;
 
     @include for-size(desktop) {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 
@@ -146,6 +146,10 @@
 
   &__overview {
     font-size: 12px;
+
+    @include for-size(desktop) {
+      font-size: 16px;
+    }
   }
 }
 

@@ -12,24 +12,21 @@
         <div class="container">
           <nav class="navigation" id="navigation">
             <div class="left-nav-wrap">
-              <a href="#" class="logo"
+              <a href="/" class="logo"
                 ><img src="./images/logo.png" alt="" class="logo__img" />
               </a>
               <ul class="menu">
                 <li class="menu__item">
-                  <a href="#" class="menu__link">Главная</a>
+                  <a href="/" class="menu__link">Home</a>
                 </li>
                 <li class="menu__item">
-                  <a href="#" class="menu__link">Сериалы</a>
+                  <a href="#" class="menu__link">TV series</a>
                 </li>
                 <li class="menu__item">
-                  <a href="#" class="menu__link">Фильмы</a>
+                  <a href="#" class="menu__link">Films</a>
                 </li>
                 <li class="menu__item">
-                  <a href="#" class="menu__link">Последние</a>
-                </li>
-                <li class="menu__item">
-                  <a href="#" class="menu__link">Мой список</a>
+                  <a href="#" class="menu__link">My list</a>
                 </li>
               </ul>
             </div>
@@ -38,7 +35,7 @@
                 <input
                   type="text"
                   class="search-form__input"
-                  placeholder="Люди, жанры, персоны"
+                  placeholder="Films, genres, person"
                 />
                 <button
                   type="submit"
@@ -48,9 +45,11 @@
                 </button>
               </form>
               <div class="account-wrap">
-                <p class="account__user">User</p>
-                <button type="button" class="account-btn" title="Выйти">
-                  <i class="far fa-user-circle"></i>
+                <button type="button" class="account-btn">
+                  <i class="far fa-user-circle" title="Sing In"></i>
+                </button>
+                <button class="btn" id="logOut" type="button">
+                  <i class="fas fa-sign-out-alt" title="Exit"></i>
                 </button>
               </div>
             </div>
@@ -64,38 +63,71 @@
           <div class="movie__container js-movie__container"></div>
         </div>
       </main>
+
       <footer class="footer">
         <div class="container">
-          <form action="#" class="form__registration">
-            <input
-              type="email"
-              id="inputEmail"
-              class="form__registration-email"
-              placeholder="Email address *"
-              required
-            />
-            <input
-              type="password"
-              id="inputPassword"
-              class="form__registration-password"
-              placeholder="Password *"
-              required
-            />
-
-            <button class="btn" id="loginbtn" type="button">Sign in</button>
-
-            <button class="btn" id="singupbtn" type="button">Sign up</button>
-            <button class="btn googleBtn" id="googleIn" type="button">
-              Google
-            </button>
-            <button class="btn" id="logOut" type="button">Log out</button>
-          </form>
-
           <p class="copyright">
             Made with love, by <a href="#" class="copyright__link">FSDev</a>
           </p>
         </div>
       </footer>
+
+      <div class="modal-wrap">
+        <div class="modal">
+          <div class="modal__content">
+            <i class="fas fa-times modal-close-btn"></i>
+            <h3 class="modal__title">Welcome</h3>
+            <p class="modal__text">Login or register</p>
+
+            <div class="form">
+              <form action="#" class="form__registration">
+                <input
+                  type="email"
+                  id="inputEmail"
+                  class="form__registration-email form__reg-input"
+                  placeholder="Email address *"
+                  required
+                />
+                <input
+                  type="password"
+                  id="inputPassword"
+                  class="form__registration-password form__reg-input"
+                  placeholder="Password *"
+                  required
+                />
+
+                <div class="form__login-btn-wrap">
+                  <button
+                    class="btn form__btn form__btn-in"
+                    id="loginbtn"
+                    type="button"
+                  >
+                    Sign in
+                  </button>
+
+                  <button
+                    class="btn form__btn form__btn-up"
+                    id="singupbtn"
+                    type="button"
+                  >
+                    Sign up
+                  </button>
+                </div>
+
+                <div class="new_login__soc-label">or login with</div>
+
+                <button
+                  class="btn googleBtn form__btn"
+                  id="googleIn"
+                  type="button"
+                >
+                  Google
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

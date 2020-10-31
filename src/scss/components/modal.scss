@@ -184,49 +184,52 @@
 }
 
 // BUTTON
-.form__btn {
-  text-decoration: none;
-  outline: none;
-  display: inline-block;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 20px;
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  background-size: 200% auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  transition: 0.5s;
-}
 
-.form__btn-in {
-  background-image: linear-gradient(
-    to right,
-    #9eefe1 0%,
-    #4830f0 51%,
-    #9eefe1 100%
-  );
-}
+// .form__btn {
+//   text-decoration: none;
+//   outline: none;
+//   display: inline-block;
+//   color: white;
+//   padding: 10px 15px;
+//   border: none;
+//   border-radius: 20px;
+//   font-family: 'Montserrat', sans-serif;
+//   text-transform: uppercase;
+//   letter-spacing: 2px;
+//   background-size: 200% auto;
+//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+//   transition: 0.5s;
+// }
 
-.form__btn-up {
-  background-image: linear-gradient(
-    to right,
-    #75c0b4 0%,
-    #3f3197 51%,
-    #61bdad 100%
-  );
-}
+// .form__btn-in {
+//   background-image: linear-gradient(
+//     to right,
+//     #9eefe1 0%,
+//     #4830f0 51%,
+//     #9eefe1 100%
+//   );
+// }
 
-.form__btn:hover {
-  background-position: right center;
-}
+// .form__btn-up {
+//   background-image: linear-gradient(
+//     to right,
+//     #75c0b4 0%,
+//     #3f3197 51%,
+//     #61bdad 100%
+//   );
+// }
 
-.googleBtn {
-  background-image: linear-gradient(
-    to right,
-    #37744e 0%,
-    #e64ce6 51%,
-    #4c6d2d 100%
-  );
-}
+// .form__btn:hover {
+//   background-position: right center;
+// }
+
+// .googleBtn {
+//   background-image: linear-gradient(
+//     to right,
+//     #37744e 0%,
+//     #e64ce6 51%,
+//     #4c6d2d 100%
+//   );
+// }
+
+// ===================

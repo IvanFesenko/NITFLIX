@@ -1,4 +1,5 @@
 import Refs from './refs';
+
 import {
   googleAuthorization,
   logOut,
@@ -27,19 +28,8 @@ Refs.googleBtn.addEventListener('click', googleOnClick);
 Refs.logOutBtn.addEventListener('click', logOut);
 Refs.singUpBtn.addEventListener('click', registration);
 Refs.logInBtn.addEventListener('click', basicAuthorization);
-Refs.accInBtn.addEventListener('click', openModalReg);
-Refs.modalCloseBtn.addEventListener('click', closeModalReg)
-
 
 function googleOnClick(e) {
   e.preventDefault();
   googleAuthorization();
-}
-
-function openModalReg() {
-  Refs.modalReg.classList.add('modal-active');
-}
-
-function closeModalReg() {
-  Refs.modalReg.classList.remove('modal-active');
 }

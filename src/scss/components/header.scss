@@ -44,6 +44,37 @@
   }
 }
 
+// ul li:hover .sub-menu {
+//   display: block;
+// }
+
+.sub-menu__wrapper {
+  position: relative;
+}
+.sub-menu {
+  display: none;
+  position: absolute;
+  top: 18px;
+  left: 0;
+  background-color: #141414;
+  padding: 7px 4px 5px 10px;
+
+  &__item:not(:last-child) {
+    margin-bottom: 5px;
+  }
+
+  &__link {
+    &:hover,
+    &:focus {
+      color: rgb(233, 34, 34);
+    }
+  }
+}
+
+.menu .menu__item:hover .sub-menu {
+  display: block;
+}
+
 .left-nav-wrap {
   display: flex;
   justify-content: space-between;

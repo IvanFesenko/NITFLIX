@@ -1,10 +1,31 @@
 .footer {
-  height: 80px;
+  padding: 30px 0 30px 0;
+  border-top: 1px solid rgb(255, 0, 0);
+
+  font-size: 12px;
+  text-align: center;
+
+  @include for-size(tablet) {
+    font-size: 14px;
+  }
+
+  @include for-size(desktop) {
+    font-size: 16px;
+  }
+
+  @include for-size(hd-desktop) {
+    font-size: 18px;
+  }
 }
 
-.container.footer {
-  border-top: 1px solid rgb(255, 0, 0);
-}
-.copyright__link {
-  display: inline-block;
+.copyright {
+  margin-bottom: 15px;
+
+  &__link {
+    color: rgb(255, 0, 0);
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
 }

@@ -71,7 +71,7 @@ export async function basicAuthorization() {
   try {
     const auth = firebase.auth();
     await auth.signInWithEmailAndPassword(
-      Refs.inputPassword.value,
+      Refs.inputEmail.value,
       Refs.inputPassword.value,
     );
   } catch {

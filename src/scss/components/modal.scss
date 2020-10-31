@@ -7,7 +7,7 @@
   pointer-events: none;
   opacity: 0;
   overflow: auto;
-  transition: opacity 1000ms linear;
+  transition: opacity 300ms linear;
   z-index: 100;
   background-color: rgba(24, 41, 54, 0.95);
   visibility: hidden;
@@ -16,7 +16,6 @@
 .modal {
   position: absolute;
   width: 400px;
-  height: 500px;
   border-radius: 20px;
   top: 50%;
   left: 50%;
@@ -30,7 +29,7 @@
   background-color: #0f1c26;
   border: 2px solid #2f4f4f;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  transition: all 0.2s linear;
+  transition: all 300ms linear;
 
   &:hover,
   &:focus {
@@ -77,7 +76,6 @@
 
   &__text {
     font-size: 20px;
-    margin-bottom: 30px;
   }
 }
 
@@ -97,8 +95,8 @@
 
   &:hover,
   &:focus {
-    color: rgb(255, 255, 255);
-    box-shadow: 0 0 7px #fff;
+    color: #20bcc6;
+    box-shadow: 0 0 15px #20bcc6;
   }
 }
 
@@ -122,9 +120,28 @@
   }
 
   &__reg-input {
-    padding: 7px 10px;
+    padding: 10px 10px;
     margin-bottom: 15px;
     width: 90%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #2f4f4f;
+    color: #fff;
+    transition: all 0.2s linear;
+
+    &::placeholder {
+      visibility: hidden;
+    }
+
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid #20bcc6;
+    }
+
+    &:hover::placeholder,
+    &:focus::placeholder {
+      color: #20bcc6;
+    }
   }
 
   &__registration-password {
@@ -136,9 +153,33 @@
   }
 }
 
+.input-label {
+  position: relative;
+  width: 100%;
+
+  & span {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    color: #2f4f4f;
+    transition: all 0.2s linear;
+  }
+
+  &:hover span,
+  &:focus span {
+    color: #20bcc6;
+  }
+
+  &:focus span,
+  &:hover span {
+    top: -10px;
+    left: 0;
+    transform: scale(0.7);
+  }
+}
+
 .new_login__soc-label {
   font-family: 'Lato', sans-serif;
-  font-weight: bold;
   font-size: 16px;
   line-height: 1.5;
   padding: 0 20px;
@@ -172,53 +213,71 @@
   }
 }
 
+.auth-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 170px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal__text-login {
+  position: relative;
+  padding-bottom: 10px;
+  cursor: pointer;
+
+  &::before {
+    position: absolute;
+    content: '';
+    border: 1px solid transparent;
+    width: 85px;
+    bottom: 0;
+    left: -17px;
+  }
+}
+
+.modal__text-reg {
+  position: relative;
+  padding-bottom: 10px;
+  cursor: pointer;
+
+  &::before {
+    position: absolute;
+    content: '';
+    border: 1px solid transparent;
+    width: 120px;
+    bottom: 0;
+    left: -22px;
+  }
+}
+
+.is-activ-elem {
+  text-shadow: 0 0 15px #ff0303;
+}
+
+.is-activ-elem::before {
+  border: 1px solid #ff0000;
+}
+
 // BUTTON
+.form__btn {
+  background: transparent;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s linear;
+  border: 2px solid #2f4f4f;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
-// .form__btn {
-//   text-decoration: none;
-//   outline: none;
-//   display: inline-block;
-//   color: white;
-//   padding: 10px 15px;
-//   border: none;
-//   border-radius: 20px;
-//   font-family: 'Montserrat', sans-serif;
-//   text-transform: uppercase;
-//   letter-spacing: 2px;
-//   background-size: 200% auto;
-//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-//   transition: 0.5s;
-// }
-
-// .form__btn-in {
-//   background-image: linear-gradient(
-//     to right,
-//     #9eefe1 0%,
-//     #4830f0 51%,
-//     #9eefe1 100%
-//   );
-// }
-
-// .form__btn-up {
-//   background-image: linear-gradient(
-//     to right,
-//     #75c0b4 0%,
-//     #3f3197 51%,
-//     #61bdad 100%
-//   );
-// }
-
-// .form__btn:hover {
-//   background-position: right center;
-// }
-
-// .googleBtn {
-//   background-image: linear-gradient(
-//     to right,
-//     #37744e 0%,
-//     #e64ce6 51%,
-//     #4c6d2d 100%
-//   );
-// }
-
-// ===================
+  &:hover,
+  &:focus {
+    background: rgba(32, 188, 198, 0.1);
+    box-shadow: 0 0 15px #20bcc6;
+    border: 2px solid rgba(32, 188, 198, 1);
+  }
+}

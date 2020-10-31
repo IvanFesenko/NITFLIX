@@ -37,6 +37,10 @@ const MovieDetailsCard = ({
         <h3 class="movie-modal__about-title">About</h3>
         <p class="movie-modal__overview">${overview}</p>
         <button class="movie-modal__close" id="close-movie-modal"></button>
+        <div class="movie-trailers-wrp">
+        <h3 class="movie-trailers__title">Trailers</h3>
+            <ul class="movie-trailers-list"> <ul>
+        </div>
     </div>
 </div>`;
 };

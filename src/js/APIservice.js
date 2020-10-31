@@ -49,6 +49,12 @@ class APIService {
     return this.getData(this.temp);
   };
 
+  getTrailer = id => {
+    return this.getData(
+      `${this.baseURL}/movie/${id}/videos?api_key=${this.API_KEY}`,
+    );
+  };
+
   getNextPage = page => {
     return this.getData(this.temp + '&page=' + page);
   };

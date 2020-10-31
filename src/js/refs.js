@@ -5,6 +5,7 @@ export default {
   //START modal
   movieContainer: document.querySelector('.js-movie__container'),
   modalBlurContainer: document.querySelector('.js-blur-container'),
+
   //END modal
 
   // user Login and Registrations (Do not change key!)

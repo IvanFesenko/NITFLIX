@@ -5,7 +5,8 @@ export default function movieChangeBackground(idElement) {
     window.onload = function(){
         window.dispatchEvent(new Event("scroll"));
     }
-    window.addEventListener("scroll",function(){
+    
+    window.addEventListener("scroll", function(){
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollHeight = 500;  
     const percent = scrollTop/scrollHeight;

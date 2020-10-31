@@ -19,13 +19,49 @@
   color: #000000;
 
   &__overlay {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
 
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  &__trailers-btn {
+    width: 250px;
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 2px solid black;
+    cursor: pointer;
+    display: none;
+    transition: all 0.25s ease-out;
+
+    &:hover {
+      border: 2px solid red;
+    }
+
+    &:focus {
+      border: 2px solid red;
+    }
+
+    @include for-size(mobile) {
+      width: 100px;
+      font-size: 10px;
+    }
+
+    @include for-size(tablet) {
+      width: 200px;
+    }
+
+    @include for-size(desktop) {
+      width: 250px;
+    }
+
+    @include for-size(hd-desktop) {
+      width: 300px;
+    }
   }
 
   &__content {
@@ -48,7 +84,7 @@
 
     &::-webkit-scrollbar-thumb {
       border-radius: 10px;
-      background-color: red;
+      background-color: transparent;
     }
 
     &::-webkit-scrollbar-track {
@@ -134,7 +170,20 @@
     margin-bottom: 10px;
 
     @include for-size(desktop) {
-      font-size: 18px;
+      font-size: 12px;
+    }
+  }
+
+  &__title-block {
+    // text-align: left;
+    @include for-size(desktop) {
+      position: absolute;
+      top: 250px;
+      right: 30px;
+      max-width: 350px;
+    }
+    @include for-size(hd-desktop) {
+      max-width: 400px;
     }
   }
 
@@ -144,6 +193,7 @@
     text-align: right;
     z-index: 1;
     color: #ffffff;
+    margin-bottom: 15px;
 
     &::before {
       content: '';
@@ -168,6 +218,10 @@
 
   &__overview {
     font-size: 12px;
+
+    @include for-size(desktop) {
+      font-size: 16px;
+    }
   }
 }
 

@@ -139,14 +139,15 @@
   }
 
   &__title-block {
+    // text-align: left;
     @include for-size(desktop) {
       position: absolute;
       top: 250px;
       right: 30px;
-      width: 350px;
+      max-width: 350px;
     }
     @include for-size(hd-desktop) {
-      width: 400px;
+      max-width: 400px;
     }
   }
 

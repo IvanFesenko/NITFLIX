@@ -119,6 +119,7 @@ const getMovieDetails = id => {
       const scrollFunction = () => {
         if (movieContent.scrollTop > 20) {
           movieModalScrollUp.style = 'opacity:1';
+
           console.log('show');
         } else {
           movieModalScrollUp.style = 'opacity:0';

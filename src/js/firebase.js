@@ -146,6 +146,7 @@ export async function addMovieToList(movie, list) {
       const db = firebase.database();
       const userList = db.ref(`/userLists/${userID}/${list}`);
       const userMovies = db.ref(`/userMovies/${userID}/${list}`);
+
       userList.push(movie);
       userMovies.push(movie.id);
     }

@@ -6,6 +6,8 @@ const MovieDetailsCard = ({
   homepage,
   vote_average,
   genres,
+  release_date,
+  id,
   overview,
   vote_count,
 }) => {
@@ -18,6 +20,13 @@ const MovieDetailsCard = ({
     <div class="movie-modal__content animate-modal">
       <button class="movie-modal__close" id="close-movie-modal"></button>
       <div class="movie-modal__my-list">
+        <span id="dataAtr" 
+          data-id="${id}"
+          data-title="${title}"
+          data-poster_path="${poster_path !== null ? poster_path : noPosterImg}"
+          data-release_date="${release_date}"
+          data-vote_average="${vote_average}" 
+        ></span>  
         <button class="movie-modal__watched-btn" type="button">Watched</button>
         <button class="movie-modal__queue-btn" type="button">Queue</button>
       </div>

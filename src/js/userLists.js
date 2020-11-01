@@ -39,7 +39,11 @@ export async function deleteFromQueue(id) {
 }
 
 export async function movieListed(id) {
-  const InWatched = await listedInWatched(id);
-  const InQueue = await listedInQueue(id);
-  return { InWatched, InQueue };
+  try {
+    const InWatched = await listedInWatched(id);
+    const InQueue = await listedInQueue(id);
+    return { InWatched, InQueue };
+  } catch {
+    return { InWatched: false, InQueue: false };
+  }
 }

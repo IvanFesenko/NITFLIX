@@ -32,3 +32,22 @@ function googleOnClick(e) {
   googleAuthorization();
 }
 
+
+
+Refs.modalTextLogin.addEventListener('click', showElementLog);
+Refs.modalTextReg.addEventListener('click', showElementReg);
+
+function showElementReg() {
+  Refs.modalTextReg.classList.add('is-activ-elem');  
+  Refs.modalTextLogin.classList.remove('is-activ-elem');
+  Refs.logInBtn.classList.add('visually-hidden', 'is-hidden');
+  Refs.singUpBtn.classList.remove('visually-hidden', 'is-hidden');
+
+}
+
+function showElementLog() {
+  Refs.modalTextReg.classList.remove('is-activ-elem');  
+  Refs.modalTextLogin.classList.add('is-activ-elem');
+  Refs.logInBtn.classList.remove('visually-hidden', 'is-hidden');
+  Refs.singUpBtn.classList.add('visually-hidden', 'is-hidden');
+}

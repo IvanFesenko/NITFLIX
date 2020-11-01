@@ -85,12 +85,14 @@
 .right-nav-wrap {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .search-form {
   display: block;
-  margin-right: 30px;
-  position: relative;
+  //margin-right: 30px;
+  position: absolute;
+  right: 40px;
 
   &:hover .search-form__btn,
   &:focus .search-form__btn {
@@ -100,18 +102,27 @@
   &:hover .search-form__input,
   &:focus .search-form__input {
     border-bottom: 1px solid rgb(233, 34, 34);
+    width: 227px;
+    right: 267px;
   }
 
   &__input {
-    padding: 5px 30px 8px 15px;
+    padding: 5px 30px 5px 15px;
     background: transparent;
     border: none;
     border-bottom: 1px solid #fff;
     color: #fff;
     transition: all 0.2s linear;
+    border-radius: 15px;
+    background-color: #141414;
+    width: 0px;
+
+    @include for-size(tablet) {
+      width: 227px;
+    }
 
     &::placeholder {
-      color: #fff;
+      color: #5f5f5f;
       transition: all 0.2s linear;
     }
 
@@ -123,7 +134,7 @@
   &__btn {
     position: absolute;
     top: 8px;
-    right: 10px;
+    right: 14px;
     background: transparent;
     border: none;
     cursor: pointer;

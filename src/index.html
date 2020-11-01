@@ -9,64 +9,62 @@
   <body>
     <div class="js-blur-container">
       <header class="header">
-        <div class="container">
-          <nav class="navigation" id="navigation">
-            <div class="left-nav-wrap">
-              <a href="/" class="logo"
-                ><img src="./images/logo.png" alt="" class="logo__img" />
-              </a>
-              <ul class="menu">
-                <li class="menu__item">
-                  <a href="/" class="menu__link">Home</a>
-                </li>
-                <li class="menu__item">
-                  <a href="#" class="menu__link">TV series</a>
-                </li>
-                <li class="menu__item">
-                  <a href="#" class="menu__link">Films</a>
-                </li>
-                <li class="menu__item sub-menu__wrapper">
-                  <a href="#" class="menu__link sub-menu__wr">My list</a>
-                  <ul class="sub-menu">
-                    <li class="sub-menu__item">
-                      <a href="" class="sub-menu__link">Watched</a>
-                    </li>
-                    <li class="sub-menu__item">
-                      <a href="" class="sub-menu__link">Queue</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+        <nav class="navigation" id="navigation">
+          <div class="left-nav-wrap">
+            <a href="/" class="logo"
+              ><img src="./images/logo.png" alt="" class="logo__img" />
+            </a>
+            <ul class="menu">
+              <li class="menu__item">
+                <a href="/" class="menu__link">Home</a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__link">TV series</a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__link">Films</a>
+              </li>
+              <li class="menu__item sub-menu__wrapper">
+                <a href="#" class="menu__link sub-menu__wr">My list</a>
+                <ul class="sub-menu">
+                  <li class="sub-menu__item">
+                    <a href="" class="sub-menu__link">Watched</a>
+                  </li>
+                  <li class="sub-menu__item">
+                    <a href="" class="sub-menu__link">Queue</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="right-nav-wrap">
+            <form action="#" class="search-form">
+              <input
+                type="text"
+                class="search-form__input"
+                placeholder="Search..."
+              />
+              <button
+                type="submit"
+                class="search-form__btn js-search-form__btn"
+              >
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+            <div class="account-wrap">
+              <button class="account-btn" id="singIn" type="button">
+                <i class="far fa-user-circle" title="Sing In"></i>
+              </button>
+              <button
+                class="account-btn-out visually-hidden"
+                id="logOut"
+                type="button"
+              >
+                <i class="fas fa-sign-out-alt" title="Exit"></i>
+              </button>
             </div>
-            <div class="right-nav-wrap">
-              <form action="#" class="search-form">
-                <input
-                  type="text"
-                  class="search-form__input"
-                  placeholder="Films, genres, person"
-                />
-                <button
-                  type="submit"
-                  class="search-form__btn js-search-form__btn"
-                >
-                  <i class="fas fa-search"></i>
-                </button>
-              </form>
-              <div class="account-wrap">
-                <button class="account-btn" id="singIn" type="button">
-                  <i class="far fa-user-circle" title="Sing In"></i>
-                </button>
-                <button
-                  class="account-btn-out visually-hidden"
-                  id="logOut"
-                  type="button"
-                >
-                  <i class="fas fa-sign-out-alt" title="Exit"></i>
-                </button>
-              </div>
-            </div>
-          </nav>
-        </div>
+          </div>
+        </nav>
       </header>
 
       <main class="main">

@@ -24,6 +24,7 @@ const MovieDetailsCard = ({
       <button class="movie-modal__trailers-btn">Show Trailers</button>
 
       <div class="movie-modal__vote-block">
+        <p class="movie-modal__vote-text">Vote &#8260; Votes</p>
         <p class="movie-modal__vote-block-text">
           <span class="movie-modal__vote-block-averege">${vote_average}</span>
           &#8260;
@@ -31,9 +32,9 @@ const MovieDetailsCard = ({
         </p>
       </div>
       <div class="movie-modal__title-block">
-        <h2 class="movie-modal__original-title">${title}</h2>
+        <h2 class="movie-modal__title">${title}</h2>
         <a href="${homepage}" class="movie-modal__homepage" target="_blank"
-          >${homepage}</a
+          >HomePage</a
         >
         <h3 class="movie-modal__list-title">Genres:</h3>
         <ul class="movie-modal__genres">

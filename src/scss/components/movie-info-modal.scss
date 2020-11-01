@@ -71,7 +71,7 @@
     }
 
     @include for-size(mobile) {
-      max-height: 85%;
+      max-height: 70%;
       max-width: 90%;
     }
 
@@ -197,30 +197,38 @@
   // }
 
   &__scrollUp {
-    color: black;
+    color: red;
     opacity: 0;
     width: 42px;
     height: 42px;
     bottom: 26px;
-    left: 800px;
+    left: 97%;
     cursor: pointer;
     background-color: transparent;
     border: none;
-    padding-top: 1.8em;
+
     display: inline-block; /* or block */
     position: sticky;
-    border-color: black;
+    border-color: red;
     text-decoration: none;
     transition: all 0.3s ease-out;
 
+    @include for-size(tablet) {
+      left: 95%;
+    }
+
+    @include for-size(desktop) {
+      left: 97%;
+    }
+
     &:before {
       content: '▲';
-      font-size: 28px;
+      font-size: 30px;
       position: absolute;
       top: 0;
       left: 50%;
       margin-left: -50%;
-      border: solid 3px black;
+      border: solid 4px red;
       border-radius: 50%;
       width: 40px;
       height: 40px;

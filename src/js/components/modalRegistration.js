@@ -8,7 +8,7 @@ export function onOpenModalRegistration() {
     Refs.modalReg.classList.add('modal-active');  
     Refs.modalReg.classList.remove('visually-hidden');
     document.querySelector('html').style = 'overflow:hidden;';
-    window.addEventListener('keydown', onPressEsc);
+    window.addEventListener('keydown', onPressEsc);    
 }
   
 export function onCloseModalReg() {
@@ -29,3 +29,23 @@ function onClickBackDrop(event) {
         onCloseModalReg();
     }
 }
+
+Refs.inputEmail.addEventListener('focus', changeLabelInput);
+Refs.inputEmail.addEventListener('blur', changeLabelInput);
+Refs.inputPassword.addEventListener('focus', changeLabelInput);
+Refs.inputPassword.addEventListener('blur', changeLabelInput);
+
+function changeLabelInput(event) {  
+    if(!Refs.inputEmail.value.trim() && event.target.id === 'inputEmail') {
+        if(!Refs.inputEmail.value.trim()) {
+            Refs.inputEmail.value = '';
+        }        
+        document.querySelector('#email-span').classList.toggle('is-activ-focus-input');        
+    }  
+    
+    if(!Refs.inputPassword.value && event.target.id === 'inputPassword') {        
+        document.querySelector('#pass-span').classList.toggle('is-activ-focus-input');        
+    }  
+}
+
+

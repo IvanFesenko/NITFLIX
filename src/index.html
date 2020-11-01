@@ -89,7 +89,7 @@
         </footer>
       </div>
 
-      <div class="modal-wrap visually-hidden">
+      <div class="modal-wrap modal-active">
         <div class="modal">
           <div class="modal__content">
             <i class="fas fa-times modal-close-btn"></i>
@@ -102,7 +102,9 @@
             <div class="form">
               <form action="#" class="form__registration">
                 <div class="input-label">
-                  <span>Email address *</span>
+                  <span class="input-label-span" id="email-span"
+                    >Email address *</span
+                  >
                   <input
                     type="email"
                     id="inputEmail"
@@ -112,7 +114,9 @@
                   />
                 </div>
                 <div class="input-label">
-                  <span>Password *</span>
+                  <span class="input-label-span" id="pass-span"
+                    >Password *</span
+                  >
                   <input
                     type="password"
                     id="inputPassword"

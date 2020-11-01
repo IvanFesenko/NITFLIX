@@ -37,3 +37,9 @@ export async function deleteFromWatched(id) {
 export async function deleteFromQueue(id) {
   removeMovieFromList(id, LISTS.queue);
 }
+
+export async function movieListed(id) {
+  const InWatched = await listedInWatched(id);
+  const InQueue = await listedInQueue(id);
+  return { InWatched, InQueue };
+}

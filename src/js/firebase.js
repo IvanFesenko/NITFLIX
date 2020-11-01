@@ -157,7 +157,8 @@ export async function addMovieToList(movie, list) {
 
 export async function movieInList(id, list) {
   const userID = getCurrentUserID();
-  return movieAdded(userID, id, list);
+  const _id = String(id);
+  return movieAdded(userID, _id, list);
 }
 
 async function removeFromDB(path, key) {

@@ -10,7 +10,9 @@ export default {
   movieContainer: document.querySelector('.js-movie__container'),
   modalBlurContainer: document.querySelector('.js-blur-container'),
   modalReg: document.querySelector('.modal-wrap'),
-  modalCloseBtn: document.querySelector('.modal-close-btn'),
+  modalCloseBtn: document.querySelector('.modal-close-btn'),  
+  modalTextLogin: document.querySelector('.modal__text-login'),
+  modalTextReg: document.querySelector('.modal__text-reg'),
   //END modal
 
   // user Login and Registrations (Do not change key!)

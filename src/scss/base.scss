@@ -74,8 +74,8 @@ a:visited,
 a:hover,
 a:focus {
   text-decoration: none;
-  color: inherit;
-  display: block;
+  // color: inherit;
+  // display: block;
 }
 
 ul,
@@ -97,6 +97,7 @@ li {
 
 .container {
   margin: 0 auto;
+  padding: 0 15px 0 15px;
 
   @include for-size(mobile) {
     max-width: 767px;
@@ -110,7 +111,7 @@ li {
     width: 1280px;
   }
 
-  @include for-size(hd-desctop) {
+  @include for-size(hd-desktop) {
     width: 1680px;
   }
 }

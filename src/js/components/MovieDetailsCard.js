@@ -14,15 +14,16 @@ const MovieDetailsCard = ({
     .join(' ');
 
   return `<div class="movie-modal js-movie-modal">
-      <div class="movie-modal__overlay js-movie-modal__overlay"></div>
-      <div class="movie-modal__content">
+    <div class="movie-modal__overlay js-movie-modal__overlay"></div>
+    <div class="movie-modal__content animate-modal">
+      <div class="movie-modal__content-wrapper">
         <button class="movie-modal__close" id="close-movie-modal"></button>
         <div class="movie-modal__image-wrapper">
           <img src=${poster_path !== null ? poster_path : noPosterImg}
           alt=${title}$ class="movie-modal__image">
         </div>
         <button class="movie-modal__trailers-btn">Show Trailers</button>
-        
+
         <div class="movie-modal__vote-block">
           <p class="movie-modal__vote-block-text">
             <span class="movie-modal__vote-block-averege">${vote_average}</span>
@@ -48,7 +49,8 @@ const MovieDetailsCard = ({
         </div>
         <button class="movie-modal__scrollUp">go top</button>
       </div>
-    </div>`;
+    </div>
+  </div>`;
 };
 
 export default MovieDetailsCard;

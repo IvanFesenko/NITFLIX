@@ -3,7 +3,7 @@ import noPosterImg from '../../images/no-poster.jpg';
 const MoviesCards = results => {
   const markup = results.map(
     ({ title, id, poster_path, release_date, vote_average }) => {
-      return `<div class="movie__wrapper">
+      return `<div class="movie__wrapper" tabindex="0">
       
     <div class="movie__image-wrapper">
         <img src="${

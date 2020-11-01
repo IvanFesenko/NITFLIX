@@ -1,4 +1,26 @@
 .main-title {
   color: #ffffff;
-  font-size: 45px;
+  font-size: 30px;
+  text-align: center;
+  margin: 0 0 25px 0;
+
+  @include for-size(tablet) {
+    font-size: 45px;
+  }
+}
+
+.main {
+  padding-bottom: 20px;
+
+  // @include for-size(tablet) {
+  //   margin-bottom: 20px;
+  // }
+
+  @include for-size(desktop) {
+    margin-bottom: 25px;
+  }
+
+  @include for-size(hd-desktop) {
+    margin-bottom: 30px;
+  }
 }

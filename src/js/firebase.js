@@ -27,7 +27,7 @@ firebase.auth().onAuthStateChanged(fbUser => {
   }
 });
 
-async function addUserToDB(user) {
+async function addUserToDB({ user }) {
   try {
     const { uid, email } = user;
     const db = firebase.database();
@@ -60,7 +60,8 @@ export async function registration() {
       Refs.inputEmail.value,
       Refs.inputPassword.value,
     );
-    addUserToDB(user);
+    console.log(user);
+    await addUserToDB(user);
   } catch {
     alert('User with this e-mail already exists');
   }
@@ -70,7 +71,7 @@ export async function basicAuthorization() {
   try {
     const auth = firebase.auth();
     await auth.signInWithEmailAndPassword(
-      Refs.inputPassword.value,
+      Refs.inputEmail.value,
       Refs.inputPassword.value,
     );
   } catch {

@@ -29,6 +29,8 @@ const onSearch = e => {
           mainTitle.textContent = `Results for ${value}`;
         } else {
           mainTitle.textContent = `No results were found for ${value}. Try again!`;
+          const main = document.querySelector('.main');
+          main.style.height = '80vh';
         }
       });
   }

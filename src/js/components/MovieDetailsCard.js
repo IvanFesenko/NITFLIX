@@ -17,6 +17,10 @@ const MovieDetailsCard = ({
   <div class="movie-modal__overlay js-movie-modal__overlay">
     <div class="movie-modal__content animate-modal">
       <button class="movie-modal__close" id="close-movie-modal"></button>
+      <div class="movie-modal__my-list">
+        <button class="movie-modal__watched-btn" type="button">Watched</button>
+        <button class="movie-modal__queue-btn" type="button">Queue</button>
+      </div>
       <div class="movie-modal__image-wrapper">
         <img src=${poster_path !== null ? poster_path : noPosterImg}
         alt=${title}$ class="movie-modal__image">

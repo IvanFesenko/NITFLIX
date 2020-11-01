@@ -18,6 +18,7 @@ const MovieDetailsCard = ({
     <div class="movie-modal__content animate-modal">
       <div class="movie-modal__content-wrapper">
         <button class="movie-modal__close" id="close-movie-modal"></button>
+        
         <div class="movie-modal__image-wrapper">
           <img src=${poster_path !== null ? poster_path : noPosterImg}
           alt=${title}$ class="movie-modal__image">
@@ -47,7 +48,7 @@ const MovieDetailsCard = ({
           <h3 class="movie-trailers__title">Trailers</h3>
           <ul class="movie-trailers-list"></ul>
         </div>
-        <button class="movie-modal__scrollUp">go top</button>
+        <button class="movie-modal__scrollUp"></button>
       </div>
     </div>
   </div>`;

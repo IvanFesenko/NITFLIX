@@ -45,29 +45,16 @@ const getTrailers = id => {
         const movieModalTrailersBtn = document.querySelector(
           '.movie-modal__trailers-btn',
         );
-        const movieModalScrollUp = document.querySelector(
-          '.movie-modal__scrollUp',
-        );
-        const movieModalImageWrapper = document.querySelector(
-          '.movie-modal__image-wrapper',
-        );
+
+        const handleTrailersBtnClick = () => {
+          movieTrailers.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        };
 
         movieModalTrailersBtn.style = 'display:block';
         movieTrailersTitle.style = 'display:block';
         movieTrailers.insertAdjacentHTML('beforeend', trailers);
 
-        const handleTrailersBtnClick = () => {
-          movieTrailers.scrollIntoView({ block: 'start', behavior: 'smooth' });
-        };
-        const handleScrollUpBtnClick = () => {
-          movieModalImageWrapper.scrollIntoView({
-            block: 'start',
-            behavior: 'smooth',
-          });
-        };
-
         movieModalTrailersBtn.addEventListener('click', handleTrailersBtnClick);
-        movieModalScrollUp.addEventListener('click', handleScrollUpBtnClick);
       }
     });
 };
@@ -82,8 +69,31 @@ const getMovieDetails = id => {
       res.poster_path = apiService.makeImagePath(res.poster_path, size);
       renderMarkup(res, MovieDetailsCard, refs.body);
 
-      document.querySelector('.js-movie-modal').classList.add('is-open');
+      const modal = document.querySelector('.js-movie-modal');
+      const movieContent = modal.querySelector('.movie-modal__content');
+      const movieModalScrollUp = document.querySelector(
+        '.movie-modal__scrollUp',
+      );
 
+      const handleScrollUpBtnClick = () => {
+        movieContent.scrollTop = 0;
+      };
+
+      modal.classList.add('is-open');
+      console.log(movieContent);
+
+      const scrollFunction = () => {
+        if (movieContent.scrollTop > 20) {
+          movieModalScrollUp.style = 'opacity:1';
+          console.log('show');
+        } else {
+          movieModalScrollUp.style = 'opacity:0';
+          console.log('hide');
+        }
+      };
+
+      movieContent.onscroll = () => scrollFunction();
+      movieModalScrollUp.addEventListener('click', handleScrollUpBtnClick);
       addRefsForModal();
       addBackgroundForModal(res.backdrop_path);
     });

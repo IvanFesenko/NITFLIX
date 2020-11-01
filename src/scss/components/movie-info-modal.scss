@@ -225,8 +225,18 @@
   }
 
   &__scrollUp {
-    position: fixed;
-    bottom: 0;
+    position: sticky;
+    border: none;
+    height: 48px;
+    width: 48px;
+    bottom: 26px;
+    left: 800px;
+    opacity: 0;
+    transition: opacity 0.25s ease-out;
+    z-index: 5;
+    cursor: pointer;
+    background: transparent center no-repeat;
+    background-image: url('../images/svg/angle-up-circle.svg');
   }
 }
 

@@ -147,7 +147,6 @@ export async function addMovieToList(movie, list) {
       const userList = db.ref(`/userLists/${userID}/${list}`);
       const userMovies = db.ref(`/userMovies/${userID}/${list}`);
       const key = (await userMovies.push(movie.id)).key;
-      // userList.push(movie);
       userList.child(key).set(movie);
     }
   } catch {

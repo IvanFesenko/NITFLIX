@@ -1,3 +1,24 @@
+.animate-modal {
+  animation: animate-modal 1s;
+}
+
+@keyframes animate-modal {
+  0% {
+    transform: scale(0.1, 0.1);
+  }
+  // 50% {
+  //   transform: scale(0.5, 0.5);
+  // }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.movie-modal.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
 .movie-modal {
   position: fixed;
   top: 0;
@@ -5,10 +26,6 @@
 
   width: 100vw;
   height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   pointer-events: none;
 
@@ -22,51 +39,17 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.3);
-  }
 
-  &__trailers-btn {
-    width: 250px;
-    padding: 10px;
-    text-transform: uppercase;
-    background-color: transparent;
-    border: 2px solid black;
-    cursor: pointer;
-    display: none;
-    transition: all 0.25s ease-out;
-
-    &:hover {
-      border: 2px solid red;
-    }
-
-    &:focus {
-      border: 2px solid red;
-    }
-
-    @include for-size(mobile) {
-      width: 100px;
-      font-size: 10px;
-    }
-
-    @include for-size(tablet) {
-      width: 200px;
-    }
-
-    @include for-size(desktop) {
-      width: 250px;
-    }
-
-    @include for-size(hd-desktop) {
-      width: 300px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__content {
-    position: absolute;
     background-color: #fff;
-
-    max-width: 280px;
-
     border-radius: 20px;
+
+    padding: 25px;
 
     overflow: hidden;
     overflow-y: scroll;
@@ -87,216 +70,315 @@
 
     @include for-size(mobile) {
       max-height: 66%;
+      max-width: 90%;
     }
 
     @include for-size(tablet) {
-      max-width: 400px;
-      max-height: 60%;
-    }
-
-    @media screen and (min-width: 400px) and (max-width: 767px) {
-      max-width: 500px;
-    }
-
-    @include for-size(desktop) {
-      max-width: 700px;
-      max-height: 80%;
-    }
-
-    @include for-size(hd-desktop) {
-      max-width: 800px;
-    }
-  }
-
-  &__content-wrapper {
-    position: relative;
-    padding: 25px;
-  }
-
-  &__close {
-    position: sticky;
-    top: 26px;
-    left: 800px;
-    background-color: transparent;
-
-    outline: none;
-    border: none;
-
-    width: 48px;
-    height: 48px;
-
-    background-image: url('../images/svg/icon-close.svg');
-    background-position: center;
-    background-size: 60%;
-    background-repeat: no-repeat;
-
-    cursor: pointer;
-  }
-
-  &__image {
-    width: 100px;
-    margin-bottom: 15px;
-
-    @include for-size(tablet) {
-      width: 200px;
-    }
-
-    @include for-size(desktop) {
-      width: 250px;
-    }
-
-    @include for-size(hd-desktop) {
-      width: 300px;
-    }
-  }
-
-  &__original-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-
-    @include for-size(desktop) {
-      font-size: 40px;
-    }
-
-    @include for-size(hd-desktop) {
-      font-size: 50px;
-    }
-  }
-
-  &__homepage {
-    font-size: 10px;
-    text-decoration: underline;
-    margin-bottom: 10px;
-
-    @include for-size(desktop) {
-      font-size: 12px;
-    }
-  }
-
-  &__title-block {
-    @include for-size(desktop) {
-      position: absolute;
-      top: 250px;
-      left: 290px;
-      max-width: 350px;
-    }
-    @include for-size(hd-desktop) {
-      left: 350px;
-      max-width: 400px;
-    }
-  }
-
-  &__vote-block {
-    position: relative;
-    margin-bottom: 10px;
-    text-align: right;
-    z-index: 1;
-    color: #ffffff;
-    margin-bottom: 15px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      right: -35px;
-      top: -50%;
-
-      transform: skewX(-25deg);
-
-      display: block;
-      width: 120px;
-      height: 40px;
-      background-color: red;
-      z-index: -1;
-    }
-  }
-
-  &__genres {
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-
-  &__overview {
-    font-size: 12px;
-    margin-bottom: 15px;
-
-    @include for-size(desktop) {
-      font-size: 16px;
+      max-height: 70%;
+      max-width: 70%;
     }
   }
 }
 
-.movie-modal.is-open {
-  opacity: 1;
-  pointer-events: initial;
-}
+// .movie-modal {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
 
-.js-blur-on {
-  filter: blur(5px);
-}
+//   width: 100vw;
+//   height: 100vh;
 
-.movie-trailers-list__item-name {
-  text-align: center;
-}
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
 
-.movie-trailers-list__item:not(:last-child) {
-  margin-bottom: 15px;
+//   pointer-events: none;
 
-  @include for-size(desktop) {
-    margin-bottom: 25px;
-  }
+//   opacity: 0;
+//   transition: opacity 1000ms linear;
+//   z-index: 10;
 
-  @include for-size(hd-desktop) {
-    margin-bottom: 30px;
-  }
-}
+//   color: #000000;
 
-.movie-trailers {
-  &__title {
-    display: none;
-    margin-bottom: 8px;
-  }
+//   &__overlay {
+//     width: 100vw;
+//     height: 100vh;
+//     background-color: rgba(255, 255, 255, 0.3);
+//   }
 
-  &-list__item {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 8px;
+//   &__trailers-btn {
+//     width: 250px;
+//     padding: 10px;
+//     text-transform: uppercase;
+//     background-color: transparent;
+//     border: 2px solid black;
+//     cursor: pointer;
+//     display: none;
+//     transition: all 0.25s ease-out;
 
-    &-name {
-      margin-bottom: 8px;
-    }
-    &-trailer {
-      margin: 0 auto;
-      @include for-size(mobile) {
-        width: 232px;
-        height: 160px;
-      }
+//     &:hover {
+//       border: 2px solid red;
+//     }
 
-      @include for-size(tablet) {
-        width: 340px;
-        height: 234px;
-      }
+//     &:focus {
+//       border: 2px solid red;
+//     }
 
-      @include for-size(desktop) {
-        width: 480px;
-        height: 332px;
-      }
-    }
-  }
-}
+//     @include for-size(mobile) {
+//       width: 100px;
+//       font-size: 10px;
+//     }
 
-.animate-modal {
-  animation: animate-modal 1s;
-}
+//     @include for-size(tablet) {
+//       width: 200px;
+//     }
 
-@keyframes animate-modal {
-  0% {
-    transform: scale(0.1, 0.1);
-  }
-  // 50% {
-  //   transform: scale(0.5, 0.5);
-  // }
-  100% {
-    transform: scale(1, 1);
-  }
-}
+//     @include for-size(desktop) {
+//       width: 250px;
+//     }
+
+//     @include for-size(hd-desktop) {
+//       width: 300px;
+//     }
+//   }
+
+//   &__content {
+//     position: absolute;
+//     background-color: #fff;
+
+//     max-width: 280px;
+
+//     border-radius: 20px;
+
+//     overflow: hidden;
+//     overflow-y: scroll;
+
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//       background-color: transparent;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       border-radius: 10px;
+//       background-color: transparent;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//     }
+
+//     @include for-size(mobile) {
+//       max-height: 66%;
+//     }
+
+//     @include for-size(tablet) {
+//       max-width: 400px;
+//       max-height: 60%;
+//     }
+
+//     @media screen and (min-width: 400px) and (max-width: 767px) {
+//       max-width: 500px;
+//     }
+
+//     @include for-size(desktop) {
+//       max-width: 700px;
+//       max-height: 80%;
+//     }
+
+//     @include for-size(hd-desktop) {
+//       max-width: 800px;
+//     }
+//   }
+
+//   // &__content-wrapper {
+//   //   position: relative;
+//   //   padding: 25px;
+//   // }
+
+//   &__close {
+//     position: sticky;
+//     top: 26px;
+//     left: 700px;
+//     background-color: transparent;
+
+//     outline: none;
+//     border: none;
+
+//     width: 48px;
+//     height: 48px;
+
+//     background-image: url('../images/svg/icon-close.svg');
+//     background-position: center;
+//     background-size: 60%;
+//     background-repeat: no-repeat;
+
+//     cursor: pointer;
+//   }
+
+//   &__image {
+//     width: 100px;
+//     margin-bottom: 15px;
+
+//     @include for-size(tablet) {
+//       width: 200px;
+//     }
+
+//     @include for-size(desktop) {
+//       width: 250px;
+//     }
+
+//     @include for-size(hd-desktop) {
+//       width: 300px;
+//     }
+//   }
+
+//   &__original-title {
+//     font-size: 20px;
+//     margin-bottom: 10px;
+
+//     @include for-size(desktop) {
+//       font-size: 40px;
+//     }
+
+//     @include for-size(hd-desktop) {
+//       font-size: 50px;
+//     }
+//   }
+
+//   &__homepage {
+//     font-size: 10px;
+//     text-decoration: underline;
+//     margin-bottom: 10px;
+
+//     @include for-size(desktop) {
+//       font-size: 12px;
+//     }
+//   }
+
+//   &__title-block {
+//     @include for-size(desktop) {
+//       position: absolute;
+//       top: 250px;
+//       left: 290px;
+//       max-width: 350px;
+//     }
+//     @include for-size(hd-desktop) {
+//       left: 350px;
+//       max-width: 400px;
+//     }
+//   }
+
+//   &__vote-block {
+//     position: relative;
+//     margin-bottom: 10px;
+//     text-align: right;
+//     z-index: 1;
+//     color: #ffffff;
+//     margin-bottom: 15px;
+
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       right: -35px;
+//       top: -50%;
+
+//       transform: skewX(-25deg);
+
+//       display: block;
+//       width: 120px;
+//       height: 40px;
+//       background-color: red;
+//       z-index: -1;
+//     }
+//   }
+
+//   &__genres {
+//     font-size: 12px;
+//     margin-bottom: 10px;
+//   }
+
+//   &__overview {
+//     font-size: 12px;
+//     margin-bottom: 15px;
+
+//     @include for-size(desktop) {
+//       font-size: 16px;
+//     }
+//   }
+// }
+
+// .movie-modal.is-open {
+//   opacity: 1;
+//   pointer-events: initial;
+// }
+
+// .blur-on {
+//   filter: blur(5px);
+// }
+
+// .movie-trailers-list__item-name {
+//   text-align: center;
+// }
+
+// .movie-trailers-list__item:not(:last-child) {
+//   margin-bottom: 15px;
+
+//   @include for-size(desktop) {
+//     margin-bottom: 25px;
+//   }
+
+//   @include for-size(hd-desktop) {
+//     margin-bottom: 30px;
+//   }
+// }
+
+// .movie-trailers {
+//   &__title {
+//     display: none;
+//     margin-bottom: 8px;
+//   }
+
+//   &-list__item {
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: column;
+//     margin-bottom: 8px;
+
+//     &-name {
+//       margin-bottom: 8px;
+//     }
+//     &-trailer {
+//       margin: 0 auto;
+//       @include for-size(mobile) {
+//         width: 232px;
+//         height: 160px;
+//       }
+
+//       @include for-size(tablet) {
+//         width: 340px;
+//         height: 234px;
+//       }
+
+//       @include for-size(desktop) {
+//         width: 480px;
+//         height: 332px;
+//       }
+//     }
+//   }
+// }
+
+// .animate-modal {
+//   animation: animate-modal 1s;
+// }
+
+// @keyframes animate-modal {
+//   0% {
+//     transform: scale(0.1, 0.1);
+//   }
+//   // 50% {
+//   //   transform: scale(0.5, 0.5);
+//   // }
+//   100% {
+//     transform: scale(1, 1);
+//   }
+// }

@@ -1,7 +1,7 @@
 .main-title {
-  color: #ffffff;
   font-size: 30px;
-  text-align: center;
+  text-align: left;
+  // text-align: right;
   margin: 0 0 25px 0;
 
   @include for-size(tablet) {

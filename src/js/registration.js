@@ -32,8 +32,6 @@ function googleOnClick(e) {
   googleAuthorization();
 }
 
-
-
 Refs.modalTextLogin.addEventListener('click', showElementLog);
 Refs.modalTextReg.addEventListener('click', showElementReg);
 

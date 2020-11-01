@@ -1,4 +1,10 @@
-import { LISTS, getMoviesList, addMovieToList, movieInList } from './firebase';
+import {
+  LISTS,
+  getMoviesList,
+  addMovieToList,
+  movieInList,
+  removeMovieFromList,
+} from './firebase';
 
 export function addMovieToWatched(movie) {
   if (typeof movie === 'object') addMovieToList(movie, LISTS.watched);
@@ -22,4 +28,18 @@ export async function listedInWatched(id) {
 
 export async function listedInQueue(id) {
   return await movieInList(id, LISTS.queue);
+}
+
+export async function deleteFromWatched(id) {
+  removeMovieFromList(id, LISTS.watched);
+}
+
+export async function deleteFromQueue(id) {
+  removeMovieFromList(id, LISTS.queue);
+}
+
+export async function movieListed(id) {
+  const InWatched = await listedInWatched(id);
+  const InQueue = await listedInQueue(id);
+  return { InWatched, InQueue };
 }

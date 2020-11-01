@@ -10,11 +10,12 @@ const MovieDetailsCard = ({
   id,
   overview,
   vote_count,
+  InWatched,
+  InQueue,
 }) => {
   const genresMarkup = genres
     .map(({ name }) => `<li class="movie-modal__genres-item">${name}</li>`)
     .join(' ');
-
   return `<div class="movie-modal js-movie-modal">
   <div class="movie-modal__overlay js-movie-modal__overlay">
     <div class="movie-modal__content animate-modal">
@@ -27,8 +28,12 @@ const MovieDetailsCard = ({
           data-release_date="${release_date}"
           data-vote_average="${vote_average}" 
         ></span>  
-        <button class="movie-modal__watched-btn" type="button">Watched</button>
-        <button class="movie-modal__queue-btn" type="button">Queue</button>
+        <button class="movie-modal__watched-btn" data-active="${InWatched}" type="button">${
+    InWatched ? 'Delete from watched' : 'Add to watched'
+  }</button>
+        <button class="movie-modal__queue-btn" data-active="${InQueue}" type="button">${
+    InQueue ? 'Delete from queue' : 'Add to queue'
+  }</button>
       </div>
       <div class="movie-modal__image-wrapper">
         <img src=${poster_path !== null ? poster_path : noPosterImg}

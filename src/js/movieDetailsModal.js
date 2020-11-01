@@ -5,6 +5,7 @@ import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
 import movieChangeBackground from './components/header/MovieChangeBackground';
 import { addMovieToWatched, addMovieToQueue } from './userLists';
+import debounce from 'lodash-es/debounce';
 
 movieChangeBackground('navigation');
 
@@ -127,7 +128,7 @@ const getMovieDetails = id => {
         }
       };
 
-      movieContent.addEventListener('scroll', scrollFunction);
+      movieContent.addEventListener('scroll', debounce(scrollFunction, 150));
       movieModalScrollUp.addEventListener('click', handleScrollUpBtnClick);
       addRefsForModal();
       addBackgroundForModal(res.backdrop_path);

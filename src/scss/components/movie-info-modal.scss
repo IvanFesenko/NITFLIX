@@ -72,13 +72,13 @@
     }
 
     @include for-size(mobile) {
-      max-height: 70%;
+      max-height: 78%;
       max-width: 90%;
     }
 
     @include for-size(tablet) {
       max-height: 70%;
-      max-width: 70%;
+      max-width: 60%;
     }
   }
 
@@ -295,11 +295,14 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-around;
+      align-self: flex-end;
     }
 
     @include for-size(tablet) {
       flex-direction: row;
+      flex-wrap: wrap;
       justify-content: space-around;
+      align-self: flex-end;
     }
   }
 
@@ -308,10 +311,21 @@
     flex-direction: column;
     align-items: center;
     max-width: 280px;
-    margin-bottom: 8px;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
 
     @media screen and (min-width: 400px) and (max-width: 767px) {
       max-width: 260px;
+    }
+
+    @include for-size(tablet) {
+      max-width: 240px;
+    }
+
+    @include for-size(desktop) {
+      max-width: 320px;
     }
 
     &-name {
@@ -327,13 +341,15 @@
       }
 
       @include for-size(tablet) {
-        width: 340px;
-        height: 234px;
+        width: 230px;
+
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
       }
 
       @include for-size(desktop) {
-        width: 480px;
-        height: 332px;
+        width: 300px;
       }
     }
   }

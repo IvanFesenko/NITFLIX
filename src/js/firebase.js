@@ -158,3 +158,27 @@ export async function movieInList(id, list) {
   const userID = getCurrentUserID();
   return movieAdded(userID, id, list);
 }
+
+async function removeFromDB(path, key) {
+  const db = firebase.database();
+  await db.ref(`${path}/${key}`).remove();
+}
+
+async function findMovieKey(id, list) {
+  const userID = getCurrentUserID();
+  const db = firebase.database();
+  const userList = db.ref(`/userLists/${userID}/${list}`);
+  const userMovies = db.ref(`/userMovies/${userID}/${list}`);
+  const data1 = await userList.once('value');
+  const data2 = await userMovies.once('value');
+  const dataUserList = data1.val();
+  const dataUserMovies = data2.val();
+}
+
+async function removeMovieFromList(movieID, list) {
+  const userID = getCurrentUserID();
+  const db = firebase.database();
+  const userList = db.ref(`/${ref}/${userID}/${path}`);
+  const dataSnapshot = await userList.once('value');
+  const data = dataSnapshot.val();
+}

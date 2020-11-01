@@ -5,6 +5,7 @@ class APIService {
     this.API_KEY = '8978731d3453660c119868bf0fe3e32f';
     this.baseURL = 'https://api.themoviedb.org/3';
     this.imageBaseURL = 'https://image.tmdb.org/t/p';
+    this.page = 1;
     this.logoSizes = ['w45', 'w92', 'w154', 'w185', 'w300', 'w500', 'original'];
     this.posterSizes = [
       'w92',
@@ -36,7 +37,9 @@ class APIService {
   };
 
   getTrending = () =>
-    this.getData(`${this.baseURL}/trending/movie/day?api_key=${this.API_KEY}`);
+    this.getData(
+      `${this.baseURL}/trending/movie/day?api_key=${this.API_KEY}&page=${this.page}`,
+    );
 
   getMovieInfo = id =>
     this.getData(
@@ -44,7 +47,7 @@ class APIService {
     );
 
   getSearchResult = query => {
-    this.temp = `${this.baseURL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=1&include_adult=true&query=${query}`;
+    this.temp = `${this.baseURL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${this.page}&include_adult=true&query=${query}`;
 
     return this.getData(this.temp);
   };

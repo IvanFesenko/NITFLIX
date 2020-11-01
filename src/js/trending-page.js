@@ -9,7 +9,10 @@ function generateTrendingList() {
 
   apiService
     .getTrending()
-    .then(({ data }) => data.results)
+    .then(({ data }) => {
+      console.log(data);
+      return data.results;
+    })
     .then(res => {
       res = res.map(item => {
         item.poster_path = apiService.makeImagePath(item.poster_path, size);

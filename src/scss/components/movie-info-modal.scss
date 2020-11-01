@@ -171,7 +171,7 @@
     display: inline-block;
   }
 
-  &__title-block {
+  &__overview {
     margin-bottom: 15px;
   }
 
@@ -184,6 +184,7 @@
     display: inline-block;
     max-width: 260px;
     font-size: 12px;
+    margin-bottom: 15px;
   }
 
   &__genres-title {
@@ -199,8 +200,12 @@
     font-style: italic;
   }
 
-  &____about-title {
-    margin: 0 0 5px 0;
+  &__about-title {
+    margin-bottom: 5px;
+  }
+
+  &__about-text {
+    font-size: 12px;
   }
 }
 

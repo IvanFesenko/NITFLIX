@@ -35,7 +35,7 @@ const MovieDetailsCard = ({
           <span class="movie-modal__vote-block-count">${vote_count}</span>
         </p>
       </div>
-      <div class="movie-modal__title-block">
+      <div class="movie-modal__overview">
         <h2 class="movie-modal__title">${title}</h2>
         <a href="${homepage}" class="movie-modal__homepage" target="_blank"
           >${homepage}</a
@@ -46,9 +46,9 @@ const MovieDetailsCard = ({
             ${genresMarkup}
           </ul>
         </div>
-        <div class="movie-modal__overview">
+        <div class="movie-modal__about">
           <h3 class="movie-modal__about-title">About</h3>
-          <p class="movie-modal__about">${overview}</p>
+          <p class="movie-modal__about-text">${overview}</p>
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import MovieDetailsCard from './components/MovieDetailsCard';
 import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
 import movieChangeBackground from './components/header/MovieChangeBackground';
+import { addMovieToWatched, addMovieToQueue } from './userLists';
 
 movieChangeBackground('navigation');
 
@@ -15,6 +16,37 @@ function addBackgroundForModal(url) {
   content.style.backgroundRepeat = 'no-repeat';
   content.style.backgroundSize = '100%';
 }
+
+//adds to user lists
+function onClickAddToWatched(e) {
+  e.preventDefault();
+  const dataAtr = document.querySelector('#dataAtr');
+  const {
+    id,
+    title,
+    poster_path,
+    release_date,
+    vote_average,
+  } = dataAtr.dataset;
+  const movie = { id, title, poster_path, release_date, vote_average };
+  addMovieToWatched(movie);
+}
+
+function onClickAddToQueueList(e) {
+  e.preventDefault();
+  const dataAtr = document.querySelector('#dataAtr');
+  const {
+    id,
+    title,
+    poster_path,
+    release_date,
+    vote_average,
+  } = dataAtr.dataset;
+  const movie = { id, title, poster_path, release_date, vote_average };
+  addMovieToQueue(movie);
+}
+
+//adds to user lists END
 
 const getTrailers = id => {
   return apiService
@@ -65,6 +97,7 @@ const getMovieDetails = id => {
     .getMovieInfo(id)
     .then(({ data }) => data)
     .then(res => {
+      console.log(res);
       res.backdrop_path = apiService.makeImagePath(res.backdrop_path, size);
       res.poster_path = apiService.makeImagePath(res.poster_path, size);
       renderMarkup(res, MovieDetailsCard, refs.body);
@@ -84,6 +117,12 @@ async function onOpenMovieModal(id) {
 function addRefsForModal() {
   const closeBtnRef = document.getElementById('close-movie-modal');
   const backdrop = document.querySelector('.js-movie-modal__overlay');
+  //Add to user list
+  const addToWatchedBtn = document.querySelector('.movie-modal__watched-btn');
+  const addToQueueBtn = document.querySelector('.movie-modal__queue-btn');
+  addToWatchedBtn.addEventListener('click', onClickAddToWatched);
+  addToQueueBtn.addEventListener('click', onClickAddToQueueList);
+  //Add to user list END
 
   backdrop.addEventListener('click', onClickOnBackDrop);
   closeBtnRef.addEventListener('click', handleCloseModal);
@@ -103,6 +142,12 @@ function removeEventListenerFromModal() {
     .removeEventListener('click', handleCloseModal);
   document.querySelector('click', onClickOnBackDrop);
   window.removeEventListener('keydown', onPressEsc);
+  //Add to user list
+  const addToWatchedBtn = document.querySelector('.movie-modal__watched-btn');
+  const addToQueueBtn = document.querySelector('.movie-modal__queue-btn');
+  addToWatchedBtn.removeEventListener('click', onClickAddToWatched);
+  addToQueueBtn.removeEventListener('click', onClickAddToQueueList);
+  //Add to user list END
 }
 
 function removeModalFromHtml() {

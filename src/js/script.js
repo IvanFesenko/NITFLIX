@@ -4,4 +4,5 @@ import './firebase';
 import './trending-page';
 import './MovieDetailsModal';
 import './search';
-import './components/modalRegistration'
+import './components/modalRegistration';
+import './components/header/menu';

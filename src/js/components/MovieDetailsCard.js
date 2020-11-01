@@ -38,14 +38,18 @@ const MovieDetailsCard = ({
       <div class="movie-modal__title-block">
         <h2 class="movie-modal__title">${title}</h2>
         <a href="${homepage}" class="movie-modal__homepage" target="_blank"
-          >HomePage</a
+          >${homepage}</a
         >
-        <h3 class="movie-modal__list-title">Genres:</h3>
-        <ul class="movie-modal__genres">
-          ${genresMarkup}
-        </ul>
-        <h3 class="movie-modal__about-title">About</h3>
-        <p class="movie-modal__overview">${overview}</p>
+        <div class="movie-modal__genres">
+          <h3 class="movie-modal__genres-title">Genres:</h3>
+          <ul class="movie-modal__genres-list">
+            ${genresMarkup}
+          </ul>
+        </div>
+        <div class="movie-modal__overview">
+          <h3 class="movie-modal__about-title">About</h3>
+          <p class="movie-modal__about">${overview}</p>
+        </div>
       </div>
 
       <div class="movie-trailers-wrp">

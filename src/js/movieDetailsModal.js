@@ -4,7 +4,15 @@ import MovieDetailsCard from './components/MovieDetailsCard';
 import renderMarkup from './renderMarkup';
 import screenSize from './services/screenSize';
 import movieChangeBackground from './components/header/MovieChangeBackground';
-import { addMovieToWatched, addMovieToQueue } from './userLists';
+import debounce from 'lodash-es/debounce';
+import {
+  addMovieToWatched,
+  addMovieToQueue,
+  movieListed,
+  deleteFromWatched,
+  deleteFromQueue,
+} from './userLists';
+
 
 movieChangeBackground('navigation');
 
@@ -20,6 +28,7 @@ function addBackgroundForModal(url) {
 //adds to user lists
 function onClickAddToWatched(e) {
   e.preventDefault();
+  const addToWatchedBtn = document.querySelector('.movie-modal__watched-btn');
   const dataAtr = document.querySelector('#dataAtr');
   const {
     id,
@@ -28,12 +37,21 @@ function onClickAddToWatched(e) {
     release_date,
     vote_average,
   } = dataAtr.dataset;
-  const movie = { id, title, poster_path, release_date, vote_average };
-  addMovieToWatched(movie);
+  if (addToWatchedBtn.dataset.active === 'true') {
+    deleteFromWatched(id);
+    addToWatchedBtn.textContent = 'Add to watched';
+    addToWatchedBtn.dataset.active = 'false';
+  } else if (addToWatchedBtn.dataset.active === 'false') {
+    const movie = { id, title, poster_path, release_date, vote_average };
+    addMovieToWatched(movie);
+    addToWatchedBtn.textContent = 'Delete from watched';
+    addToWatchedBtn.dataset.active = 'true';
+  }
 }
 
 function onClickAddToQueueList(e) {
   e.preventDefault();
+  const addToQueueBtn = document.querySelector('.movie-modal__queue-btn');
   const dataAtr = document.querySelector('#dataAtr');
   const {
     id,
@@ -42,8 +60,16 @@ function onClickAddToQueueList(e) {
     release_date,
     vote_average,
   } = dataAtr.dataset;
-  const movie = { id, title, poster_path, release_date, vote_average };
-  addMovieToQueue(movie);
+  if (addToQueueBtn.dataset.active === 'true') {
+    deleteFromQueue(id);
+    addToQueueBtn.textContent = 'Add to queue';
+    addToQueueBtn.dataset.active = 'false';
+  } else if (addToQueueBtn.dataset.active === 'false') {
+    const movie = { id, title, poster_path, release_date, vote_average };
+    addMovieToQueue(movie);
+    addToQueueBtn.textContent = 'Delete from queue';
+    addToQueueBtn.dataset.active = 'true';
+  }
 }
 
 //adds to user lists END
@@ -92,8 +118,9 @@ const getTrailers = id => {
     });
 };
 
-const getMovieDetails = id => {
+const getMovieDetails = (id, listed) => {
   const size = screenSize();
+
   return apiService
     .getMovieInfo(id)
     .then(({ data }) => data)
@@ -101,7 +128,8 @@ const getMovieDetails = id => {
       console.log(res);
       res.backdrop_path = apiService.makeImagePath(res.backdrop_path, size);
       res.poster_path = apiService.makeImagePath(res.poster_path, size);
-      renderMarkup(res, MovieDetailsCard, refs.body);
+      const _res = { ...res, ...listed };
+      renderMarkup(_res, MovieDetailsCard, refs.body);
 
       const modal = document.querySelector('.js-movie-modal');
       const movieContent = modal.querySelector('.movie-modal__content');
@@ -127,7 +155,7 @@ const getMovieDetails = id => {
         }
       };
 
-      movieContent.addEventListener('scroll', scrollFunction);
+      movieContent.addEventListener('scroll', debounce(scrollFunction, 150));
       movieModalScrollUp.addEventListener('click', handleScrollUpBtnClick);
       addRefsForModal();
       addBackgroundForModal(res.backdrop_path);
@@ -135,7 +163,8 @@ const getMovieDetails = id => {
 };
 
 async function onOpenMovieModal(id) {
-  await getMovieDetails(id);
+  const listed = await movieListed(id);
+  await getMovieDetails(id, listed);
   await getTrailers(id);
 }
 

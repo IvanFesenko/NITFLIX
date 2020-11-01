@@ -38,6 +38,7 @@ const getTrailers = id => {
           `;
           })
           .join(' ');
+
         const movieTrailers = document.querySelector('.movie-trailers-list');
         const movieTrailersTitle = document.querySelector(
           '.movie-trailers__title',
@@ -119,7 +120,7 @@ function onCloseMovieModal() {
   //remove modal from html
   removeModalFromHtml();
 
-  refs.modalBlurContainer.classList.remove('js-blur-on');
+  refs.modalBlurContainer.classList.remove('blur-on');
   document.querySelector('html').style = ' overflow-x: hidden;';
 }
 
@@ -137,7 +138,7 @@ function handleOpenModal(event) {
   const id = event.target.dataset.id;
   if (id) {
     onOpenMovieModal(id);
-    refs.modalBlurContainer.classList.add('js-blur-on');
+    refs.modalBlurContainer.classList.add('blur-on');
     document.querySelector('html').style = 'overflow:hidden';
   }
 }

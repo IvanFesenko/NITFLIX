@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 50px;
+  padding: 0 30px;
   position: fixed;
   left: 0px;
   top: 0px;
@@ -20,6 +20,9 @@
   z-index: 2;
   background: transparent;
   transition: all 0.2s linear;
+  @include for-size(tablet) {
+    padding: 0px 50px;
+  }
 }
 
 .logo {
@@ -59,12 +62,14 @@
   left: 0;
   background-color: #141414;
   padding: 7px 4px 5px 10px;
+  border-radius: 5px;
 
   &__item:not(:last-child) {
     margin-bottom: 5px;
   }
 
   &__link {
+    color: #fff;
     &:hover,
     &:focus {
       color: rgb(233, 34, 34);

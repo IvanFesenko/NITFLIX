@@ -1,3 +1,26 @@
+.animate-modal {
+  animation: animate-modal 1s;
+}
+
+@keyframes animate-modal {
+  0% {
+    transform: scale(0.1, 0.1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.blur-on {
+  filter: blur(5px);
+}
+
+.movie-modal.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
 .movie-modal {
   position: fixed;
   top: 0;
@@ -5,10 +28,6 @@
 
   width: 100vw;
   height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   pointer-events: none;
 
@@ -22,6 +41,84 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.3);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__content {
+    background-color: #fff;
+    border-radius: 20px;
+
+    padding: 15px;
+
+    overflow: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    @include for-size(mobile) {
+      max-height: 85%;
+      max-width: 90%;
+    }
+
+    @include for-size(tablet) {
+      max-height: 70%;
+      max-width: 70%;
+    }
+  }
+
+  &__close {
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    width: 48px;
+    height: 48px;
+
+    background-image: url('../images/svg/icon-close.svg');
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+  }
+
+  &__image-wrapper {
+    margin-bottom: 15px;
+  }
+
+  &__image {
+    width: 250px;
+
+    @media screen and (min-width: 400px) and (max-width: 767px) {
+      width: 200px;
+    }
+
+    @include for-size(tablet) {
+      width: 200px;
+    }
+
+    @include for-size(desktop) {
+      width: 250px;
+    }
+
+    @include for-size(hd-desktop) {
+      width: 300px;
+    }
   }
 
   &__trailers-btn {
@@ -33,6 +130,7 @@
     cursor: pointer;
     display: none;
     transition: all 0.25s ease-out;
+    margin-bottom: 15px;
 
     &:hover {
       border: 2px solid red;
@@ -60,213 +158,103 @@
     }
   }
 
-  &__content {
-    position: absolute;
-    background-color: #fff;
-
-    max-width: 280px;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-      width: 10px;
-      background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
-
-    @include for-size(mobile) {
-      max-height: 66%;
-    }
-
-    @include for-size(tablet) {
-      max-width: 400px;
-      max-height: 60%;
-    }
-
-    @media screen and (min-width: 400px) and (max-width: 767px) {
-      max-width: 500px;
-    }
-
-    @include for-size(desktop) {
-      max-width: 700px;
-      max-height: 80%;
-    }
-
-    @include for-size(hd-desktop) {
-      max-width: 800px;
-    }
-  }
-
-  &__content-wrapper {
-    position: relative;
-    padding: 25px;
-  }
-
-  &__close {
-    position: sticky;
-    top: 26px;
-    left: 800px;
-    background-color: transparent;
-
-    outline: none;
-    border: none;
-
-    width: 48px;
-    height: 48px;
-
-    background-image: url('../images/svg/icon-close.svg');
-    background-position: center;
-    background-size: 60%;
-    background-repeat: no-repeat;
-
-    cursor: pointer;
-  }
-
-  &__image {
-    width: 100px;
-    margin-bottom: 15px;
-
-    @include for-size(tablet) {
-      width: 200px;
-    }
-
-    @include for-size(desktop) {
-      width: 250px;
-    }
-
-    @include for-size(hd-desktop) {
-      width: 300px;
-    }
-  }
-
-  &__original-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-
-    @include for-size(desktop) {
-      font-size: 40px;
-    }
-
-    @include for-size(hd-desktop) {
-      font-size: 50px;
-    }
-  }
-
-  &__homepage {
-    font-size: 10px;
-    text-decoration: underline;
-    margin-bottom: 10px;
-
-    @include for-size(desktop) {
-      font-size: 12px;
-    }
-  }
-
-  &__title-block {
-    @include for-size(desktop) {
-      position: absolute;
-      top: 250px;
-      left: 290px;
-      max-width: 350px;
-    }
-    @include for-size(hd-desktop) {
-      left: 350px;
-      max-width: 400px;
-    }
-  }
-
   &__vote-block {
-    position: relative;
-    margin-bottom: 10px;
-    text-align: right;
-    z-index: 1;
-    color: #ffffff;
     margin-bottom: 15px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      right: -35px;
-      top: -50%;
-
-      transform: skewX(-25deg);
-
-      display: block;
-      width: 120px;
-      height: 40px;
-      background-color: red;
-      z-index: -1;
-    }
   }
 
-  &__genres {
-    font-size: 12px;
-    margin-bottom: 10px;
+  &__vote-text {
+    display: inline-block;
+    margin-right: 25px;
+  }
+
+  &__vote-block-text {
+    display: inline-block;
   }
 
   &__overview {
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  &__homepage {
+    display: inline-block;
+    max-width: 260px;
     font-size: 12px;
     margin-bottom: 15px;
-
-    @include for-size(desktop) {
-      font-size: 16px;
-    }
   }
-}
 
-.movie-modal.is-open {
-  opacity: 1;
-  pointer-events: initial;
-}
+  &__genres-title {
+    margin-bottom: 5px;
+  }
 
-.js-blur-on {
-  filter: blur(5px);
+  &__genres {
+    margin-bottom: 15px;
+  }
+
+  &__genres-list {
+    margin: 5px;
+    font-style: italic;
+  }
+
+  &__about-title {
+    margin-bottom: 5px;
+  }
+
+  &__about-text {
+    font-size: 12px;
+  }
 }
 
 .movie-trailers-list__item-name {
   text-align: center;
 }
 
-.movie-trailers-list__item:not(:last-child) {
-  margin-bottom: 15px;
-
-  @include for-size(desktop) {
-    margin-bottom: 25px;
-  }
-
-  @include for-size(hd-desktop) {
-    margin-bottom: 30px;
-  }
-}
-
 .movie-trailers {
+  margin: 0 auto;
   &__title {
     display: none;
     margin-bottom: 8px;
   }
 
+  &-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: 400px) and (max-width: 767px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    @include for-size(tablet) {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
   &-list__item {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    max-width: 280px;
     margin-bottom: 8px;
 
-    &-name {
-      margin-bottom: 8px;
+    @media screen and (min-width: 400px) and (max-width: 767px) {
+      max-width: 260px;
     }
+
+    &-name {
+      margin-bottom: 10px;
+    }
+
     &-trailer {
       margin: 0 auto;
+
       @include for-size(mobile) {
         width: 232px;
         height: 160px;
@@ -282,21 +270,5 @@
         height: 332px;
       }
     }
-  }
-}
-
-.animate-modal {
-  animation: animate-modal 1s;
-}
-
-@keyframes animate-modal {
-  0% {
-    transform: scale(0.1, 0.1);
-  }
-  // 50% {
-  //   transform: scale(0.5, 0.5);
-  // }
-  100% {
-    transform: scale(1, 1);
   }
 }

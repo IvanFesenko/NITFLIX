@@ -22,7 +22,21 @@
   margin-bottom: 15px;
 
   &__link {
+    font-size: 14px;
     color: rgb(255, 0, 0);
+    transition: color 0.2s linear;
+
+    @include for-size(tablet) {
+      font-size: 16px;
+    }
+
+    @include for-size(desktop) {
+      font-size: 18px;
+    }
+
+    @include for-size(hd-desktop) {
+      font-size: 20px;
+    }
 
     &:hover {
       color: #ffffff;

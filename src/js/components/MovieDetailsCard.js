@@ -50,13 +50,14 @@ const MovieDetailsCard = ({
           <h3 class="movie-modal__about-title">About</h3>
           <p class="movie-modal__about-text">${overview}</p>
         </div>
-        <button class="movie-modal__scrollUp"></button>
+        
       </div>
 
       <div class="movie-trailers-wrp">
         <h3 class="movie-trailers__title">Trailers</h3>
         <ul class="movie-trailers-list"></ul>
       </div>
+      <button class="movie-modal__scrollUp"></button>
     </div>
   </div>
 </div>`;

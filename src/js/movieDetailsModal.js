@@ -93,7 +93,7 @@ const getMovieDetails = id => {
         }
       };
 
-      movieContent.onscroll = () => scrollFunction();
+      movieContent.addEventListener('scroll', scrollFunction);
       movieModalScrollUp.addEventListener('click', handleScrollUpBtnClick);
       addRefsForModal();
       addBackgroundForModal(res.backdrop_path);

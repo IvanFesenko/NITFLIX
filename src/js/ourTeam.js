@@ -194,11 +194,14 @@ const ourTeam = `
 `
 
 document.querySelector('.development').addEventListener('click', onShowTeam);
+document.querySelector('.copyright__link').addEventListener('click', onShowTeam);
 
-function onShowTeam(e) {
-    e.preventDefault();
-    clearContainers();    
-    refs.mainTitle.innerHTML = 'Our Team';    
-    refs.cleanBoxWrp.innerHTML = ourTeam;     
+function onShowTeam(e) {  
+    e.preventDefault();      
+    if(!refs.cleanBoxWrp.children[0]) {      
+      clearContainers();    
+      refs.mainTitle.innerHTML = 'Our Team';    
+      refs.cleanBoxWrp.innerHTML = ourTeam;  
+    }
+    return 
 };
-

@@ -97,6 +97,10 @@ export function logOut() {
   firebase.auth().signOut();
 }
 
+export function currentUser() {
+  return firebase.auth().currentUser;
+}
+
 function getCurrentUserID() {
   return firebase.auth().currentUser.uid;
 }

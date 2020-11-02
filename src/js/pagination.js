@@ -7,6 +7,7 @@ import refs from './refs';
 
 const wrapper = document.querySelector('.pagination-wrapper');
 const pageButtonsHandler = e => {
+  e.preventDefault();
   if (e.target.classList.contains('pagination__page-btn')) {
     const currentPage = Number(e.target.value);
     apiService.getNextPage(currentPage).then(({ data }) => {

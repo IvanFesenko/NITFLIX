@@ -1,8 +1,7 @@
 import refs from '../refs';
 
 const clearMovieList = () => {
-  refs.movieContainer.innerHTML = '';
-  refs.cleanBoxWrp.innerHTML = '';
+  refs.movieContainer.innerHTML = ''; 
 };
 
 export default clearMovieList;

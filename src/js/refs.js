@@ -29,4 +29,7 @@ export default {
 
   searchForm: document.querySelector('.search-form'),
   searchFormInput: document.querySelector('.search-form__input'),
+
+  //pagination
+  paginationWrp: document.querySelector('.pagination-wrapper'),
 };

@@ -5,7 +5,8 @@ import MoviesCards from './components/MoviesCards';
 import clearMovieList from './services/clearMovieList';
 import refs from './refs';
 
-const wrapper = document.querySelector('.pagination-wrapper');
+const { paginationWrp, movieContainer } = refs;
+
 const pageButtonsHandler = e => {
   e.preventDefault();
   if (e.target.classList.contains('pagination__page-btn')) {
@@ -15,12 +16,16 @@ const pageButtonsHandler = e => {
     });
   }
 };
-wrapper.addEventListener('click', pageButtonsHandler);
+paginationWrp.addEventListener('click', pageButtonsHandler);
 
 export const pagination = (pages, page) => {
   const visibleButtons = 5;
-  wrapper.innerHTML = ``;
-
+  paginationWrp.innerHTML = ``;
+  if (pages === 1) {
+    paginationWrp.style = 'display:none';
+  } else {
+    paginationWrp.style = 'display:block';
+  }
   let maxLeft = page - Math.floor(visibleButtons / 2);
   let maxRight = page + Math.floor(visibleButtons / 2);
 
@@ -39,21 +44,21 @@ export const pagination = (pages, page) => {
   }
 
   for (let page = maxLeft; page <= maxRight; page++) {
-    wrapper.insertAdjacentHTML(
+    paginationWrp.insertAdjacentHTML(
       'beforeend',
       `<button value=${page} class="pagination__page-btn">${page}</button>`,
     );
   }
 
   if (page != 1) {
-    wrapper.insertAdjacentHTML(
+    paginationWrp.insertAdjacentHTML(
       'afterbegin',
       `<button value=${1} class="pagination__page-btn">&#171; First</button>`,
     );
   }
 
   if (page != pages) {
-    wrapper.insertAdjacentHTML(
+    paginationWrp.insertAdjacentHTML(
       'beforeend',
       `<button value=${pages} class="pagination__page-btn">Last &#187;</button>`,
     );
@@ -67,6 +72,6 @@ export const buildPage = (querySet, page, totalPages) => {
     item.poster_path = apiService.makeImagePath(item.poster_path, size);
     return item;
   });
-  renderMarkup(movieList, MoviesCards, refs.movieContainer);
+  renderMarkup(movieList, MoviesCards, movieContainer);
   pagination(totalPages, page);
 };

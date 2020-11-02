@@ -1,4 +1,4 @@
-import Refs from '../refs';
+import Refs from './refs';
 
 Refs.accInBtn.addEventListener('click', onOpenModalRegistration);
 Refs.modalCloseBtn.addEventListener('click', onCloseModalReg);

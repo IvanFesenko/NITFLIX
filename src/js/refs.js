@@ -33,3 +33,4 @@ export default {
   //pagination
   paginationWrp: document.querySelector('.pagination-wrapper'),
 };
+

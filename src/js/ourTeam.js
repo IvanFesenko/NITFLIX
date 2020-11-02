@@ -197,9 +197,9 @@ document.querySelector('.development').addEventListener('click', onShowTeam);
 
 function onShowTeam(e) {
     e.preventDefault();
-    clearMovieList();
-    refs.mainTitle.innerHTML = 'Our Team';
-    refs.movieContainer.classList.remove('grid-container');
-    refs.movieContainer.insertAdjacentHTML('beforeend', ourTeam);     
+    clearMovieList();    
+    refs.paginationWrp.style = 'display:none';
+    refs.mainTitle.innerHTML = 'Our Team';    
+    refs.cleanBoxWrp.innerHTML = ourTeam;     
 };
 

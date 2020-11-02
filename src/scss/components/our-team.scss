@@ -1,0 +1,141 @@
+.team-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 90%;
+  text-align: center;
+
+  &__block {
+    width: 350px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+  }
+}
+
+.inner-box {
+  position: relative;
+  padding: 40px 70px 28px 0px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    right: 0px;
+    top: 0px;
+    left: 70px;
+    bottom: 0px;
+    border-radius: 10px;
+    background-color: #0f1c26;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+    -webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -ms-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+    transition: all 600ms ease;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0px;
+    left: 70px;
+    bottom: 0px;
+    width: 0%;
+    border-radius: 10px;
+    -webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -ms-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+    transition: all 600ms ease;
+    background-image: linear-gradient(to bottom, #e50914 0%, #e70161 100%);
+  }
+
+  &:hover::after {
+    width: 81%;
+  }
+}
+
+.social-icons {
+  position: absolute;
+  right: 25px;
+  top: 100px;
+  z-index: 1;
+
+  & li {
+    margin-bottom: 20px;
+    border-radius: 50%;
+    padding: 3px;
+
+    &:hover i,
+    &:focus i {
+      //   color: rgb(22, 22, 22);
+      color: #141414;
+    }
+
+    & a {
+      color: #e40000;
+      font-size: 18px;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      transition: all 0.4s;
+    }
+
+    & i {
+      transition: all 0.2s linear;
+    }
+  }
+}
+
+.team__block:hover .lower-content__title,
+.team__block:hover .social-icons li a,
+.team__block:hover .lower-content__designation {
+  color: #ffffff;
+}
+
+.image {
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 35px rgba(0, 0, 0, 0.2);
+
+  &__img {
+    border-radius: 10px;
+    filter: grayscale(1);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transition: all 0.3s linear;
+  }
+}
+
+.team__block:hover .image__img {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+
+.lower-content {
+  position: relative;
+  text-align: left;
+  z-index: 1;
+  padding: 30px 15px 0px 110px;
+
+  &__title {
+    color: #bd0000;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3em;
+    transition: all 0.2s linear;
+    margin-bottom: 5px;
+  }
+
+  &__designation {
+    color: #777777;
+    font-size: 14px;
+    transition: all 0.2s linear;
+  }
+}

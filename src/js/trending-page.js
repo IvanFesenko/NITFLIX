@@ -4,104 +4,77 @@ import screenSize from './services/screenSize';
 import MoviesCards from './components/MoviesCards';
 import refs from './refs';
 
-function generateTrendingList() {
-  const size = screenSize();
+const pagination = (pages, page) => {
+  const wrapper = document.querySelector('.pagination-wrapper');
+  const visibleButtons = 5;
+  wrapper.innerHTML = ``;
 
-  apiService.getTrending().then(({ data }) => {
-    console.log(data);
+  let maxLeft = page - Math.floor(visibleButtons / 2);
+  let maxRight = page + Math.floor(visibleButtons / 2);
 
-    const state = {
-      querySet: data.results,
-      totalPages: data.total_pages,
-      page: 1,
-      perPage: 20,
-      visibleButtons: 5,
-    };
+  if (maxLeft < 1) {
+    maxLeft = 1;
+    maxRight = visibleButtons;
+  }
 
-    console.log(state);
+  if (maxRight > pages) {
+    maxLeft = pages - (visibleButtons - 1);
 
-    const pagination = (querySet, page, perPage) => {
-      const trimStart = (page - 1) * perPage;
-      const trimEnd = trimStart + perPage;
-      const trimmedData = querySet.slice(trimStart, trimEnd);
-      const pages = Math.round(querySet.length / perPage);
-      return {
-        querySet: trimmedData,
-        pages: pages,
-      };
-    };
+    if (maxLeft < 1) {
+      maxLeft = 1;
+    }
+    maxRight = pages;
+  }
 
-    const pageButtons = pages => {
-      const wrapper = document.querySelector('.pagination-wrapper');
+  for (let page = maxLeft; page <= maxRight; page++) {
+    wrapper.insertAdjacentHTML(
+      'beforeend',
+      `<button value=${page} class="pagination__page-btn">${page}</button>`,
+    );
+  }
 
-      wrapper.innerHTML = ``;
-      console.log('Pages:', pages);
+  if (page != 1) {
+    wrapper.insertAdjacentHTML(
+      'afterbegin',
+      `<button value=${1} class="pagination__page-btn">&#171; First</button>`,
+    );
+  }
 
-      let maxLeft = state.page - Math.floor(state.visibleButtons / 2);
-      let maxRight = state.page + Math.floor(state.visibleButtons / 2);
+  if (page != pages) {
+    wrapper.insertAdjacentHTML(
+      'beforeend',
+      `<button value=${pages} class="pagination__page-btn">Last &#187;</button>`,
+    );
+  }
 
-      if (maxLeft < 1) {
-        maxLeft = 1;
-        maxRight = state.visibleButtons;
-      }
-
-      if (maxRight > pages) {
-        maxLeft = pages - (state.visibleButtons - 1);
-
-        if (maxLeft < 1) {
-          maxLeft = 1;
-        }
-        maxRight = pages;
-      }
-
-      for (let page = maxLeft; page <= maxRight; page++) {
-        wrapper.innerHTML += `<button value=${page} class="pagination__page-btn">${page}</button>`;
-      }
-
-      if (state.page != 1) {
-        wrapper.innerHTML =
-          `<button value=${1} class="pagination__page-btn">&#171; First</button>` +
-          wrapper.innerHTML;
-      }
-
-      if (state.page != pages) {
-        wrapper.innerHTML += `<button value=${pages} class="pagination__page-btn">Last &#187;</button>`;
-      }
-
-      const pageButtons = wrapper.querySelectorAll('.pagination__page-btn');
-      pageButtons.forEach(btn =>
-        btn.addEventListener('click', e => {
-          const currentPage = e.target.value;
-          state.page = Number(currentPage);
-          apiService.setPage = state.page;
-          buildPage();
-        }),
-      );
-    };
-
-    const buildPage = () => {
-      const data = pagination(state.querySet, state.page, state.perPage);
-      const movieList = data.querySet.map(item => {
-        item.poster_path = apiService.makeImagePath(item.poster_path, size);
-        return item;
+  const pageButtonsHandler = e => {
+    if (e.target.classList.contains('pagination__page-btn')) {
+      const currentPage = Number(e.target.value);
+      apiService.getNextPage(currentPage).then(({ data }) => {
+        buildPage(data.results, data.page, data.total_pages);
       });
-      renderMarkup(movieList, MoviesCards, refs.movieContainer);
-      pageButtons(data.totalPages);
-    };
+    }
+  };
 
-    pagination(state.querySet, state.page, state.perPage);
-    pageButtons(state.totalPages);
-    buildPage();
+  wrapper.addEventListener('click', pageButtonsHandler);
+};
 
+const buildPage = (querySet, page, totalPages) => {
+  const size = screenSize();
+  const movieList = querySet.map(item => {
+    item.poster_path = apiService.makeImagePath(item.poster_path, size);
+    return item;
+  });
+  renderMarkup(movieList, MoviesCards, refs.movieContainer);
+  pagination(totalPages, page);
+};
+
+const generateTrendingList = () => {
+  apiService.getTrending().then(({ data }) => {
+    buildPage(data.results, data.page, data.total_pages);
+    pagination(data.total_pages, data.page);
     return data.results;
   });
-  // .then(res => {
-  //   res = res.map(item => {
-  //     item.poster_path = apiService.makeImagePath(item.poster_path, size);
-  //     return item;
-  //   });
-  //   renderMarkup(res, MoviesCards, refs.movieContainer);
-  // });
-}
+};
 
 generateTrendingList();

@@ -1,5 +1,5 @@
 import Refs from './refs';
-import { onCloseModalReg } from './components/modalRegistration';
+import { onCloseModalReg } from './modalRegistration';
 
 import {
   googleAuthorization,

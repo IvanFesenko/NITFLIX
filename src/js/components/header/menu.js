@@ -7,7 +7,13 @@ import { currentUser } from '../../firebase';
 
 import { getWatchedMovies, getQueuedMovies } from '../../userLists';
 
-const { myListRef, listWatchedRef, listQueueRef, mainTitle } = refs;
+const {
+  myListRef,
+  listWatchedRef,
+  listQueueRef,
+  mainTitle,
+  paginationWrp,
+} = refs;
 
 function onMyListClick(e) {
   e.preventDefault();
@@ -15,6 +21,7 @@ function onMyListClick(e) {
 
 function onWatchedClick(e) {
   e.preventDefault();
+
   if (!currentUser()) {
     onOpenModalRegistration();
   } else {
@@ -24,10 +31,13 @@ function onWatchedClick(e) {
       renderMarkup(res, MoviesCards, refs.movieContainer);
     });
   }
+
+
 }
 
 function onQueueClick(e) {
   e.preventDefault();
+
   if (!currentUser()) {
     onOpenModalRegistration();
   } else {
@@ -37,6 +47,7 @@ function onQueueClick(e) {
       renderMarkup(res, MoviesCards, refs.movieContainer);
     });
   }
+
 }
 
 myListRef.addEventListener('click', onMyListClick);

@@ -1,7 +1,13 @@
 import refs from './refs';
 import apiService from './APIservice';
 import { pagination, buildPage } from './pagination';
-const { searchForm, searchFormInput, movieContainer, mainTitle } = refs;
+const {
+  searchForm,
+  searchFormInput,
+  movieContainer,
+  mainTitle,
+  paginationWrp,
+} = refs;
 
 const onSearch = e => {
   e.preventDefault();
@@ -19,6 +25,7 @@ const onSearch = e => {
         mainTitle.textContent = `No results were found for ${value}. Try again!`;
         const main = document.querySelector('.main');
         main.style.height = '80vh';
+        paginationWrp.style = 'display:none';
       }
       return data.results;
     });

@@ -1,4 +1,5 @@
 .footer {
+  position: relative;
   padding: 30px 0 30px 0;
   border-top: 1px solid rgb(255, 0, 0);
 
@@ -41,5 +42,20 @@
     &:hover {
       color: #ffffff;
     }
+  }
+}
+
+.development {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  transition: color 0.2s linear;
+
+  &:hover,
+  &:focus {
+    color: #e40000;
   }
 }

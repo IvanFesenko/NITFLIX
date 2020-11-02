@@ -12,6 +12,16 @@
   }
 }
 
+@keyframes redline {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 .blur-on {
   filter: blur(5px);
 }
@@ -72,13 +82,17 @@
     }
 
     @include for-size(mobile) {
-      max-height: 70%;
       max-width: 90%;
+      max-height: 78%;
     }
 
     @include for-size(tablet) {
+      max-width: 65%;
       max-height: 70%;
-      max-width: 70%;
+    }
+
+    @include for-size(desktop) {
+      max-width: 45%;
     }
   }
 
@@ -98,32 +112,57 @@
     cursor: pointer;
   }
 
+  &__my-list {
+    margin-bottom: 15px;
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__top-block {
+    @include for-size(tablet) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   &__image-wrapper {
     margin-bottom: 15px;
+
+    @include for-size(tablet) {
+      margin-right: 30px;
+    }
   }
 
   &__image {
     width: 250px;
 
-    @media screen and (min-width: 400px) and (max-width: 767px) {
-      width: 200px;
-    }
+    // @media screen and (min-width: 400px) and (max-width: 767px) {
+    //   width: 270px;
+    // }
 
     @include for-size(tablet) {
-      width: 200px;
-    }
-
-    @include for-size(desktop) {
       width: 250px;
     }
 
-    @include for-size(hd-desktop) {
+    @include for-size(desktop) {
       width: 300px;
+    }
+
+    @include for-size(hd-desktop) {
+      width: 320px;
     }
   }
 
   &__trailers-btn {
-    width: 250px;
+    width: 100%;
     padding: 10px;
     text-transform: uppercase;
     background-color: transparent;
@@ -142,20 +181,20 @@
     }
 
     @include for-size(mobile) {
-      width: 100px;
+      max-width: 250px;
       font-size: 10px;
     }
 
     @include for-size(tablet) {
-      width: 200px;
-    }
-
-    @include for-size(desktop) {
       width: 250px;
     }
 
+    @include for-size(desktop) {
+      max-width: 250px;
+    }
+
     @include for-size(hd-desktop) {
-      width: 300px;
+      max-width: 300px;
     }
   }
 
@@ -179,6 +218,20 @@
   &__title {
     font-size: 25px;
     margin-bottom: 15px;
+
+    @include for-size(desktop) {
+      font-size: 40px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: rgb(212, 0, 0);
+      margin-top: 10px;
+      animation: redline 5s;
+    }
   }
 
   // &__scrollUp {
@@ -281,26 +334,48 @@
 
 .movie-trailers {
   margin: 0 auto;
+
   &__title {
     display: none;
     margin-bottom: 8px;
   }
 
   &-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-gap: 10px;
+    padding: 0 10px 0 0;
 
-    @media screen and (min-width: 400px) and (max-width: 767px) {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
+    @media (min-width: 520px) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     @include for-size(tablet) {
-      flex-direction: row;
-      justify-content: space-around;
+      grid-template-columns: repeat(2, 1fr);
     }
+
+    @include for-size(desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+
+    // @media screen and (min-width: 520px) and (max-width: 767px) {
+    //   flex-direction: row;
+    //   flex-wrap: wrap;
+    //   justify-content: flex-start;
+    //   align-items: flex-start;
+    // }
+
+    // @include for-size(tablet) {
+    //   flex-direction: row;
+    //   flex-wrap: wrap;
+    //   justify-content: flex-start;
+    //   align-items: flex-start;
+    // }
   }
 
   &-list__item {
@@ -308,10 +383,22 @@
     flex-direction: column;
     align-items: center;
     max-width: 280px;
-    margin-bottom: 8px;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+      margin-right: 30px;
+    }
 
     @media screen and (min-width: 400px) and (max-width: 767px) {
       max-width: 260px;
+    }
+
+    @include for-size(tablet) {
+      max-width: 230px;
+    }
+
+    @include for-size(desktop) {
+      max-width: 200px;
     }
 
     &-name {
@@ -322,18 +409,24 @@
       margin: 0 auto;
 
       @include for-size(mobile) {
-        width: 232px;
+        max-width: 232px;
         height: 160px;
       }
 
       @include for-size(tablet) {
-        width: 340px;
-        height: 234px;
+        max-width: 230px;
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
       }
 
       @include for-size(desktop) {
-        width: 480px;
-        height: 332px;
+        max-width: 200px;
+      }
+
+      @include for-size(hd-desktop) {
+        max-width: 230px;
       }
     }
   }

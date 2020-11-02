@@ -396,6 +396,10 @@
     justify-content: center;
     justify-items: center;
 
+    @include for-size(mobile) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     @media (min-width: 520px) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -404,7 +408,11 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @include for-size(desktop) {
+    @media (min-width: 1281px) and (max-width: 1440px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1441px) {
       grid-template-columns: repeat(3, 1fr);
     }
   }

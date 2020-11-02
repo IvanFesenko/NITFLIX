@@ -44,7 +44,6 @@ export async function movieListed(id) {
     if (!InWatched) InWatched = false;
     let InQueue = await listedInQueue(id);
     if (!InQueue) InQueue = false;
-    console.log(InWatched, InQueue);
     return { InWatched, InQueue };
   } catch {
     return { InWatched: false, InQueue: false };

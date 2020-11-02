@@ -13,6 +13,8 @@ const onSearch = e => {
         buildPage(data.results, data.page, data.total_pages);
         pagination(data.total_pages, data.page);
         mainTitle.textContent = `Results for ${value}`;
+        const main = document.querySelector('.main');
+        main.removeAttribute('style');
       } else {
         mainTitle.textContent = `No results were found for ${value}. Try again!`;
         const main = document.querySelector('.main');

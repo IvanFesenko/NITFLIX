@@ -84,13 +84,14 @@ const getTrailers = id => {
           .map(({ key, name }) => {
             return `
           <li class="movie-trailers-list__item">
-            <h4 class="movie-trailers-list__item-name">${name}</h4>
+            
             <iframe 
               class="movie-trailers-list__item-trailer""
               src="https://www.youtube.com/embed/${key}"
               frameborder="0"
               allowfullscreen>
             </iframe>
+            <h4 class="movie-trailers-list__item-name">${name}</h4>
           </li>
           `;
           })

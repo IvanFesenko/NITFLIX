@@ -78,7 +78,11 @@
 
     @include for-size(tablet) {
       max-height: 70%;
-      max-width: 60%;
+      max-width: 65%;
+    }
+
+    @include for-size(desktop) {
+      max-width: 45%;
     }
   }
 
@@ -98,27 +102,39 @@
     cursor: pointer;
   }
 
+  &__top-block {
+    @include for-size(tablet) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   &__image-wrapper {
     margin-bottom: 15px;
+
+    @include for-size(tablet) {
+      margin-right: 30px;
+    }
   }
 
   &__image {
     width: 250px;
 
     @media screen and (min-width: 400px) and (max-width: 767px) {
-      width: 200px;
+      width: 270px;
     }
 
     @include for-size(tablet) {
-      width: 200px;
-    }
-
-    @include for-size(desktop) {
       width: 250px;
     }
 
-    @include for-size(hd-desktop) {
+    @include for-size(desktop) {
       width: 300px;
+    }
+
+    @include for-size(hd-desktop) {
+      width: 320px;
     }
   }
 
@@ -281,28 +297,28 @@
 
 .movie-trailers {
   margin: 0 auto;
+
   &__title {
     display: none;
     margin-bottom: 8px;
   }
 
   &-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 80%;
+    display: grid;
+    grid-gap: 10px;
+    padding: 0 10px 0 0;
 
-    @media screen and (min-width: 400px) and (max-width: 767px) {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-self: flex-end;
+    @media (min-width: 520px) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     @include for-size(tablet) {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-self: flex-end;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include for-size(desktop) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -314,18 +330,11 @@
 
     &:not(:last-child) {
       margin-bottom: 20px;
+      margin-right: 20px;
     }
 
     @media screen and (min-width: 400px) and (max-width: 767px) {
       max-width: 260px;
-    }
-
-    @include for-size(tablet) {
-      max-width: 240px;
-    }
-
-    @include for-size(desktop) {
-      max-width: 320px;
     }
 
     &-name {
@@ -336,12 +345,12 @@
       margin: 0 auto;
 
       @include for-size(mobile) {
-        width: 232px;
+        max-width: 232px;
         height: 160px;
       }
 
       @include for-size(tablet) {
-        width: 230px;
+        max-width: 230px;
 
         &:not(:last-child) {
           margin-right: 20px;
@@ -349,7 +358,11 @@
       }
 
       @include for-size(desktop) {
-        width: 300px;
+        max-width: 300px;
+      }
+
+      @include for-size(hd-desktop) {
+        max-width: 300px;
       }
     }
   }

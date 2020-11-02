@@ -11,8 +11,8 @@ export const LISTS = {
 
 firebase.initializeApp({
   apiKey: 'AIzaSyDuvnT4jggcdrgUHF7AnWYw3zZH5CnwRSA',
-  authDomain: 'nitflix-992cf.firebaseapp.com',
-  //authDomain: 'nitflix.fun',
+  // authDomain: 'nitflix-992cf.firebaseapp.com',
+  authDomain: 'nitflix.fun',
   databaseURL: 'https://nitflix-992cf.firebaseio.com',
   projectId: 'nitflix-992cf',
   storageBucket: 'nitflix-992cf.appspot.com',

@@ -132,10 +132,6 @@
     text-shadow: 1px 1px 1px #000000;
     cursor: pointer;
 
-    // &:not(:last-child) {
-    //   margin-right: 15px;
-    // }
-
     &:hover {
       color: #000000;
       text-shadow: 1px 1px 1px #ffffff;
@@ -165,12 +161,12 @@
     //   width: 270px;
     // }
 
-    @include for-size(tablet) {
+    @media (min-width: 767px) and (max-width: 1279px) {
       width: 250px;
     }
 
     @include for-size(desktop) {
-      width: 300px;
+      width: 250px;
     }
 
     @include for-size(hd-desktop) {
@@ -211,7 +207,7 @@
       font-size: 10px;
     }
 
-    @include for-size(tablet) {
+    @media (min-width: 767px) and (max-width: 1279px) {
       width: 250px;
     }
 

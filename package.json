@@ -45,7 +45,7 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.2.0",
+    "webpack-merge": "^5.3.0",
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
@@ -56,6 +56,6 @@
     "handlebars": "^4.7.6",
     "lodash-es": "^4.17.15",
     "normalize.css": "^8.0.1",
-    "swiper": "^6.3.4"
+    "swiper": "^6.3.5"
   }
 }

@@ -13,7 +13,6 @@ import {
   deleteFromQueue,
 } from './userLists';
 
-
 movieChangeBackground('navigation');
 
 function addBackgroundForModal(url) {
@@ -85,13 +84,14 @@ const getTrailers = id => {
           .map(({ key, name }) => {
             return `
           <li class="movie-trailers-list__item">
-            <h4 class="movie-trailers-list__item-name">${name}</h4>
+            
             <iframe 
               class="movie-trailers-list__item-trailer""
               src="https://www.youtube.com/embed/${key}"
               frameborder="0"
               allowfullscreen>
             </iframe>
+            <h4 class="movie-trailers-list__item-name">${name}</h4>
           </li>
           `;
           })
@@ -244,4 +244,4 @@ function handleOpenModal(event) {
 
 refs.movieContainer.addEventListener('click', handleOpenModal);
 
-// onOpenMovieModal(590223);
+onOpenMovieModal(590223);

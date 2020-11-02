@@ -220,7 +220,7 @@
     }
 
     @include for-size(hd-desktop) {
-      max-width: 300px;
+      max-width: 320px;
     }
   }
 
@@ -235,6 +235,11 @@
 
   &__vote-block-text {
     display: inline-block;
+    color: rgba(194, 0, 0, 1);
+  }
+
+  &__vote-block-count {
+    color: rgba(194, 0, 0, 1);
   }
 
   &__overview {

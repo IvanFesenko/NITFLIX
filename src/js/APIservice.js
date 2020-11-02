@@ -18,6 +18,10 @@ class APIService {
     ];
   }
 
+  set setPage(page) {
+    this.page = page;
+  }
+
   makeImagePath = (path, size) => {
     if (path !== null) {
       return `${this.imageBaseURL}/${this.logoSizes[size]}${path}`;
@@ -59,35 +63,7 @@ class APIService {
   };
 
   getNextPage = page => {
-    return this.getData(this.temp + '&page=' + page);
-  };
-
-  getTvShow = id => {
-    return this.getData(
-      `${this.baseURL}/tv/${id}?api_key=${this.API_KEY}&language=ru-RU`,
-    );
-  };
-  getTopRated = () =>
-    this.getData(
-      `${this.baseURL}/tv/top_rated?api_key=${this.API_KEY}&language=ru-RU`,
-    );
-  getAiringToday = () =>
-    this.getData(
-      `${this.baseURL}/tv/airing_today?api_key=${this.API_KEY}&language=ru-RU`,
-    );
-  getPopular = () =>
-    this.getData(
-      `${this.baseURL}/tv/popular?api_key=${this.API_KEY}&language=ru-RU`,
-    );
-  getWeek = () =>
-    this.getData(
-      `${this.baseURL}/tv/on_the_air?api_key=${this.API_KEY}&language=ru-RU`,
-    );
-
-  getVideo = id => {
-    return this.getData(
-      `${this.baseURL}/tv/${id}/videos?api_key=${this.API_KEY}&language=ru-RU`,
-    );
+    return this.getData(`${this.temp}&page=${page}`);
   };
 }
 

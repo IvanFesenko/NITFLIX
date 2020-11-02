@@ -1,24 +1,18 @@
-import apiService from './APIservice';
-const data = apiService.getTrending().then(({ data }) => {
-  console.log(data);
-  console.log(data.results);
-  pageButtons(data.total_pages);
-  return data;
-});
-
 const state = {
   querySet: data.results,
-  totalPages: data.totalPages,
+  totalPages: data.total_pages,
   page: 1,
   perPage: 20,
   visibleButtons: 5,
 };
 
+console.log(state);
+
 const pagination = (querySet, page, perPage) => {
   const trimStart = (page - 1) * perPage;
   const trimEnd = trimStart + perPage;
   const trimmedData = querySet.slice(trimStart, trimEnd);
-  const pages = state.totalPages || Math.round(querySet.length / perPage);
+  const pages = Math.round(querySet.length / perPage);
   return {
     querySet: trimmedData,
     pages: pages,
@@ -62,13 +56,26 @@ const pageButtons = pages => {
     wrapper.innerHTML += `<button value=${pages} class="pagination__page-btn">Last &#187;</button>`;
   }
 
-  const pageButton = wrapper.querySelector('.pagination__page-btn');
-  pageButton.addEventListener('click', e => {
-    state.page = Number(e.textContent);
-  });
+  const pageButtons = wrapper.querySelectorAll('.pagination__page-btn');
+  pageButtons.forEach(btn =>
+    btn.addEventListener('click', e => {
+      const currentPage = e.target.value;
+      state.page = Number(currentPage);
+      apiService.setPage = state.page;
+      buildPage();
+    }),
+  );
 };
 
-const test = () => {
-  //   pagination(state.querySet, state.page, state.perPage);
+const buildPage = () => {
+  const data = pagination(state.querySet, state.page, state.perPage);
+  const movieList = data.querySet.map(item => {
+    item.poster_path = apiService.makeImagePath(item.poster_path, size);
+    return item;
+  });
+  renderMarkup(movieList, MoviesCards, refs.movieContainer);
+  pageButtons(data.totalPages);
 };
-test();
+pagination(state.querySet, state.page, state.perPage);
+pageButtons(state.totalPages);
+buildPage();

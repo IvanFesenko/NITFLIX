@@ -2,7 +2,7 @@ import refs from '../../refs';
 import MoviesCards from '../MoviesCards';
 import renderMarkup from '../../renderMarkup';
 import clearMovieList from '../../services/clearMovieList';
-import { onOpenModalRegistration } from '../modalRegistration';
+import { onOpenModalRegistration } from '../../modalRegistration';
 import { currentUser } from '../../firebase';
 
 import { getWatchedMovies, getQueuedMovies } from '../../userLists';
@@ -31,8 +31,6 @@ function onWatchedClick(e) {
       renderMarkup(res, MoviesCards, refs.movieContainer);
     });
   }
-
-
 }
 
 function onQueueClick(e) {
@@ -47,7 +45,6 @@ function onQueueClick(e) {
       renderMarkup(res, MoviesCards, refs.movieContainer);
     });
   }
-
 }
 
 myListRef.addEventListener('click', onMyListClick);

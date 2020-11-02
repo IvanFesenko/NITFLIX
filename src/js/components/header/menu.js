@@ -2,6 +2,8 @@ import refs from '../../refs';
 import MoviesCards from '../MoviesCards';
 import renderMarkup from '../../renderMarkup';
 import clearMovieList from '../../services/clearMovieList';
+import { onOpenModalRegistration } from '../modalRegistration';
+import { currentUser } from '../../firebase';
 
 import { getWatchedMovies, getQueuedMovies } from '../../userLists';
 
@@ -19,22 +21,33 @@ function onMyListClick(e) {
 
 function onWatchedClick(e) {
   e.preventDefault();
-  getWatchedMovies().then(res => {
-    clearMovieList();
-    mainTitle.textContent = `Watched list`;
-    renderMarkup(res, MoviesCards, refs.movieContainer);
-    paginationWrp.style = 'display:none';
-  });
+
+  if (!currentUser()) {
+    onOpenModalRegistration();
+  } else {
+    getWatchedMovies().then(res => {
+      clearMovieList();
+      mainTitle.textContent = `Watched list`;
+      renderMarkup(res, MoviesCards, refs.movieContainer);
+    });
+  }
+
+
 }
 
 function onQueueClick(e) {
   e.preventDefault();
-  getQueuedMovies().then(res => {
-    clearMovieList();
-    mainTitle.textContent = `Queue list`;
-    renderMarkup(res, MoviesCards, refs.movieContainer);
-    paginationWrp.style = 'display:none';
-  });
+
+  if (!currentUser()) {
+    onOpenModalRegistration();
+  } else {
+    getQueuedMovies().then(res => {
+      clearMovieList();
+      mainTitle.textContent = `Queue list`;
+      renderMarkup(res, MoviesCards, refs.movieContainer);
+    });
+  }
+
 }
 
 myListRef.addEventListener('click', onMyListClick);

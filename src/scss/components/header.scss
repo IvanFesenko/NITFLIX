@@ -48,9 +48,9 @@
   }
 }
 
-// ul li:hover .sub-menu {
-//   display: block;
-// }
+ul li:hover .sub-menu {
+  display: block;
+}
 
 .sub-menu__wrapper {
   position: relative;
@@ -77,9 +77,9 @@
   }
 }
 
-.menu .menu__item:hover .sub-menu {
-  display: block;
-}
+// .menu .menu__item:hover .sub-menu {
+//   display: block;
+// }
 
 .left-nav-wrap {
   display: flex;

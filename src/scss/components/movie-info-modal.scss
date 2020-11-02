@@ -335,8 +335,16 @@
   &__genres-title {
     color: #ffffff;
     padding: 5px;
-    background-color: rgb(194, 0, 0);
+    background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0) 63%,
+      rgba(194, 0, 0, 1) 87%
+    );
     margin-bottom: 5px;
+
+    @include for-size(desktop) {
+      margin-bottom: 10px;
+    }
   }
 
   &__genres {
@@ -350,6 +358,17 @@
 
   &__about-title {
     margin-bottom: 5px;
+    color: #ffffff;
+    padding: 5px;
+    background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0) 63%,
+      rgba(194, 0, 0, 1) 87%
+    );
+
+    @include for-size(desktop) {
+      margin-bottom: 10px;
+    }
   }
 
   &__about-text {

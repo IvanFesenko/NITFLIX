@@ -29,10 +29,9 @@ function onWatchedClick(e) {
       clearMovieList();
       mainTitle.textContent = `Watched list`;
       renderMarkup(res, MoviesCards, refs.movieContainer);
+      paginationWrp.style = 'display:none';
     });
   }
-
-
 }
 
 function onQueueClick(e) {
@@ -45,9 +44,9 @@ function onQueueClick(e) {
       clearMovieList();
       mainTitle.textContent = `Queue list`;
       renderMarkup(res, MoviesCards, refs.movieContainer);
+      paginationWrp.style = 'display:none';
     });
   }
-
 }
 
 myListRef.addEventListener('click', onMyListClick);

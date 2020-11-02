@@ -1,0 +1,29 @@
+.pagination {
+  &-wrapper {
+    display: flex;
+    max-width: 380px;
+    padding: 10px 6px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  &__page-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 3px;
+    color: #fff;
+    background-color: red;
+    border-color: black;
+    transition: transform 0.25s linear;
+
+    &.active {
+      filter: sepia(50%);
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

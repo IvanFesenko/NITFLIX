@@ -1,5 +1,5 @@
 import refs from './refs';
-import clearMovieList from './components/clearMovieList';
+import clearMovieList from './services/clearMovieList';
 
 const ourTeam = `
 <div class="team-wrap">
@@ -35,10 +35,10 @@ const ourTeam = `
           </li>
         </ul>
 
-        <div class="image">
+        <div class="image">        
           <img
             class="image__img"
-            src="./images/team/maxim.jpg"
+            src="images/team/maxim.jpg"
             alt="Maxim Kozlov"
           />
         </div>
@@ -234,7 +234,7 @@ function onShowTeam(e) {
     e.preventDefault();
     clearMovieList();
     refs.mainTitle.innerHTML = 'Our Team';
-    refs.movieContainer.classList.toggle('grid-container');
+    refs.movieContainer.classList.remove('grid-container');
     refs.movieContainer.insertAdjacentHTML('beforeend', ourTeam);     
 };
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 class APIService {
   constructor() {
+    this.temp = '';
     this.API_KEY = '8978731d3453660c119868bf0fe3e32f';
     this.baseURL = 'https://api.themoviedb.org/3';
     this.imageBaseURL = 'https://image.tmdb.org/t/p';
@@ -35,8 +36,11 @@ class APIService {
     }
   };
 
-  getTrending = () =>
-    this.getData(`${this.baseURL}/trending/movie/day?api_key=${this.API_KEY}`);
+  getTrending = () => {
+    this.temp = `${this.baseURL}/trending/movie/day?api_key=${this.API_KEY}`;
+
+    return this.getData(this.temp);
+  };
 
   getMovieInfo = id =>
     this.getData(
@@ -44,7 +48,7 @@ class APIService {
     );
 
   getSearchResult = query => {
-    this.temp = `${this.baseURL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=1&include_adult=true&query=${query}`;
+    this.temp = `${this.baseURL}/search/movie?api_key=${this.API_KEY}&language=en-US&include_adult=true&query=${query}`;
 
     return this.getData(this.temp);
   };
@@ -56,35 +60,7 @@ class APIService {
   };
 
   getNextPage = page => {
-    return this.getData(this.temp + '&page=' + page);
-  };
-
-  getTvShow = id => {
-    return this.getData(
-      `${this.baseURL}/tv/${id}?api_key=${this.API_KEY}&language=ru-RU`,
-    );
-  };
-  getTopRated = () =>
-    this.getData(
-      `${this.baseURL}/tv/top_rated?api_key=${this.API_KEY}&language=ru-RU`,
-    );
-  getAiringToday = () =>
-    this.getData(
-      `${this.baseURL}/tv/airing_today?api_key=${this.API_KEY}&language=ru-RU`,
-    );
-  getPopular = () =>
-    this.getData(
-      `${this.baseURL}/tv/popular?api_key=${this.API_KEY}&language=ru-RU`,
-    );
-  getWeek = () =>
-    this.getData(
-      `${this.baseURL}/tv/on_the_air?api_key=${this.API_KEY}&language=ru-RU`,
-    );
-
-  getVideo = id => {
-    return this.getData(
-      `${this.baseURL}/tv/${id}/videos?api_key=${this.API_KEY}&language=ru-RU`,
-    );
+    return this.getData(`${this.temp}&page=${page}`);
   };
 }
 

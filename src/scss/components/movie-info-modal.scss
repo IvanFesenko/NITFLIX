@@ -12,6 +12,16 @@
   }
 }
 
+@keyframes redline {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 .blur-on {
   filter: blur(5px);
 }
@@ -72,13 +82,17 @@
     }
 
     @include for-size(mobile) {
-      max-height: 70%;
       max-width: 90%;
+      max-height: 78%;
     }
 
     @include for-size(tablet) {
+      max-width: 65%;
       max-height: 70%;
-      max-width: 70%;
+    }
+
+    @include for-size(desktop) {
+      max-width: 45%;
     }
   }
 
@@ -98,19 +112,57 @@
     cursor: pointer;
   }
 
+  &__my-list {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    padding: 5px;
+    background-color: rgb(194, 0, 0);
+
+    & span {
+      display: none;
+    }
+  }
+
+  &__btn {
+    color: #fff;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    text-shadow: 1px 1px 1px #000000;
+    cursor: pointer;
+
+    &:hover {
+      color: #000000;
+      text-shadow: 1px 1px 1px #ffffff;
+    }
+  }
+
+  &__top-block {
+    @include for-size(tablet) {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+
   &__image-wrapper {
     margin-bottom: 15px;
+
+    @include for-size(tablet) {
+      margin-right: 30px;
+    }
   }
 
   &__image {
     width: 250px;
 
-    @media screen and (min-width: 400px) and (max-width: 767px) {
-      width: 200px;
-    }
+    // @media screen and (min-width: 400px) and (max-width: 767px) {
+    //   width: 270px;
+    // }
 
-    @include for-size(tablet) {
-      width: 200px;
+    @media (min-width: 767px) and (max-width: 1279px) {
+      width: 250px;
     }
 
     @include for-size(desktop) {
@@ -118,44 +170,53 @@
     }
 
     @include for-size(hd-desktop) {
-      width: 300px;
+      width: 320px;
     }
   }
 
   &__trailers-btn {
-    width: 250px;
+    position: relative;
+    width: 100%;
     padding: 10px;
     text-transform: uppercase;
-    background-color: transparent;
+    background-color: black;
     border: 2px solid black;
+    color: #fff;
     cursor: pointer;
     display: none;
     transition: all 0.25s ease-out;
     margin-bottom: 15px;
 
+    transition: all 0.2s linear;
+    z-index: 1;
+
     &:hover {
+      color: #000000;
+      background-color: red;
       border: 2px solid red;
     }
 
     &:focus {
+      color: #000000;
+      background-color: red;
       border: 2px solid red;
     }
 
     @include for-size(mobile) {
-      width: 100px;
+      max-width: 250px;
       font-size: 10px;
     }
 
-    @include for-size(tablet) {
-      width: 200px;
-    }
-
-    @include for-size(desktop) {
+    @media (min-width: 767px) and (max-width: 1279px) {
       width: 250px;
     }
 
+    @include for-size(desktop) {
+      max-width: 250px;
+    }
+
     @include for-size(hd-desktop) {
-      width: 300px;
+      max-width: 320px;
     }
   }
 
@@ -170,6 +231,8 @@
 
   &__vote-block-text {
     display: inline-block;
+    font-weight: 500;
+    color: rgba(194, 0, 0, 1);
   }
 
   &__overview {
@@ -179,6 +242,20 @@
   &__title {
     font-size: 25px;
     margin-bottom: 15px;
+
+    @include for-size(desktop) {
+      font-size: 40px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: rgb(212, 0, 0);
+      margin-top: 10px;
+      animation: redline 5s;
+    }
   }
 
   // &__scrollUp {
@@ -254,7 +331,18 @@
   }
 
   &__genres-title {
+    color: #ffffff;
+    padding: 5px;
+    background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0) 63%,
+      rgba(194, 0, 0, 1) 87%
+    );
     margin-bottom: 5px;
+
+    @include for-size(desktop) {
+      margin-bottom: 10px;
+    }
   }
 
   &__genres {
@@ -268,6 +356,17 @@
 
   &__about-title {
     margin-bottom: 5px;
+    color: #ffffff;
+    padding: 5px;
+    background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0) 63%,
+      rgba(194, 0, 0, 1) 87%
+    );
+
+    @include for-size(desktop) {
+      margin-bottom: 10px;
+    }
   }
 
   &__about-text {
@@ -281,25 +380,51 @@
 
 .movie-trailers {
   margin: 0 auto;
+
   &__title {
     display: none;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+
+    @include for-size(desktop) {
+      margin-bottom: 20px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(194, 0, 0, 1);
+      margin-top: 10px;
+    }
   }
 
   &-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-gap: 10px;
+    justify-content: center;
+    justify-items: center;
 
-    @media screen and (min-width: 400px) and (max-width: 767px) {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
+    @include for-size(mobile) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media (min-width: 520px) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     @include for-size(tablet) {
-      flex-direction: row;
-      justify-content: space-around;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1281px) and (max-width: 1440px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1441px) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -308,10 +433,17 @@
     flex-direction: column;
     align-items: center;
     max-width: 280px;
-    margin-bottom: 8px;
 
-    @media screen and (min-width: 400px) and (max-width: 767px) {
-      max-width: 260px;
+    @media (min-width: 520px) {
+      max-width: 200px;
+    }
+
+    @include for-size(tablet) {
+      max-width: 230px;
+    }
+
+    @include for-size(desktop) {
+      max-width: 200px;
     }
 
     &-name {
@@ -319,21 +451,25 @@
     }
 
     &-trailer {
-      margin: 0 auto;
-
       @include for-size(mobile) {
-        width: 232px;
+        max-width: 232px;
         height: 160px;
       }
 
+      @media (min-width: 520px) {
+        max-width: 200px;
+      }
+
       @include for-size(tablet) {
-        width: 340px;
-        height: 234px;
+        max-width: 230px;
       }
 
       @include for-size(desktop) {
-        width: 480px;
-        height: 332px;
+        max-width: 200px;
+      }
+
+      @include for-size(hd-desktop) {
+        max-width: 230px;
       }
     }
   }

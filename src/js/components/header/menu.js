@@ -1,7 +1,7 @@
 import refs from '../../refs';
 import MoviesCards from '../MoviesCards';
 import renderMarkup from '../../renderMarkup';
-import clearMovieList from '../clearMovieList';
+import clearMovieList from '../../services/clearMovieList';
 
 import { getWatchedMovies, getQueuedMovies } from '../../userLists';
 

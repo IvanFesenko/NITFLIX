@@ -7,3 +7,4 @@ import './search';
 import './components/modalRegistration';
 import './components/header/menu';
 import './ourTeams';
+import './pagination';

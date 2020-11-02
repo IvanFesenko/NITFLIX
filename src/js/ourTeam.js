@@ -1,5 +1,10 @@
 import refs from './refs';
 import clearMovieList from './services/clearMovieList';
+import max from '../images/team/maxim.jpg';
+import ivan from '../images/team/ivan.jpg';
+import vadym from '../images/team/vadym.jpg';
+import nikita from '../images/team/nikita.jpg';
+import dima from '../images/team/dima.jpg';
 
 const ourTeam = `
 <div class="team-wrap">
@@ -14,15 +19,7 @@ const ourTeam = `
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
-          </li>
-          <li>
-            <a
-              href="https://www.facebook.com/kozlov.m.n/"
-              target="_blank"
-            >
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
+          </li>         
           <li>
             <a href="https://github.com/Maximusvin" target="_blank">
               <i class="fab fa-github"></i>
@@ -38,7 +35,7 @@ const ourTeam = `
         <div class="image">        
           <img
             class="image__img"
-            src="images/team/maxim.jpg"
+            src=${max}
             alt="Maxim Kozlov"
           />
         </div>
@@ -59,15 +56,7 @@ const ourTeam = `
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
-          </li>
-          <li>
-            <a
-              href="https://www.facebook.com/kozlov.m.n/"
-              target="_blank"
-            >
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
+          </li>         
           <li>
             <a href="https://github.com/Maximusvin" target="_blank">
               <i class="fab fa-github"></i>
@@ -82,7 +71,7 @@ const ourTeam = `
         <div class="image">
           <img
             class="image__img"
-            src="./images/team/ivan.jpg"
+            src=${ivan}
             alt="Ivan Fesenko"
           />
         </div>
@@ -103,15 +92,7 @@ const ourTeam = `
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
-          </li>
-          <li>
-            <a
-              href="https://www.facebook.com/kozlov.m.n/"
-              target="_blank"
-            >
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
+          </li>          
           <li>
             <a href="https://github.com/Maximusvin" target="_blank">
               <i class="fab fa-github"></i>
@@ -126,7 +107,7 @@ const ourTeam = `
         <div class="image">
           <img
             class="image__img"
-            src="./images/team/vadym.jpg"
+            src=${vadym}
             alt="Vadym Yevlanov"
           />
         </div>
@@ -147,15 +128,7 @@ const ourTeam = `
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
-          </li>
-          <li>
-            <a
-              href="https://www.facebook.com/kozlov.m.n/"
-              target="_blank"
-            >
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
+          </li>         
           <li>
             <a href="https://github.com/Maximusvin" target="_blank">
               <i class="fab fa-github"></i>
@@ -170,7 +143,7 @@ const ourTeam = `
         <div class="image">
           <img
             class="image__img"
-            src="./images/team/nikita.jpg"
+            src=${nikita}
             alt="Nikita Samoilenko"
           />
         </div>
@@ -191,15 +164,7 @@ const ourTeam = `
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
-          </li>
-          <li>
-            <a
-              href="https://www.facebook.com/kozlov.m.n/"
-              target="_blank"
-            >
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
+          </li>         
           <li>
             <a href="https://github.com/Maximusvin" target="_blank">
               <i class="fab fa-github"></i>
@@ -214,7 +179,7 @@ const ourTeam = `
         <div class="image">
           <img
             class="image__img"
-            src="./images/team/dima.jpg"
+            src=${dima}
             alt="Dima Osipov"
           />
         </div>

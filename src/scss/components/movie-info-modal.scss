@@ -113,15 +113,32 @@
   }
 
   &__my-list {
+    display: flex;
+    justify-content: space-around;
     margin-bottom: 15px;
+    padding: 5px;
+    background-color: rgb(194, 0, 0);
+
+    & span {
+      display: none;
+    }
   }
 
   &__btn {
+    color: #fff;
+    font-size: 18px;
     background-color: transparent;
     border: none;
+    text-shadow: 1px 1px 1px #000000;
+    cursor: pointer;
 
-    &:not(:last-child) {
-      margin-right: 15px;
+    // &:not(:last-child) {
+    //   margin-right: 15px;
+    // }
+
+    &:hover {
+      color: #000000;
+      text-shadow: 1px 1px 1px #ffffff;
     }
   }
 
@@ -129,7 +146,7 @@
     @include for-size(tablet) {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
     }
   }
 
@@ -162,21 +179,30 @@
   }
 
   &__trailers-btn {
+    position: relative;
     width: 100%;
     padding: 10px;
     text-transform: uppercase;
-    background-color: transparent;
+    background-color: black;
     border: 2px solid black;
+    color: #fff;
     cursor: pointer;
     display: none;
     transition: all 0.25s ease-out;
     margin-bottom: 15px;
 
+    transition: all 0.2s linear;
+    z-index: 1;
+
     &:hover {
+      color: #000000;
+      background-color: red;
       border: 2px solid red;
     }
 
     &:focus {
+      color: #000000;
+      background-color: red;
       border: 2px solid red;
     }
 
@@ -307,6 +333,9 @@
   }
 
   &__genres-title {
+    color: #ffffff;
+    padding: 5px;
+    background-color: rgb(194, 0, 0);
     margin-bottom: 5px;
   }
 

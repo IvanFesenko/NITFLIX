@@ -78,7 +78,6 @@ const getTrailers = id => {
     .getTrailer(id)
     .then(({ data }) => data)
     .then(({ results }) => {
-      console.log(results);
       if (results.length) {
         const trailers = results
           .map(({ key, name }) => {
@@ -125,7 +124,6 @@ const getMovieDetails = (id, listed) => {
     .getMovieInfo(id)
     .then(({ data }) => data)
     .then(res => {
-      console.log(res);
       res.backdrop_path = apiService.makeImagePath(res.backdrop_path, size);
       res.poster_path = apiService.makeImagePath(res.poster_path, size);
       const _res = { ...res, ...listed };
@@ -142,7 +140,6 @@ const getMovieDetails = (id, listed) => {
       };
 
       modal.classList.add('is-open');
-      console.log(movieContent);
 
       const scrollFunction = () => {
         if (movieContent.scrollTop > 20) {

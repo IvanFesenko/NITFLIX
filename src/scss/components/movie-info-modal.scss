@@ -126,7 +126,7 @@
 
   &__btn {
     color: #fff;
-    font-size: 18px;
+    font-size: 12px;
     background-color: transparent;
     border: none;
     text-shadow: 1px 1px 1px #000000;
@@ -135,6 +135,14 @@
     &:hover {
       color: #000000;
       text-shadow: 1px 1px 1px #ffffff;
+    }
+
+    @include for-size(desktop) {
+      font-size: 18px;
+    }
+
+    @include for-size(hd-desktop) {
+      font-size: 20px;
     }
   }
 

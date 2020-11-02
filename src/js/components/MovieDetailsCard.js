@@ -41,14 +41,14 @@ const MovieDetailsCard = ({
               data-vote_average="${vote_average}"
             ></span>
             <button
-              class="movie-modal__watched-btn"
+              class="movie-modal__watched-btn movie-modal__btn"
               data-active="${InWatched}"
               type="button"
             >
               ${InWatched ? 'Delete from watched' : 'Add to watched'}
             </button>
             <button
-              class="movie-modal__queue-btn"
+              class="movie-modal__queue-btn movie-modal__btn"
               data-active="${InQueue}"
               type="button"
             >

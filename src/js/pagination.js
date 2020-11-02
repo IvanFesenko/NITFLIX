@@ -14,6 +14,8 @@ const pageButtonsHandler = e => {
     apiService.getNextPage(currentPage).then(({ data }) => {
       buildPage(data.results, data.page, data.total_pages);
     });
+    const container = document.querySelector('html');
+    container.scrollTop = 0;
   }
 };
 paginationWrp.addEventListener('click', pageButtonsHandler);

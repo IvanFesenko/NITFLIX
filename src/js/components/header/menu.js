@@ -5,7 +5,13 @@ import clearMovieList from '../../services/clearMovieList';
 
 import { getWatchedMovies, getQueuedMovies } from '../../userLists';
 
-const { myListRef, listWatchedRef, listQueueRef, mainTitle } = refs;
+const {
+  myListRef,
+  listWatchedRef,
+  listQueueRef,
+  mainTitle,
+  paginationWrp,
+} = refs;
 
 function onMyListClick(e) {
   e.preventDefault();
@@ -17,6 +23,7 @@ function onWatchedClick(e) {
     clearMovieList();
     mainTitle.textContent = `Watched list`;
     renderMarkup(res, MoviesCards, refs.movieContainer);
+    paginationWrp.style = 'display:none';
   });
 }
 
@@ -26,6 +33,7 @@ function onQueueClick(e) {
     clearMovieList();
     mainTitle.textContent = `Queue list`;
     renderMarkup(res, MoviesCards, refs.movieContainer);
+    paginationWrp.style = 'display:none';
   });
 }
 

@@ -161,22 +161,22 @@
     //   width: 270px;
     // }
 
-    @media (min-width: 767px) and (max-width: 1279px) {
-      width: 250px;
-    }
+    // @media (min-width: 767px) and (max-width: 1279px) {
+    //   width: 250px;
+    // }
 
-    @include for-size(desktop) {
-      width: 250px;
-    }
+    // @include for-size(desktop) {
+    //   width: 250px;
+    // }
 
     @include for-size(hd-desktop) {
-      width: 320px;
+      max-width: 320px;
     }
   }
 
   &__trailers-btn {
     position: relative;
-    width: 100%;
+    width: 250px;
     padding: 10px;
     text-transform: uppercase;
     background-color: black;
@@ -202,18 +202,18 @@
       border: 2px solid red;
     }
 
-    @include for-size(mobile) {
-      max-width: 250px;
-      font-size: 10px;
-    }
+    // @include for-size(mobile) {
+    //   max-width: 250px;
+    //   font-size: 10px;
+    // }
 
-    @media (min-width: 767px) and (max-width: 1279px) {
-      width: 250px;
-    }
+    // @media (min-width: 767px) and (max-width: 1279px) {
+    //   width: 250px;
+    // }
 
-    @include for-size(desktop) {
-      max-width: 250px;
-    }
+    // @include for-size(desktop) {
+    //   max-width: 250px;
+    // }
 
     @include for-size(hd-desktop) {
       max-width: 320px;

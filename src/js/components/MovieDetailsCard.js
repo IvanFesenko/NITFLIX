@@ -29,6 +29,19 @@ const MovieDetailsCard = ({
         </div>
 
         <div class="movie-modal__overview">
+          <h2 class="movie-modal__title">${title}</h2>
+
+          <div class="movie-modal__vote-block">
+            <p class="movie-modal__vote-text">Vote &#8260; Votes:</p>
+            <p class="movie-modal__vote-block-text">
+              <span class="movie-modal__vote-block-averege"
+                >${vote_average}</span
+              >
+              &#8260;
+              <span class="movie-modal__vote-block-count">${vote_count}</span>
+            </p>
+          </div>
+
           <div class="movie-modal__my-list">
             <span
               id="dataAtr"
@@ -55,21 +68,11 @@ const MovieDetailsCard = ({
               ${InQueue ? 'Delete from queue' : 'Add to queue'}
             </button>
           </div>
-          <h2 class="movie-modal__title">${title}</h2>
 
-          <div class="movie-modal__vote-block">
-            <p class="movie-modal__vote-text">Vote &#8260; Votes</p>
-            <p class="movie-modal__vote-block-text">
-              <span class="movie-modal__vote-block-averege"
-                >${vote_average}</span
-              >
-              &#8260;
-              <span class="movie-modal__vote-block-count">${vote_count}</span>
-            </p>
-          </div>
           <a href="${homepage}" class="movie-modal__homepage" target="_blank"
             >${homepage}</a
           >
+
           <div class="movie-modal__genres">
             <h3 class="movie-modal__genres-title">Genres:</h3>
             <ul class="movie-modal__genres-list">

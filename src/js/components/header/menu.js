@@ -2,6 +2,7 @@ import refs from '../../refs';
 import MoviesCards from '../MoviesCards';
 import renderMarkup from '../../renderMarkup';
 import clearMovieList from '../../services/clearMovieList';
+import clearContainers from '../../services/clearContainers'
 import { onOpenModalRegistration } from '../../modalRegistration';
 import { currentUser } from '../../firebase';
 
@@ -26,7 +27,7 @@ function onWatchedClick(e) {
     onOpenModalRegistration();
   } else {
     getWatchedMovies().then(res => {
-      clearMovieList();
+      clearContainers();
       mainTitle.textContent = `Watched list`;
       renderMarkup(res, MoviesCards, refs.movieContainer);
       paginationWrp.style = 'display:none';
@@ -41,7 +42,7 @@ function onQueueClick(e) {
     onOpenModalRegistration();
   } else {
     getQueuedMovies().then(res => {
-      clearMovieList();
+      clearContainers();
       mainTitle.textContent = `Queue list`;
       renderMarkup(res, MoviesCards, refs.movieContainer);
       paginationWrp.style = 'display:none';

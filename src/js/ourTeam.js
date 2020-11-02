@@ -1,5 +1,5 @@
 import refs from './refs';
-import clearMovieList from './services/clearMovieList';
+import clearContainers from './services/clearContainers';
 import max from '../images/team/maxim.jpg';
 import ivan from '../images/team/ivan.jpg';
 import vadym from '../images/team/vadym.jpg';
@@ -197,8 +197,7 @@ document.querySelector('.development').addEventListener('click', onShowTeam);
 
 function onShowTeam(e) {
     e.preventDefault();
-    clearMovieList();    
-    refs.paginationWrp.style = 'display:none';
+    clearContainers();    
     refs.mainTitle.innerHTML = 'Our Team';    
     refs.cleanBoxWrp.innerHTML = ourTeam;     
 };

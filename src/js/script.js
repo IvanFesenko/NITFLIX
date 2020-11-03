@@ -1,5 +1,6 @@
 'use strict';
 //js modules
+import './preloader';
 import './firebase';
 import './trending-page';
 import './MovieDetailsModal';

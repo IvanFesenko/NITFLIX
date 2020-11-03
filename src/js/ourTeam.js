@@ -8,7 +8,6 @@ import vadym from '../images/team/vadym.jpg';
 import nikita from '../images/team/nikita.jpg';
 import dima from '../images/team/dima.jpg';
 
-
 const ourTeam = `
 <div class="team-wrap visually-hidden">
 <div class="team">
@@ -162,19 +161,19 @@ const ourTeam = `
         <ul class="social-icons">
           <li>
             <a
-              href="https://www.linkedin.com/in/maxim-kozlov/"
+              href="https://www.linkedin.com/in/nikita-samoilenko-5124121a6/"
               target="_blank"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
           </li>         
           <li>
-            <a href="https://github.com/Maximusvin" target="_blank">
+            <a href="https://github.com/Bignichok" target="_blank">
               <i class="fab fa-github"></i>
             </a>
           </li>
           <li>
-            <a href="https://t.me/maximusvin" target="_blank">
+            <a href="https://t.me/Bignichok" target="_blank">
               <i class="fab fa-telegram-plane"></i>
             </a>
           </li>
@@ -194,26 +193,27 @@ const ourTeam = `
     </div>
   </div>
   </div>
-`
-
+`;
 
 document.querySelector('.development').addEventListener('click', onShowTeam);
-document.querySelector('.copyright__link').addEventListener('click', onShowTeam);
+document
+  .querySelector('.copyright__link')
+  .addEventListener('click', onShowTeam);
 
 function onShowTeam(e) {
   e.preventDefault();
   if (!refs.cleanBoxWrp.children[0]) {
     clearContainers();
-    showSpiner();    
-    refs.mainTitle.innerHTML = 'Our Team';   
-    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam);    
-    setTimeout(onVisuallyTeam, 400);     
+    showSpiner();
+    refs.mainTitle.innerHTML = 'Our Team';
+    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam);
+    setTimeout(onVisuallyTeam, 400);
   }
-  return
-};
+  return;
+}
 
-function onVisuallyTeam() {  
-  const teamWrapRef = document.querySelector('.team-wrap');  
+function onVisuallyTeam() {
+  const teamWrapRef = document.querySelector('.team-wrap');
   document.querySelector('.spiner').style = 'display:none';
   teamWrapRef.classList.remove('visually-hidden');
 }

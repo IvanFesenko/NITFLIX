@@ -12,6 +12,8 @@ import {
   deleteFromWatched,
   deleteFromQueue,
 } from './userLists';
+import { currentUser } from './firebase';
+import { onOpenModalRegistration } from './modalRegistration';
 
 movieChangeBackground('navigation');
 
@@ -27,6 +29,10 @@ function addBackgroundForModal(url) {
 //adds to user lists
 function onClickAddToWatched(e) {
   e.preventDefault();
+  if (!currentUser()) {
+    onOpenModalRegistration();
+    return;
+  }
   const addToWatchedBtn = document.querySelector('.movie-modal__watched-btn');
   const notifyWatched = document.querySelector('#notify__watched');
   const dataAtr = document.querySelector('#dataAtr');
@@ -53,6 +59,10 @@ function onClickAddToWatched(e) {
 
 function onClickAddToQueueList(e) {
   e.preventDefault();
+  if (!currentUser()) {
+    onOpenModalRegistration();
+    return;
+  }
   const addToQueueBtn = document.querySelector('.movie-modal__queue-btn');
   const notifyQueue = document.querySelector('#notify__queue');
   const dataAtr = document.querySelector('#dataAtr');
@@ -247,4 +257,4 @@ function handleOpenModal(event) {
 
 refs.movieContainer.addEventListener('click', handleOpenModal);
 
-// onOpenMovieModal(590223);
+//onOpenMovieModal(590223);

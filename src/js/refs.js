@@ -32,5 +32,8 @@ export default {
 
   //pagination
   paginationWrp: document.querySelector('.pagination-wrapper'),
+
+  // clean-box
+  cleanBoxWrp: document.querySelector('.clean-box'),
 };
 

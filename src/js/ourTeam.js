@@ -1,5 +1,5 @@
 import refs from './refs';
-import clearMovieList from './services/clearMovieList';
+import clearContainers from './services/clearContainers';
 import max from '../images/team/maxim.jpg';
 import ivan from '../images/team/ivan.jpg';
 import vadym from '../images/team/vadym.jpg';
@@ -194,12 +194,14 @@ const ourTeam = `
 `
 
 document.querySelector('.development').addEventListener('click', onShowTeam);
+document.querySelector('.copyright__link').addEventListener('click', onShowTeam);
 
-function onShowTeam(e) {
-    e.preventDefault();
-    clearMovieList();
-    refs.mainTitle.innerHTML = 'Our Team';
-    refs.movieContainer.classList.remove('grid-container');
-    refs.movieContainer.insertAdjacentHTML('beforeend', ourTeam);     
+function onShowTeam(e) {  
+    e.preventDefault();      
+    if(!refs.cleanBoxWrp.children[0]) {      
+      clearContainers();    
+      refs.mainTitle.innerHTML = 'Our Team';    
+      refs.cleanBoxWrp.innerHTML = ourTeam;  
+    }
+    return 
 };
-

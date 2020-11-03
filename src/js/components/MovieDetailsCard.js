@@ -61,7 +61,7 @@ const MovieDetailsCard = ({
               ${InWatched ? 'Delete from watched' : 'Add to watched'}
             </button>
             <button
-              class="movie-modal__queue-btn movie-modal__btn"
+              class="movie-modal__queue-btn movie-modal__btn button type1"
               data-active="${InQueue}"
               type="button"
             >

@@ -92,11 +92,14 @@
     }
 
     @include for-size(desktop) {
-      max-width: 45%;
+      max-width: 55%;
     }
   }
 
   &__close {
+    position: sticky;
+    top: 0;
+    left: 100%;
     background-color: transparent;
     outline: none;
     border: none;
@@ -110,14 +113,20 @@
     background-repeat: no-repeat;
 
     cursor: pointer;
+
+    transition: transform 0.2s linear;
+
+    &:hover {
+      transform: rotateZ(180deg);
+    }
   }
 
   &__my-list {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 15px;
-    padding: 5px;
-    background-color: rgb(194, 0, 0);
+    // margin-bottom: 15px;
+    // padding: 5px;
+    // background-color: rgb(194, 0, 0);
 
     & span {
       display: none;
@@ -125,17 +134,17 @@
   }
 
   &__btn {
-    color: #fff;
+    // color: #fff;
     font-size: 12px;
-    background-color: transparent;
-    border: none;
-    text-shadow: 1px 1px 1px #000000;
+    // background-color: transparent;
+    // border: none;
+    // text-shadow: 1px 1px 1px #000000;
     cursor: pointer;
 
-    &:hover {
-      color: #000000;
-      text-shadow: 1px 1px 1px #ffffff;
-    }
+    // &:hover {
+    //   color: #000000;
+    //   text-shadow: 1px 1px 1px #ffffff;
+    // }
 
     @include for-size(desktop) {
       font-size: 18px;
@@ -340,7 +349,7 @@
 
   &__genres-title {
     color: #ffffff;
-    padding: 5px;
+    padding: 1px 1px 1px 5px;
     background: linear-gradient(
       270deg,
       rgba(0, 0, 0, 0) 63%,
@@ -365,7 +374,7 @@
   &__about-title {
     margin-bottom: 5px;
     color: #ffffff;
-    padding: 5px;
+    padding: 1px 1px 1px 5px;
     background: linear-gradient(
       270deg,
       rgba(0, 0, 0, 0) 63%,

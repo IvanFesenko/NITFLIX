@@ -41,11 +41,13 @@ function onClickAddToWatched(e) {
     deleteFromWatched(id);
     notifyWatched.textContent = 'Add to watched';
     addToWatchedBtn.dataset.active = 'false';
+    addToWatchedBtn.classList.remove('movie-modal__btn--red');
   } else if (addToWatchedBtn.dataset.active === 'false') {
     const movie = { id, title, poster_path, release_date, vote_average };
     addMovieToWatched(movie);
     notifyWatched.textContent = 'Delete from watched';
     addToWatchedBtn.dataset.active = 'true';
+    addToWatchedBtn.classList.add('movie-modal__btn--red');
   }
 }
 
@@ -65,11 +67,13 @@ function onClickAddToQueueList(e) {
     deleteFromQueue(id);
     notifyQueue.textContent = 'Add to queue';
     addToQueueBtn.dataset.active = 'false';
+    addToQueueBtn.classList.remove('movie-modal__btn--red');
   } else if (addToQueueBtn.dataset.active === 'false') {
     const movie = { id, title, poster_path, release_date, vote_average };
     addMovieToQueue(movie);
     notifyQueue.textContent = 'Delete from queue';
     addToQueueBtn.dataset.active = 'true';
+    addToQueueBtn.classList.add('movie-modal__btn--red');
   }
 }
 
@@ -110,8 +114,8 @@ const getTrailers = id => {
           movieTrailers.scrollIntoView({ block: 'start', behavior: 'smooth' });
         };
 
-        movieModalTrailersBtn.style = 'display:block';
-        movieTrailersTitle.style = 'display:block';
+        // movieModalTrailersBtn.style = 'display:block';
+        // movieTrailersTitle.style = 'display:block';
         movieTrailers.insertAdjacentHTML('beforeend', trailers);
 
         movieModalTrailersBtn.addEventListener('click', handleTrailersBtnClick);

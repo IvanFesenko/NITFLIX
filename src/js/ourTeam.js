@@ -195,8 +195,7 @@ const ourTeam = `
   </div>
 `;
 
-
-document.querySelector('.development').addEventListener('click', onShowTeam);
+//document.querySelector('.development').addEventListener('click', onShowTeam);
 document
   .querySelector('.copyright__link')
   .addEventListener('click', onShowTeam);

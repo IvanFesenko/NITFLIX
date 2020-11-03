@@ -12,7 +12,6 @@ export function onLogInState() {
   Refs.logOutBtn.style.display = 'block';
   Refs.logOutBtn.classList.remove('visually-hidden');
   Refs.accInBtn.style.display = 'none';
-  // Refs.myListRef.style.display = 'list-item';
   onCloseModalReg();
 }
 
@@ -20,8 +19,6 @@ export function onLogOutState() {
   Refs.logOutBtn.style.display = 'none';
   Refs.accInBtn.style.display = 'block';
   Refs.logOutBtn.classList.add('visually-hidden');
-
-  // Refs.myListRef.style.display = 'none';
 }
 
 Refs.googleBtn.addEventListener('click', googleOnClick);

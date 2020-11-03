@@ -51,19 +51,19 @@ const ourTeam = `
         <ul class="social-icons">
           <li>
             <a
-              href="https://www.linkedin.com/in/maxim-kozlov/"
+              href="https://www.linkedin.com/in/ivanfesenko/"
               target="_blank"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
           </li>         
           <li>
-            <a href="https://github.com/Maximusvin" target="_blank">
+            <a href="https://github.com/IvanFesenko" target="_blank">
               <i class="fab fa-github"></i>
             </a>
           </li>
           <li>
-            <a href="https://t.me/maximusvin" target="_blank">
+            <a href="https://t.me/DiD1van" target="_blank">
               <i class="fab fa-telegram-plane"></i>
             </a>
           </li>
@@ -191,17 +191,19 @@ const ourTeam = `
     </div>
   </div>
   </div>
-`
+`;
 
 document.querySelector('.development').addEventListener('click', onShowTeam);
-document.querySelector('.copyright__link').addEventListener('click', onShowTeam);
+document
+  .querySelector('.copyright__link')
+  .addEventListener('click', onShowTeam);
 
-function onShowTeam(e) {  
-    e.preventDefault();      
-    if(!refs.cleanBoxWrp.children[0]) {      
-      clearContainers();    
-      refs.mainTitle.innerHTML = 'Our Team';    
-      refs.cleanBoxWrp.innerHTML = ourTeam;  
-    }
-    return 
-};
+function onShowTeam(e) {
+  e.preventDefault();
+  if (!refs.cleanBoxWrp.children[0]) {
+    clearContainers();
+    refs.mainTitle.innerHTML = 'Our Team';
+    refs.cleanBoxWrp.innerHTML = ourTeam;
+  }
+  return;
+}

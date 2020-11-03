@@ -126,7 +126,7 @@
   width: 100%;
   display: grid;
   grid-gap: 20px;
-  padding: 0 10px 0 0;
+  // padding: 0 10px 0 0;
   @media (min-width: 520px) {
     grid-template-columns: repeat(2, 1fr);
   }

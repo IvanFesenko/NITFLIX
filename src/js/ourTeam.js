@@ -1,13 +1,16 @@
 import refs from './refs';
 import clearContainers from './services/clearContainers';
+import showSpiner from './Spiner';
+
 import max from '../images/team/maxim.jpg';
 import ivan from '../images/team/ivan.jpg';
 import vadym from '../images/team/vadym.jpg';
 import nikita from '../images/team/nikita.jpg';
 import dima from '../images/team/dima.jpg';
 
+
 const ourTeam = `
-<div class="team-wrap">
+<div class="team-wrap visually-hidden">
 <div class="team">
     <div class="team__block">
       <div class="inner-box">
@@ -51,19 +54,19 @@ const ourTeam = `
         <ul class="social-icons">
           <li>
             <a
-              href="https://www.linkedin.com/in/maxim-kozlov/"
+              href="https://www.linkedin.com/in/ivanfesenko/"
               target="_blank"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
           </li>         
           <li>
-            <a href="https://github.com/Maximusvin" target="_blank">
+            <a href="https://github.com/IvanFesenko" target="_blank">
               <i class="fab fa-github"></i>
             </a>
           </li>
           <li>
-            <a href="https://t.me/maximusvin" target="_blank">
+            <a href="https://t.me/DiD1van" target="_blank">
               <i class="fab fa-telegram-plane"></i>
             </a>
           </li>
@@ -191,17 +194,28 @@ const ourTeam = `
     </div>
   </div>
   </div>
-`
+`;
+
 
 document.querySelector('.development').addEventListener('click', onShowTeam);
-document.querySelector('.copyright__link').addEventListener('click', onShowTeam);
+document
+  .querySelector('.copyright__link')
+  .addEventListener('click', onShowTeam);
 
-function onShowTeam(e) {  
-    e.preventDefault();      
-    if(!refs.cleanBoxWrp.children[0]) {      
-      clearContainers();    
-      refs.mainTitle.innerHTML = 'Our Team';    
-      refs.cleanBoxWrp.innerHTML = ourTeam;  
-    }
-    return 
+function onShowTeam(e) {
+  e.preventDefault();
+  if (!refs.cleanBoxWrp.children[0]) {
+    clearContainers();
+    showSpiner();    
+    refs.mainTitle.innerHTML = 'Our Team';   
+    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam);    
+    setTimeout(onVisuallyTeam, 400);     
+  }
+  return
 };
+
+function onVisuallyTeam() {  
+  const teamWrapRef = document.querySelector('.team-wrap');  
+  document.querySelector('.spiner').style = 'display:none';
+  teamWrapRef.classList.remove('visually-hidden');
+}

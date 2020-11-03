@@ -1,8 +1,8 @@
 import refs from '../../refs';
 import MoviesCards from '../MoviesCards';
 import renderMarkup from '../../renderMarkup';
-import clearMovieList from '../../services/clearMovieList';
-import clearContainers from '../../services/clearContainers'
+//import clearMovieList from '../../services/clearMovieList';
+import clearContainers from '../../services/clearContainers';
 import { onOpenModalRegistration } from '../../modalRegistration';
 import { currentUser } from '../../firebase';
 

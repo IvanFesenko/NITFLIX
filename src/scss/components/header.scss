@@ -8,20 +8,24 @@
 }
 
 .navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
-  padding: 0 30px;
+  padding: 20px 10px 0 10px;
   position: fixed;
   left: 0px;
   top: 0px;
-  height: 70px;
+  height: 100px;
   z-index: 2;
   background: transparent;
   transition: all 0.2s linear;
   @include for-size(tablet) {
-    padding: 0px 50px;
+    padding: 30px 50px 0px 50px;
+    height: 70px;
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -58,11 +62,13 @@ ul li:hover .sub-menu {
 .sub-menu {
   display: none;
   position: absolute;
+  z-index: 3;
   top: 18px;
   left: 0;
   background-color: #141414;
   padding: 7px 4px 5px 10px;
   border-radius: 5px;
+  // border: 1px solid #e50916;
 
   &__item:not(:last-child) {
     margin-bottom: 5px;
@@ -97,7 +103,15 @@ ul li:hover .sub-menu {
   display: block;
   //margin-right: 30px;
   position: absolute;
-  right: 40px;
+  top: 65px;
+  right: 10%;
+  width: 80%;
+
+  @include for-size(tablet) {
+    width: 250px;
+    top: 28px;
+    right: 84px;
+  }
 
   &:hover .search-form__btn,
   &:focus .search-form__btn {
@@ -107,8 +121,8 @@ ul li:hover .sub-menu {
   &:hover .search-form__input,
   &:focus .search-form__input {
     border-bottom: 1px solid rgb(233, 34, 34);
-    width: 227px;
-    right: 267px;
+    // width: 227px;
+    // right: 267px;
   }
 
   &__input {
@@ -120,11 +134,11 @@ ul li:hover .sub-menu {
     transition: all 0.2s linear;
     border-radius: 15px;
     background-color: #141414;
-    width: 0px;
+    width: 100%;
 
-    @include for-size(tablet) {
-      width: 227px;
-    }
+    // @include for-size(tablet) {
+    //   width: 227px;
+    // }
 
     &::placeholder {
       color: #5f5f5f;

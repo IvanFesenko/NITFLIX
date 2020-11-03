@@ -12,11 +12,13 @@ function onLoadPage() {
 
 function saveLangToLocalStorage(checkBox) {
   const selectedLang = {};
+
   selectedLang.checked = checkBox.checked;
+
   if (checkBox.checked) {
     selectedLang.languge = 'rus';
   } else {
-    selectedLang.languge = 'usa';
+    selectedLang.languge = 'en';
   }
 
   localStorage.setItem('language', JSON.stringify(selectedLang));
@@ -40,8 +42,6 @@ function changeLanguage(event) {
 }
 
 function handleLanguageBtn(event) {
-  //   console.log(checkBox.checked);
-  //   console.log(checkBox.value);
   changeLanguage(event);
 }
 

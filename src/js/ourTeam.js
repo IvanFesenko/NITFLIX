@@ -196,23 +196,20 @@ const ourTeam = `
   </div>
 `;
 
-
-document.querySelector('.development').addEventListener('click', onShowTeam);
-document
-  .querySelector('.copyright__link')
-  .addEventListener('click', onShowTeam);
+document.querySelector('.copyright__link').addEventListener('click', onShowTeam);
 
 function onShowTeam(e) {
   e.preventDefault();
   if (!refs.cleanBoxWrp.children[0]) {
-    clearContainers();
+    clearContainers();    
     showSpiner();    
     refs.mainTitle.innerHTML = 'Our Team';   
-    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam);    
-    setTimeout(onVisuallyTeam, 400);     
-  }
+    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam); 
+    setTimeout(onVisuallyTeam, 1000); 
+    }
   return
 };
+
 
 function onVisuallyTeam() {  
   const teamWrapRef = document.querySelector('.team-wrap');  

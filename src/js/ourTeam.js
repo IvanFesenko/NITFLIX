@@ -194,10 +194,6 @@ const ourTeam = `
   </div>
   </div>
 `;
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
 
 document.querySelector('.development').addEventListener('click', onShowTeam);
 document

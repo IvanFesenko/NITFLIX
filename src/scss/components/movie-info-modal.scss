@@ -92,11 +92,14 @@
     }
 
     @include for-size(desktop) {
-      max-width: 45%;
+      max-width: 55%;
     }
   }
 
   &__close {
+    position: sticky;
+    top: 0;
+    left: 100%;
     background-color: transparent;
     outline: none;
     border: none;
@@ -110,32 +113,24 @@
     background-repeat: no-repeat;
 
     cursor: pointer;
+
+    transition: transform 0.3s linear;
+
+    &:hover {
+      transform: rotateZ(180deg);
+    }
   }
 
   &__my-list {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 15px;
-    padding: 5px;
-    background-color: rgb(194, 0, 0);
+    position: relative;
 
-    & span {
-      display: none;
-    }
+    display: flex;
+    justify-content: flex-start;
   }
 
   &__btn {
-    color: #fff;
     font-size: 12px;
-    background-color: transparent;
-    border: none;
-    text-shadow: 1px 1px 1px #000000;
     cursor: pointer;
-
-    &:hover {
-      color: #000000;
-      text-shadow: 1px 1px 1px #ffffff;
-    }
 
     @include for-size(desktop) {
       font-size: 18px;
@@ -164,64 +159,6 @@
 
   &__image {
     width: 250px;
-
-    // @media screen and (min-width: 400px) and (max-width: 767px) {
-    //   width: 270px;
-    // }
-
-    // @media (min-width: 767px) and (max-width: 1279px) {
-    //   width: 250px;
-    // }
-
-    // @include for-size(desktop) {
-    //   width: 250px;
-    // }
-
-    @include for-size(hd-desktop) {
-      max-width: 320px;
-    }
-  }
-
-  &__trailers-btn {
-    position: relative;
-    width: 250px;
-    padding: 10px;
-    text-transform: uppercase;
-    background-color: black;
-    border: 2px solid black;
-    color: #fff;
-    cursor: pointer;
-    display: none;
-    transition: all 0.25s ease-out;
-    margin-bottom: 15px;
-
-    transition: all 0.2s linear;
-    z-index: 1;
-
-    &:hover {
-      color: #000000;
-      background-color: red;
-      border: 2px solid red;
-    }
-
-    &:focus {
-      color: #000000;
-      background-color: red;
-      border: 2px solid red;
-    }
-
-    // @include for-size(mobile) {
-    //   max-width: 250px;
-    //   font-size: 10px;
-    // }
-
-    // @media (min-width: 767px) and (max-width: 1279px) {
-    //   width: 250px;
-    // }
-
-    // @include for-size(desktop) {
-    //   max-width: 250px;
-    // }
 
     @include for-size(hd-desktop) {
       max-width: 320px;
@@ -266,22 +203,6 @@
     }
   }
 
-  // &__scrollUp {
-  //   position: sticky;
-  //   border: none;
-  //   height: 48px;
-  //   width: 48px;
-  //   bottom: 26px;
-  //   left: 800px;
-  //   opacity: 0;
-  //   transition: opacity 0.25s ease-out;
-  //   z-index: 5;
-  //   cursor: pointer;
-  //   background: transparent center no-repeat;
-  //   background-image: url('../images/svg/angle-up-circle.svg');
-
-  // }
-
   &__scrollUp {
     left: 97%;
 
@@ -303,7 +224,7 @@
 
   &__genres-title {
     color: #ffffff;
-    padding: 5px;
+    padding: 1px 1px 1px 5px;
     background: linear-gradient(
       270deg,
       rgba(0, 0, 0, 0) 63%,
@@ -328,7 +249,7 @@
   &__about-title {
     margin-bottom: 5px;
     color: #ffffff;
-    padding: 5px;
+    padding: 1px 1px 1px 5px;
     background: linear-gradient(
       270deg,
       rgba(0, 0, 0, 0) 63%,
@@ -444,4 +365,135 @@
       }
     }
   }
+}
+
+.movie-modal__btn-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  width: 250px;
+
+  @include for-size(hd-desktop) {
+    max-width: 320px;
+  }
+}
+
+.notify__watched {
+  display: none;
+  width: 125px;
+  position: absolute;
+  top: -20px;
+  left: -50px;
+  background-color: #5f5f5f;
+  padding: 5px;
+  border-radius: 4px;
+  color: #fff;
+
+  font-size: 12px;
+}
+
+.notify__queue {
+  display: none;
+  width: 125px;
+  position: absolute;
+  top: -20px;
+  left: -50px;
+  background-color: #5f5f5f;
+  padding: 5px;
+  border-radius: 4px;
+  color: #fff;
+
+  font-size: 12px;
+}
+
+.notify__trailer {
+  display: none;
+  width: 75px;
+  position: absolute;
+  top: -20px;
+  left: -5px;
+  background-color: #5f5f5f;
+  padding: 5px;
+  border-radius: 4px;
+  color: #fff;
+
+  font-size: 12px;
+}
+
+.watched-btn {
+  position: relative;
+  padding: 3px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.61);
+  border-color: transparent;
+  background-color: transparent;
+  margin-right: 20px;
+  cursor: pointer;
+
+  &:hover {
+    color: rgba(194, 0, 0, 1);
+  }
+
+  &:hover .notify__watched {
+    display: inline-block;
+  }
+}
+
+.queue-btn {
+  position: relative;
+  width: 45px;
+  padding: 3px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.61);
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: rgba(194, 0, 0, 1);
+  }
+
+  &:hover .notify__queue {
+    display: inline-block;
+  }
+}
+
+.movie-modal__trailers-btn {
+  position: relative;
+  padding: 3px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.61);
+  border-color: transparent;
+  background-color: transparent;
+  margin-right: 20px;
+  cursor: pointer;
+
+  &:hover {
+    color: rgba(194, 0, 0, 1);
+  }
+
+  &:hover .notify__trailer {
+    display: inline-block;
+  }
+}
+
+.fa-bookmark {
+  font-size: 30px;
+}
+
+.fa-video {
+  font-size: 30px;
+  text-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.61);
+}
+
+.fa-youtube {
+  font-size: 30px;
+}
+
+.data-atr {
+  display: none;
+}
+
+.movie-modal__btn--red {
+  color: rgba(194, 0, 0, 1);
 }

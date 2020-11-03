@@ -1,0 +1,24 @@
+.language__input {
+  display: none;
+}
+
+.language__label {
+  position: relative;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.language__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 25px;
+  height: 25px;
+}
+
+.language-hidden {
+  visibility: hidden;
+  opacity: 0;
+}

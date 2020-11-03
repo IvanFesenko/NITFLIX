@@ -21,7 +21,7 @@
   </head>
 
   <body>
-    <div class="logo-nitflix__container" id="proloader">
+    <!-- <div class="logo-nitflix__container" id="proloader">
       <div class="present">FSDev present</div>
       <div class="logo-nitflix">
         <div class="uno"></div>
@@ -29,8 +29,10 @@
         <div class="tres"></div>
       </div>
       <div class="name">Nitflix</div>
-    </div>
-    <div class="js-blur-container hidden">
+    </div> -->
+
+    <!-- <div class="js-blur-container hidden"> -->
+    <div class="js-blur-container">
       <header class="header">
         <nav class="navigation" id="navigation">
           <div class="navigation__main">
@@ -90,6 +92,33 @@
             <button type="submit" class="search-form__btn js-search-form__btn">
               <i class="fas fa-search"></i>
             </button>
+
+            <input
+              type="checkbox"
+              class="language__input"
+              id="language__input"
+              value="usa"
+            />
+            <label
+              for="language__input"
+              class="language__label js-language__label"
+            >
+              <svg
+                class="language__icon language-hidden"
+                id="language__rus-icon"
+              >
+                <use
+                  xlink:href="images/svg/language/language-sprite.svg#russia"
+                ></use>
+              </svg>
+              <svg class="language__icon" id="language__usa-icon">
+                <use
+                  xlink:href="images/svg/language/language-sprite.svg#usa"
+                ></use>
+              </svg>
+
+              usa
+            </label>
           </form>
         </nav>
       </header>

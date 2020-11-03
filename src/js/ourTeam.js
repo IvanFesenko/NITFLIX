@@ -8,7 +8,6 @@ import vadym from '../images/team/vadym.jpg';
 import nikita from '../images/team/nikita.jpg';
 import dima from '../images/team/dima.jpg';
 
-
 const ourTeam = `
 <div class="team-wrap visually-hidden">
 <div class="team">
@@ -196,8 +195,7 @@ const ourTeam = `
   </div>
 `;
 
-
-document.querySelector('.development').addEventListener('click', onShowTeam);
+// document.querySelector('.development').addEventListener('click', onShowTeam);
 document
   .querySelector('.copyright__link')
   .addEventListener('click', onShowTeam);
@@ -206,16 +204,16 @@ function onShowTeam(e) {
   e.preventDefault();
   if (!refs.cleanBoxWrp.children[0]) {
     clearContainers();
-    showSpiner();    
-    refs.mainTitle.innerHTML = 'Our Team';   
-    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam);    
-    setTimeout(onVisuallyTeam, 400);     
+    showSpiner();
+    refs.mainTitle.innerHTML = 'Our Team';
+    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam);
+    setTimeout(onVisuallyTeam, 400);
   }
-  return
-};
+  return;
+}
 
-function onVisuallyTeam() {  
-  const teamWrapRef = document.querySelector('.team-wrap');  
+function onVisuallyTeam() {
+  const teamWrapRef = document.querySelector('.team-wrap');
   document.querySelector('.spiner').style = 'display:none';
   teamWrapRef.classList.remove('visually-hidden');
 }

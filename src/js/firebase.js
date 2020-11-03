@@ -55,18 +55,19 @@ async function userExists(user) {
 }
 
 export async function registration() {
+  const email = Refs.inputEmail.value;
+  const pass = Refs.inputPassword.value;
+
   try {
     const auth = firebase.auth();
-    const user = await auth.createUserWithEmailAndPassword(
-      Refs.inputEmail.value,
-      Refs.inputPassword.value,
-    );
-    console.log(user);
+    const user = await auth.createUserWithEmailAndPassword(email, pass);
     await addUserToDB(user);
   } catch {
     alert('User with this e-mail already exists');
   }
 }
+
+function passValidation(value) {}
 
 export async function basicAuthorization() {
   try {

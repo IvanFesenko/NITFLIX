@@ -38,4 +38,9 @@ export default {
 
   // Spiner
   spiner: document.querySelector('.spiner'),
+
+  //lang
+  languageCheckBox: document.querySelector('#language__input'),
+  usaFlagSvg: document.querySelector('#language__usa-icon'),
+  rusFlagSvg: document.querySelector('#language__rus-icon'),
 };

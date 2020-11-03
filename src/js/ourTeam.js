@@ -1,13 +1,16 @@
 import refs from './refs';
 import clearContainers from './services/clearContainers';
+import showSpiner from './Spiner';
+
 import max from '../images/team/maxim.jpg';
 import ivan from '../images/team/ivan.jpg';
 import vadym from '../images/team/vadym.jpg';
 import nikita from '../images/team/nikita.jpg';
 import dima from '../images/team/dima.jpg';
 
+
 const ourTeam = `
-<div class="team-wrap">
+<div class="team-wrap visually-hidden">
 <div class="team">
     <div class="team__block">
       <div class="inner-box">
@@ -193,15 +196,24 @@ const ourTeam = `
   </div>
 `
 
+
 document.querySelector('.development').addEventListener('click', onShowTeam);
 document.querySelector('.copyright__link').addEventListener('click', onShowTeam);
 
-function onShowTeam(e) {  
-    e.preventDefault();      
-    if(!refs.cleanBoxWrp.children[0]) {      
-      clearContainers();    
-      refs.mainTitle.innerHTML = 'Our Team';    
-      refs.cleanBoxWrp.innerHTML = ourTeam;  
-    }
-    return 
+function onShowTeam(e) {
+  e.preventDefault();
+  if (!refs.cleanBoxWrp.children[0]) {
+    clearContainers();
+    showSpiner();    
+    refs.mainTitle.innerHTML = 'Our Team';   
+    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam);    
+    setTimeout(onVisuallyTeam, 400);     
+  }
+  return
 };
+
+function onVisuallyTeam() {  
+  const teamWrapRef = document.querySelector('.team-wrap');  
+  document.querySelector('.spiner').style = 'display:none';
+  teamWrapRef.classList.remove('visually-hidden');
+}

@@ -9,6 +9,7 @@
 }
 
 .main {
+  padding-top: 20px;
   padding-bottom: 20px;
 
   @include for-size(desktop) {
@@ -35,12 +36,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 7px;
 }
 
-.svg__watched {
-  width: 40px;
-  height: 40px;
-}
-
-.svg__queue {
-  width: 40px;
-  height: 40px;
+.main-scrollUp {
+  left: 97%;
 }

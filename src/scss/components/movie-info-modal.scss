@@ -114,7 +114,7 @@
 
     cursor: pointer;
 
-    transition: transform 0.2s linear;
+    transition: transform 0.3s linear;
 
     &:hover {
       transform: rotateZ(180deg);
@@ -122,8 +122,10 @@
   }
 
   &__my-list {
+    position: relative;
+
     display: flex;
-    justify-content: start;
+    justify-content: flex-end;
     // justify-content: space-around;
     // margin-bottom: 15px;
     // padding: 5px;
@@ -170,6 +172,18 @@
     @include for-size(tablet) {
       margin-right: 30px;
     }
+
+    &:hover .movie-modal__trailers-btn {
+      color: #000000;
+      background-color: red;
+      border: 2px solid red;
+    }
+
+    &:focus .movie-modal__trailers-btn {
+      color: #000000;
+      background-color: red;
+      border: 2px solid red;
+    }
   }
 
   &__image {
@@ -208,17 +222,17 @@
     transition: all 0.2s linear;
     z-index: 1;
 
-    &:hover {
-      color: #000000;
-      background-color: red;
-      border: 2px solid red;
-    }
+    // &:hover {
+    //   color: #000000;
+    //   background-color: red;
+    //   border: 2px solid red;
+    // }
 
-    &:focus {
-      color: #000000;
-      background-color: red;
-      border: 2px solid red;
-    }
+    // &:focus {
+    //   color: #000000;
+    //   background-color: red;
+    //   border: 2px solid red;
+    // }
 
     // @include for-size(mobile) {
     //   max-width: 250px;
@@ -456,54 +470,67 @@
   }
 }
 
-.queue {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.notify__watched {
+  display: none;
+  position: absolute;
+  top: -15px;
+  left: -55px;
+  background-color: #000000;
+  color: #fff;
+
+  font-size: 12px;
+}
+
+.notify__queue {
+  display: none;
+  position: absolute;
+  top: -15px;
+  left: -55px;
+  background-color: #000000;
+  color: #fff;
+
+  font-size: 12px;
+}
+
+.watched-btn {
+  position: relative;
 
   padding: 5px;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 80px;
 
-  border: 2px solid transparent;
+  &:hover {
+    color: rgba(194, 0, 0, 1);
+  }
+
+  &:hover .notify__watched {
+    display: inline-block;
+  }
+}
+
+.queue-btn {
+  position: relative;
+
+  padding: 5px;
+  border-color: transparent;
   background-color: transparent;
   cursor: pointer;
 
   &:hover {
-    border-bottom: 2px solid rgb(211, 0, 0);
-    text-shadow: 1px 1px 1px 1px rgb(1, 1, 1);
-  }
-
-  &:hover .svg__queue {
-    fill: rgb(207, 0, 0);
+    color: rgba(194, 0, 0, 1);
   }
 
   &:hover .notify__queue {
-    display: inline;
+    display: inline-block;
   }
 }
 
-.notify__watched {
-  display: none;
+.fa-bookmark {
+  font-size: 40px;
 }
 
-.watched {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  border: 2px solid transparent;
-  background-color: transparent;
-  cursor: pointer;
-
-  &:hover {
-    border-bottom: 2px solid rgb(211, 0, 0);
-    text-shadow: 1px 1px 1px 1px rgb(1, 1, 1);
-  }
-
-  &:hover .svg__watched {
-    fill: rgb(207, 0, 0);
-  }
-
-  &:hover ~ .notify__watched {
-    display: block;
-  }
+.fa-video {
+  font-size: 40px;
 }

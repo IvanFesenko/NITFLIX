@@ -28,6 +28,7 @@ function addBackgroundForModal(url) {
 function onClickAddToWatched(e) {
   e.preventDefault();
   const addToWatchedBtn = document.querySelector('.movie-modal__watched-btn');
+  const notifyWatched = document.querySelector('#notify__watched');
   const dataAtr = document.querySelector('#dataAtr');
   const {
     id,
@@ -38,12 +39,12 @@ function onClickAddToWatched(e) {
   } = dataAtr.dataset;
   if (addToWatchedBtn.dataset.active === 'true') {
     deleteFromWatched(id);
-    addToWatchedBtn.textContent = 'Add to watched';
+    notifyWatched.textContent = 'Add to watched';
     addToWatchedBtn.dataset.active = 'false';
   } else if (addToWatchedBtn.dataset.active === 'false') {
     const movie = { id, title, poster_path, release_date, vote_average };
     addMovieToWatched(movie);
-    addToWatchedBtn.textContent = 'Delete from watched';
+    notifyWatched.textContent = 'Delete from watched';
     addToWatchedBtn.dataset.active = 'true';
   }
 }
@@ -51,6 +52,7 @@ function onClickAddToWatched(e) {
 function onClickAddToQueueList(e) {
   e.preventDefault();
   const addToQueueBtn = document.querySelector('.movie-modal__queue-btn');
+  const notifyQueue = document.querySelector('#notify__queue');
   const dataAtr = document.querySelector('#dataAtr');
   const {
     id,
@@ -61,12 +63,12 @@ function onClickAddToQueueList(e) {
   } = dataAtr.dataset;
   if (addToQueueBtn.dataset.active === 'true') {
     deleteFromQueue(id);
-    addToQueueBtn.textContent = 'Add to queue';
+    notifyQueue.textContent = 'Add to queue';
     addToQueueBtn.dataset.active = 'false';
   } else if (addToQueueBtn.dataset.active === 'false') {
     const movie = { id, title, poster_path, release_date, vote_average };
     addMovieToQueue(movie);
-    addToQueueBtn.textContent = 'Delete from queue';
+    notifyQueue.textContent = 'Delete from queue';
     addToQueueBtn.dataset.active = 'true';
   }
 }

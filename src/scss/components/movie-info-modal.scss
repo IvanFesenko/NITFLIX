@@ -123,14 +123,15 @@
 
   &__my-list {
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
+    // justify-content: space-around;
     // margin-bottom: 15px;
     // padding: 5px;
     // background-color: rgb(194, 0, 0);
 
-    & span {
-      display: none;
-    }
+    // & span {
+    //   display: none;
+    // }
   }
 
   &__btn {
@@ -489,5 +490,57 @@
         max-width: 230px;
       }
     }
+  }
+}
+
+.queue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5px;
+
+  border: 2px solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    border-bottom: 2px solid rgb(211, 0, 0);
+    text-shadow: 1px 1px 1px 1px rgb(1, 1, 1);
+  }
+
+  &:hover .svg__queue {
+    fill: rgb(207, 0, 0);
+  }
+
+  &:hover .notify__queue {
+    display: inline;
+  }
+}
+
+.notify__watched {
+  display: none;
+}
+
+.watched {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 2px solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    border-bottom: 2px solid rgb(211, 0, 0);
+    text-shadow: 1px 1px 1px 1px rgb(1, 1, 1);
+  }
+
+  &:hover .svg__watched {
+    fill: rgb(207, 0, 0);
+  }
+
+  &:hover ~ .notify__watched {
+    display: block;
   }
 }

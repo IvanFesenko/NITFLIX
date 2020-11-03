@@ -1,6 +1,6 @@
 import refs from '../refs';
 
-const clearContainers = () => {  
+const clearContainers = () => { 
   refs.movieContainer.innerHTML = '';
   refs.cleanBoxWrp.innerHTML = '';
 

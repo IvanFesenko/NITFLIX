@@ -100,7 +100,10 @@
         <div class="container">
           <p class="copyright">
             Made with love, by
-            <a href="#" class="copyright__link">FSDev</a> 2020.
+            <a href="#" class="copyright__link" title="development team"
+              >FSDev</a
+            >
+            2020.
           </p>
           <p class="copyright__description">
             This project was created for educational purposes. Not commercial
@@ -109,73 +112,71 @@
           <i class="fas fa-users-cog development" title="development team"></i>
         </div>
       </footer>
+    </div>
 
-      <div class="modal-wrap visually-hidden">
-        <div class="modal">
-          <div class="modal__content">
-            <i class="fas fa-times modal-close-btn"></i>
-            <h3 class="modal__title">Welcome</h3>
-            <div class="auth-wrap">
-              <p class="modal__text modal__text-login is-activ-elem">Login</p>
-              <p class="modal__text modal__text-reg">Register</p>
-            </div>
+    <div class="modal-wrap visually-hidden is-hidden">
+      <div class="modal">
+        <div class="modal__content">
+          <i class="fas fa-times modal-close-btn"></i>
+          <h3 class="modal__title">Welcome</h3>
+          <div class="auth-wrap">
+            <p class="modal__text modal__text-login is-activ-elem">Login</p>
+            <p class="modal__text modal__text-reg">Register</p>
+          </div>
 
-            <div class="form">
-              <form action="#" class="form__registration">
-                <div class="input-label">
-                  <span class="input-label-span" id="email-span"
-                    >Email address *</span
-                  >
-                  <input
-                    type="email"
-                    id="inputEmail"
-                    class="form__registration-email form__reg-input"
-                    placeholder="Email address *"
-                    required
-                  />
-                </div>
-                <div class="input-label">
-                  <input
-                    type="password"
-                    id="inputPassword"
-                    class="form__registration-password form__reg-input"
-                    placeholder="Password *"
-                    required
-                  />
-                  <span class="input-label-span" id="pass-span"
-                    >Password *</span
-                  >
-                </div>
+          <div class="form">
+            <form action="#" class="form__registration">
+              <div class="input-label">
+                <span class="input-label-span" id="email-span"
+                  >Email address *</span
+                >
+                <input
+                  type="email"
+                  id="inputEmail"
+                  class="form__registration-email form__reg-input"
+                  placeholder="Email address *"
+                  required
+                />
+              </div>
+              <div class="input-label">
+                <input
+                  type="password"
+                  id="inputPassword"
+                  class="form__registration-password form__reg-input"
+                  placeholder="Password *"
+                  required
+                />
+                <span class="input-label-span" id="pass-span">Password *</span>
+              </div>
 
-                <div class="form__login-btn-wrap">
-                  <button
-                    class="btn form__btn form__btn-in"
-                    id="loginbtn"
-                    type="button"
-                  >
-                    Sign in
-                  </button>
-
-                  <button
-                    class="btn form__btn form__btn-up visually-hidden is-hidden"
-                    id="singupbtn"
-                    type="button"
-                  >
-                    Sign up
-                  </button>
-                </div>
-
-                <div class="new_login__soc-label">or login with</div>
-
+              <div class="form__login-btn-wrap">
                 <button
-                  class="btn googleBtn form__btn"
-                  id="googleIn"
+                  class="btn form__btn form__btn-in"
+                  id="loginbtn"
                   type="button"
                 >
-                  Google
+                  Sign in
                 </button>
-              </form>
-            </div>
+
+                <button
+                  class="btn form__btn form__btn-up visually-hidden is-hidden"
+                  id="singupbtn"
+                  type="button"
+                >
+                  Sign up
+                </button>
+              </div>
+
+              <div class="new_login__soc-label">or login with</div>
+
+              <button
+                class="btn googleBtn form__btn"
+                id="googleIn"
+                type="button"
+              >
+                Google
+              </button>
+            </form>
           </div>
         </div>
       </div>

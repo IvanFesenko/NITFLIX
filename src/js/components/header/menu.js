@@ -29,8 +29,7 @@ function onWatchedClick(e) {
     getWatchedMovies().then(res => {
       clearContainers();
       mainTitle.textContent = `Watched list`;
-      renderMarkup(res, MoviesCards, refs.movieContainer);
-      paginationWrp.style = 'display:none';
+      renderMarkup(res, MoviesCards, refs.movieContainer);      
     });
   }
 }
@@ -44,8 +43,7 @@ function onQueueClick(e) {
     getQueuedMovies().then(res => {
       clearContainers();
       mainTitle.textContent = `Queue list`;
-      renderMarkup(res, MoviesCards, refs.movieContainer);
-      paginationWrp.style = 'display:none';
+      renderMarkup(res, MoviesCards, refs.movieContainer);      
     });
   }
 }

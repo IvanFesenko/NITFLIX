@@ -1,0 +1,32 @@
+.spiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Spinner SVG */
+@keyframes svg-spinner {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(185deg);
+  }
+  100% {
+    transform: rotate(365deg);
+  }
+}
+
+.svg-spinner {
+  margin: 0 2px 0 0;
+  vertical-align: -2px;
+}
+.svg-spinner svg {
+  animation: svg-spinner 1.3s linear infinite;
+}
+
+.svg-spinner .path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 30;
+  transform-origin: center;
+}

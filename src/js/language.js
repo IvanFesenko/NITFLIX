@@ -1,20 +1,25 @@
-const languageLabel = document.querySelector('.js-language__label');
-const languageCheckBox = document.querySelector('#language__input');
-const rusFlagSvg = document.querySelector('#language__rus-icon');
-const usaFlagSvg = document.querySelector('#language__usa-icon');
+import refs from './refs';
+
+const { languageCheckBox, rusFlagSvg, usaFlagSvg } = refs;
 
 function onLoadPage() {
   let selectedLang = localStorage.getItem('language');
   selectedLang = JSON.parse(selectedLang);
 
-  languageCheckBox.checked = selectedLang;
-
-  changeLanguageFlag(selectedLang);
+  languageCheckBox.checked = selectedLang.checked;
+  changeLanguageFlag(selectedLang.checked);
 }
 
 function saveLangToLocalStorage(checkBox) {
-  const selectedLang = checkBox.checked;
-  localStorage.setItem('language', selectedLang);
+  const selectedLang = {};
+  selectedLang.checked = checkBox.checked;
+  if (checkBox.checked) {
+    selectedLang.languge = 'rus';
+  } else {
+    selectedLang.languge = 'usa';
+  }
+
+  localStorage.setItem('language', JSON.stringify(selectedLang));
 }
 
 function changeLanguageFlag(check) {

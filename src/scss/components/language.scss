@@ -7,12 +7,16 @@
   cursor: pointer;
   width: 25px;
   height: 25px;
+
+  border-radius: 50%;
 }
 
 .language__icon {
   position: absolute;
   top: 0;
   left: 0;
+
+  border-radius: 50%;
 
   width: 25px;
   height: 25px;

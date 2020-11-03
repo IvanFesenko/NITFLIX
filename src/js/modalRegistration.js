@@ -5,15 +5,15 @@ Refs.modalCloseBtn.addEventListener('click', onCloseModalReg);
 Refs.modalReg.addEventListener('click', onClickBackDrop);
 
 export function onOpenModalRegistration() {
-    Refs.modalReg.classList.add('modal-active');  
-    Refs.modalReg.classList.remove('visually-hidden');
+    Refs.modalReg.classList.add('modal-active');     
+    Refs.modalReg.classList.remove('visually-hidden', 'is-hidden');
     document.querySelector('html').style = 'overflow:hidden;';
     window.addEventListener('keydown', onPressEsc);    
 }
   
 export function onCloseModalReg() {
     Refs.modalReg.classList.remove('modal-active');
-    Refs.modalReg.classList.add('visually-hidden');
+    Refs.modalReg.classList.add('visually-hidden', 'is-hidden');
     document.querySelector('html').style = ' overflow-x: hidden;'; 
     window.removeEventListener('keydown', onPressEsc);
 }

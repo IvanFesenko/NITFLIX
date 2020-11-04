@@ -19,6 +19,7 @@
     <meta property="og:site_name" content="NITFLIX.FUN" />
     <title>NITFLIX</title>
   </head>
+
   <body>
     <div class="js-blur-container">
       <header class="header">
@@ -80,6 +81,31 @@
             <button type="submit" class="search-form__btn js-search-form__btn">
               <i class="fas fa-search"></i>
             </button>
+
+            <input
+              type="checkbox"
+              class="language__input"
+              id="language__input"
+            />
+            <label
+              for="language__input"
+              class="language__label js-language__label"
+            >
+              <svg
+                class="language__icon language-hidden"
+                id="language__rus-icon"
+              >
+                <use
+                  xlink:href="images/svg/language/language-sprite.svg#russia"
+                ></use>
+              </svg>
+              <svg class="language__icon" id="language__usa-icon">
+                <use
+                  xlink:href="images/svg/language/language-sprite.svg#united-kingdom"
+                ></use>
+              </svg>
+              usa
+            </label>
           </form>
         </nav>
       </header>
@@ -97,7 +123,7 @@
       </main>
 
       <footer class="footer">
-        <div class="container">
+        <div class="container footer-container">
           <p class="copyright">
             Made with love, by
             <a href="#" class="copyright__link" title="development team"

@@ -1,6 +1,6 @@
 import refs from './refs';
 import clearContainers from './services/clearContainers';
-import showSpiner from './Spiner';
+import spiner from './Spiner';
 
 import max from '../images/team/maxim.jpg';
 import ivan from '../images/team/ivan.jpg';
@@ -195,14 +195,19 @@ const ourTeam = `
   </div>
 `;
 
+<<<<<<< HEAD
 document.querySelector('.development').addEventListener('click', onShowTeam);
 document
   .querySelector('.copyright__link')
   .addEventListener('click', onShowTeam);
+=======
+document.querySelector('.copyright__link').addEventListener('click', onShowTeam);
+>>>>>>> f9d572ead0a14bbe08e147cc7fe0d7b288b7bc1c
 
 function onShowTeam(e) {
   e.preventDefault();
   if (!refs.cleanBoxWrp.children[0]) {
+<<<<<<< HEAD
     clearContainers();
     showSpiner();
     refs.mainTitle.innerHTML = 'Our Team';
@@ -215,5 +220,21 @@ function onShowTeam(e) {
 function onVisuallyTeam() {
   const teamWrapRef = document.querySelector('.team-wrap');
   document.querySelector('.spiner').style = 'display:none';
+=======
+    clearContainers();    
+    spiner.show();      
+    refs.mainTitle.innerHTML = 'Our Team';       
+    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam); 
+    setTimeout(onVisuallyTeam, 1000); 
+    }
+  return
+};
+
+
+function onVisuallyTeam() {  
+  const teamWrapRef = document.querySelector('.team-wrap');  
+  spiner.hide();
+>>>>>>> f9d572ead0a14bbe08e147cc7fe0d7b288b7bc1c
   teamWrapRef.classList.remove('visually-hidden');
+  
 }

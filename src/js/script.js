@@ -1,5 +1,6 @@
 'use strict';
 //js modules
+
 import './firebase';
 import './trending-page';
 import './MovieDetailsModal';
@@ -9,3 +10,4 @@ import './components/header/menu';
 import './ourTeam';
 import './pagination';
 import './mainScrollUp';
+import './language';

@@ -1,7 +1,6 @@
 .footer {
   position: relative;
-  padding: 30px 0 30px 0;
-  border-top: 1px solid rgb(255, 0, 0);
+  padding: 0 0 30px 0;
 
   font-size: 12px;
   text-align: center;
@@ -58,4 +57,9 @@
   &:focus {
     color: #e40000;
   }
+}
+
+.footer-container {
+  padding: 30px 0 0 0;
+  border-top: 1px solid rgb(255, 0, 0);
 }

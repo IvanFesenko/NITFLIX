@@ -1,0 +1,37 @@
+.language__input {
+  display: none;
+}
+
+.language__label {
+  position: relative;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+}
+
+.language__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  border-radius: 50%;
+  border-bottom: 2px solid #ffffff;
+
+  width: 25px;
+  height: 25px;
+
+  &:hover {
+    border-color: #e82222;
+  }
+
+  &:focus {
+    border-color: #e82222;
+  }
+}
+
+.language-hidden {
+  visibility: hidden;
+  opacity: 0;
+}

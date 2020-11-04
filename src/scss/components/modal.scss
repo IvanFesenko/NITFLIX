@@ -15,7 +15,7 @@
 
 .modal {
   position: absolute;
-  width: 400px;
+  width: 310px;
   border-radius: 20px;
   top: 50%;
   left: 50%;
@@ -42,6 +42,10 @@
   &:hover .new_login__soc-label::after,
   &:focus .new_login__soc-label::after {
     box-shadow: 0 0 20px #20bcc6;
+  }
+
+  @media screen and (min-width: 410px) {
+    width: 400px;
   }
 
   @include for-size(tablet) {
@@ -276,4 +280,8 @@
     box-shadow: 0 0 15px #20bcc6;
     border: 2px solid rgba(32, 188, 198, 1);
   }
+}
+
+.invalid {
+  color: #ff0303;
 }

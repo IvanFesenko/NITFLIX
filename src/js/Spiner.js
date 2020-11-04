@@ -40,14 +40,13 @@ const spinerMarkup = `
 const spiner = {
   spinerWrap: '',
 
-  show() {
-    // event.target.id === 'inputEmail'
+  show() {    
     if(!this.spinerWrap){
-      refs.cleanBoxWrp.insertAdjacentHTML('beforebegin', spinerMarkup);
-      this.spinerWrap = document.querySelector('.spiner-wrap');
-      this.spinerWrap.classList.remove('is-hidden');
+      refs.cleanBoxWrp.insertAdjacentHTML('beforebegin', spinerMarkup); 
     } 
-    return;   
+
+    this.spinerWrap = document.querySelector('.spiner-wrap');
+    this.spinerWrap.classList.remove('is-hidden');    
   },
 
   hide(){    

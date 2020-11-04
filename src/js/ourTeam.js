@@ -201,6 +201,9 @@ document
 
 function onShowTeam(e) {
   e.preventDefault();
+  const main = document.querySelector('.main');
+  main.removeAttribute('style');
+  
   if (!refs.cleanBoxWrp.children[0]) {
     clearContainers();
     spiner.show();

@@ -5,6 +5,7 @@ import renderMarkup from '../../renderMarkup';
 import clearContainers from '../../services/clearContainers';
 import { onOpenModalRegistration } from '../../modalRegistration';
 import { currentUser } from '../../firebase';
+import { isDefaultLanguage } from '../../language';
 
 import { getWatchedMovies, getQueuedMovies } from '../../userLists';
 
@@ -28,8 +29,10 @@ function onWatchedClick(e) {
   } else {
     getWatchedMovies().then(res => {
       clearContainers();
-      mainTitle.textContent = `Watched list`;
-      renderMarkup(res, MoviesCards, refs.movieContainer);      
+      mainTitle.textContent = isDefaultLanguage()
+        ? `Watched list`
+        : `Просмотренные`;
+      renderMarkup(res, MoviesCards, refs.movieContainer);
     });
   }
 }
@@ -42,8 +45,10 @@ function onQueueClick(e) {
   } else {
     getQueuedMovies().then(res => {
       clearContainers();
-      mainTitle.textContent = `Queue list`;
-      renderMarkup(res, MoviesCards, refs.movieContainer);      
+      mainTitle.textContent = isDefaultLanguage()
+        ? `Queue list`
+        : `Для просмотра`;
+      renderMarkup(res, MoviesCards, refs.movieContainer);
     });
   }
 }

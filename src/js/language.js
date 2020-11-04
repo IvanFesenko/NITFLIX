@@ -4,6 +4,7 @@ const { languageCheckBox, rusFlagSvg, usaFlagSvg } = refs;
 
 function onLoadPage() {
   let selectedLang = localStorage.getItem('language');
+  console.log(selectedLang);
   selectedLang = JSON.parse(selectedLang);
 
   languageCheckBox.checked = selectedLang.checked;
@@ -16,9 +17,9 @@ function saveLangToLocalStorage(checkBox) {
   selectedLang.checked = checkBox.checked;
 
   if (checkBox.checked) {
-    selectedLang.languge = 'rus';
+    selectedLang.language = 'ru-RU';
   } else {
-    selectedLang.languge = 'en';
+    selectedLang.language = 'en-EN';
   }
 
   localStorage.setItem('language', JSON.stringify(selectedLang));

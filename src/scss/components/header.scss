@@ -31,7 +31,10 @@
 
 .logo {
   width: 100px;
-  margin-right: 50px;
+  margin-right: 28px;
+  @include for-size(tablet) {
+    margin-right: 50px;
+  }
 }
 
 .menu {
@@ -64,11 +67,14 @@ ul li:hover .sub-menu {
   position: absolute;
   z-index: 3;
   top: 18px;
-  left: 0;
+  left: -37px;
   background-color: #141414;
   padding: 7px 4px 5px 10px;
   border-radius: 5px;
-  // border: 1px solid #e50916;
+
+  @include for-size(tablet) {
+    left: 0;
+  }
 
   &__item:not(:last-child) {
     margin-bottom: 5px;

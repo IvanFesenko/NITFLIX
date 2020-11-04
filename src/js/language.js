@@ -3,8 +3,16 @@ import refs from './refs';
 const { languageCheckBox, rusFlagSvg, usaFlagSvg } = refs;
 
 function onLoadPage() {
+  if (!localStorage.getItem('language')) {
+    const defaultLang = {
+      language: 'en-EN',
+      checked: false,
+    };
+
+    localStorage.setItem('language', JSON.stringify(defaultLang));
+  }
+
   let selectedLang = localStorage.getItem('language');
-  console.log(selectedLang);
   selectedLang = JSON.parse(selectedLang);
 
   languageCheckBox.checked = selectedLang.checked;

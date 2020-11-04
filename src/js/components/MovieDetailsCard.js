@@ -75,7 +75,9 @@ const MovieDetailsCard = ({
           <h2 class="movie-modal__title">${title}</h2>
 
           <div class="movie-modal__vote-block">
-            <p class="movie-modal__vote-text">Vote &#8260; Votes:</p>
+            <p class="movie-modal__vote-text">${
+              isDefaultLanguage() ? 'Vote' : 'Рейтинг'
+            } &#8260; ${isDefaultLanguage() ? 'Votes:' : 'Голосов'} </p>
             <p class="movie-modal__vote-block-text">
               <span class="movie-modal__vote-block-averege"
                 >${vote_average}</span

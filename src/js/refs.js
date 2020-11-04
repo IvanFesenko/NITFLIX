@@ -37,6 +37,7 @@ export default {
   cleanBoxWrp: document.querySelector('.clean-box'),
 
   // Spiner
-  spiner: document.querySelector('.spiner'),
+  pop: document.querySelector('.spiner-wrap'),
+  spiner: document.querySelector('.spiner-wrap'),
 };
 

@@ -1,6 +1,6 @@
 import refs from './refs';
 import clearContainers from './services/clearContainers';
-import showSpiner from './Spiner';
+import spiner from './Spiner';
 
 import max from '../images/team/maxim.jpg';
 import ivan from '../images/team/ivan.jpg';
@@ -202,8 +202,8 @@ function onShowTeam(e) {
   e.preventDefault();
   if (!refs.cleanBoxWrp.children[0]) {
     clearContainers();    
-    showSpiner();    
-    refs.mainTitle.innerHTML = 'Our Team';   
+    spiner.show();      
+    refs.mainTitle.innerHTML = 'Our Team';       
     refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam); 
     setTimeout(onVisuallyTeam, 1000); 
     }
@@ -213,6 +213,7 @@ function onShowTeam(e) {
 
 function onVisuallyTeam() {  
   const teamWrapRef = document.querySelector('.team-wrap');  
-  document.querySelector('.spiner').style = 'display:none';
+  spiner.hide();
   teamWrapRef.classList.remove('visually-hidden');
+  
 }

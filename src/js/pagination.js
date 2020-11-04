@@ -14,7 +14,6 @@ const addActiveBtn = page => {
   if (paginationBtns.length && paginationBtns !== null) {
     paginationBtns.forEach(btn => {
       if (Number(btn.value) === page) {
-        console.log(btn.value);
         btn.classList.add('active');
       }
     });

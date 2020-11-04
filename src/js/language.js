@@ -59,11 +59,16 @@ function handleLanguageBtn(event) {
   }
 }
 
-export function checkSelectedLanguage() {
-  let language = localStorage.getItem('language');
-  language = JSON.parse(language);
+export function isDefaultLanguage() {
+  const selectedLang = localStorage.getItem('language');
+  const current = JSON.parse(selectedLang);
+  return !current.checked;
+}
 
-  return !language.checked;
+export function getLanguageCode() {
+  const result = localStorage.getItem('language');
+  const current = JSON.parse(result);
+  return current.language;
 }
 
 languageCheckBox.addEventListener('change', handleLanguageBtn);

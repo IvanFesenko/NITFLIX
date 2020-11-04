@@ -2,6 +2,7 @@
 //js modules
 
 import './firebase';
+import './language';
 import './trending-page';
 import './MovieDetailsModal';
 import './search';
@@ -10,4 +11,3 @@ import './components/header/menu';
 import './ourTeam';
 import './pagination';
 import './mainScrollUp';
-import './language';

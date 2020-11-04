@@ -132,7 +132,8 @@ export async function getMoviesList(list) {
     // const data = dataSnapshot.val();
     // return Object.values(data);
   } catch {
-    console.error('Cannot read data from DB!');
+    //console.error('Cannot read data from DB!');
+    return [];
   }
 }
 
@@ -147,7 +148,8 @@ async function movieAdded(userID, id, list) {
     // const moviesID = Object.values(data);
     // return moviesID.includes(id);
   } catch {
-    console.error('Cannot read data from DB!');
+    //console.error('Cannot read data from DB!');
+    return false;
   }
 }
 

@@ -42,7 +42,7 @@ class APIService {
     return this.getData(this.temp);
   };
 
-  getMovieInfo = id =>
+  getMovieInfo = (id, lang) =>
     this.getData(
       `${this.baseURL}/movie/${id}?api_key=${this.API_KEY}&append_to_response=videos`,
     );

@@ -1,4 +1,5 @@
 import refs from './refs';
+import generateTrendingList from './trending-page';
 
 const { languageCheckBox, rusFlagSvg, usaFlagSvg } = refs;
 
@@ -20,6 +21,7 @@ function switchToRusLang() {
   selectedLang.checked = true;
   selectedLang.language = 'ru-RU';
   localStorage.setItem('language', JSON.stringify(selectedLang));
+  generateTrendingList();
 }
 
 function switchToEnLang() {
@@ -28,6 +30,7 @@ function switchToEnLang() {
   selectedLang.checked = false;
   selectedLang.language = 'en-EN';
   localStorage.setItem('language', JSON.stringify(selectedLang));
+  generateTrendingList();
 }
 
 function onLoadPage() {
@@ -45,10 +48,8 @@ function onLoadPage() {
   languageCheckBox.checked = selectedLang.checked;
 
   if (selectedLang.language === 'en-EN') {
-    console.log('en-EN');
     switchToEnLang();
   } else {
-    console.log('ru-RU');
     switchToRusLang();
   }
 }
@@ -68,9 +69,8 @@ export function isDefaultLanguage() {
 }
 
 export function getLanguageCode() {
-  const result = localStorage.getItem('language');
-  const current = JSON.parse(result);
-  return current.language;
+  if (isDefaultLanguage()) return 'en-EN';
+  return 'ru-RU';
 }
 
 languageCheckBox.addEventListener('change', handleLanguageBtn);

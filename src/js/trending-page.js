@@ -18,4 +18,5 @@ const generateTrendingList = () => {
   });
 };
 
-generateTrendingList();
+//generateTrendingList();
+export default generateTrendingList;

@@ -20,7 +20,14 @@ movieChangeBackground('navigation');
 
 function addBackgroundForModal(url) {
   const content = document.querySelector('.movie-modal__content');
-  content.style.backgroundImage = `linear-gradient(180deg, rgba(255,255,255,0.36878501400560226) 10%, rgba(255,255,255,0.8477766106442577) 25%, rgba(255,255,255,1) 40%), url(
+  content.style.backgroundImage = `linear-gradient(
+    180deg,
+    rgba(24, 41, 54, 0.4) 10%,
+    rgba(24, 41, 54, 0.6) 15%,
+    rgba(24, 41, 54, 0.7) 20%,
+    rgba(24, 41, 54, 0.85) 25%,
+    rgba(24, 41, 54, 1) 35%
+  ), url(
  "${url}")`;
   content.style.backgroundPosition = 'top';
   content.style.backgroundRepeat = 'no-repeat';
@@ -180,9 +187,9 @@ async function onOpenMovieModal(id) {
   await getTrailers(id);
 }
 
-function addRefsForModal() {
+function addRefsForModal() {  
   const closeBtnRef = document.getElementById('close-movie-modal');
-  const backdrop = document.querySelector('.js-movie-modal__overlay');
+  const backdrop = document.querySelector('.js-movie-modal__overlay'); 
   //Add to user list
   const addToWatchedBtn = document.querySelector('.movie-modal__watched-btn');
   const addToQueueBtn = document.querySelector('.movie-modal__queue-btn');
@@ -197,6 +204,7 @@ function addRefsForModal() {
 }
 
 function onClickOnBackDrop(event) {
+  console.log(event);
   if (event.target === event.currentTarget) {
     onCloseMovieModal();
   }

@@ -13,19 +13,20 @@ const MovieDetailsCard = ({
   vote_count,
   InWatched,
   InQueue,
+  popularity,
 }) => {
   const genresMarkup = genres
     .map(({ name }) => `<li class="movie-modal__genres-item">${name}</li>`)
     .join(' ');
   return `<div class="movie-modal js-movie-modal">
-  <div class="movie-modal__overlay js-movie-modal__overlay">
+  <div class="movie-modal__overlay js-movie-modal__overlay">  
     <div class="movie-modal__content animate-modal">
       <button class="movie-modal__close" id="close-movie-modal"></button>
 
       <div class="movie-modal__top-block">
         <div class="movie-modal__image-wrapper">
           <img src=${poster_path !== null ? poster_path : noPosterImg}
-          alt=${title}$ class="movie-modal__image">
+          alt=${title}$ class="movie-modal__image effect2">
 
           <div class="movie-modal__btn-wrapper">
             
@@ -40,33 +41,37 @@ const MovieDetailsCard = ({
                 }"
                 data-release_date="${release_date}"
                 data-vote_average="${vote_average}"
-              ></span>
-              <button class="movie-modal__trailers-btn">
-              <i class="fab fa-youtube">
+              ></span>                           
+              <button class="movie-modal__trailers-btn">              
+              <i class="fab fa-youtube movie-modal__icon">
               <span class="notify__trailer">Trailers</span>
-              </i>
-            </button>
+              </i>            
+            </button>            
               <button
-                class="watched-btn movie-modal__watched-btn"
+                class="movie-modal__trailers-btn movie-modal__watched-btn"
                 data-active="${InWatched}"
                 type="button"
               >
-                <i class="fas fa-video"></i>
+                <i class="fas fa-video movie-modal__icon"></i>
                 <span class="notify__watched" id="notify__watched"
                   >${InWatched ? 'Delete from watched' : 'Add to watched'}</span
                 >
               </button>
 
               <button
-                class="queue-btn movie-modal__queue-btn"
+                class="movie-modal__trailers-btn movie-modal__queue-btn"
                 data-active="${InQueue}"
                 type="button"
               >
-                <i class="far fa-bookmark"></i>
+                <i class="far fa-bookmark movie-modal__icon"></i>
                 <span class="notify__queue" id="notify__queue"
                   >${InQueue ? 'Delete from queue' : 'Add to queue'}</span
                 >
-              </button>
+              </button>            
+              <a href="${homepage}" class="movie-modal__trailers-btn" target="_blank"
+              >
+              <i class="fas fa-link movie-modal__icon"></i>              
+              </a>
             </div>
           </div>
         </div>
@@ -85,16 +90,23 @@ const MovieDetailsCard = ({
               &#8260;
               <span class="movie-modal__vote-block-count">${vote_count}</span>
             </p>
-          </div>
+          </div> 
 
-          <a href="${homepage}" class="movie-modal__homepage" target="_blank"
-            >${homepage}</a
-          >
+          <div class="movie-modal__vote-block">
+          <p class="movie-modal__vote-text">
+          ${isDefaultLanguage() ? 'Popularity' : 'Популярность'} 
+          </p>
+          <p class="movie-modal__vote-block-text">
+            <span class="movie-modal__vote-block-averege"
+              >${popularity}</span>
+            
+          </p>
+        </div> 
 
           <div class="movie-modal__genres">
-            <h3 class="movie-modal__genres-title">${
+            <p class="movie-modal__genres-title">${
               isDefaultLanguage() ? 'Genres:' : 'Жанры:'
-            }</h3>
+            }</p>
             <ul class="movie-modal__genres-list">
               ${genresMarkup}
             </ul>
@@ -113,7 +125,7 @@ const MovieDetailsCard = ({
         <ul class="movie-trailers-list"></ul>
       </div>
       <button class="movie-modal__scrollUp scrollUp"></button>
-    </div>
+    </div>    
   </div>
 </div>
 `;

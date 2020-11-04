@@ -40,7 +40,7 @@ export const pagination = (pages, page) => {
   if (pages === 1) {
     paginationWrp.style = 'display:none';
   } else {
-    paginationWrp.style = 'display:block';
+    paginationWrp.style = 'display:flex';
   }
   let maxLeft = page - Math.floor(visibleButtons / 2);
   let maxRight = page + Math.floor(visibleButtons / 2);

@@ -195,24 +195,24 @@ const ourTeam = `
   </div>
 `;
 
-document.querySelector('.copyright__link').addEventListener('click', onShowTeam);
+document
+  .querySelector('.copyright__link')
+  .addEventListener('click', onShowTeam);
 
 function onShowTeam(e) {
   e.preventDefault();
   if (!refs.cleanBoxWrp.children[0]) {
-    clearContainers();    
-    spiner.show();      
-    refs.mainTitle.innerHTML = 'Our Team';       
-    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam); 
-    setTimeout(onVisuallyTeam, 1000); 
-    }
-  return
-};
+    clearContainers();
+    spiner.show();
+    refs.mainTitle.innerHTML = 'Our Team';
+    refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam);
+    setTimeout(onVisuallyTeam, 1000);
+  }
+  return;
+}
 
-
-function onVisuallyTeam() {  
-  const teamWrapRef = document.querySelector('.team-wrap');  
+function onVisuallyTeam() {
+  const teamWrapRef = document.querySelector('.team-wrap');
   spiner.hide();
   teamWrapRef.classList.remove('visually-hidden');
-  
 }

@@ -14,7 +14,6 @@ const addActiveBtn = page => {
   if (paginationBtns.length && paginationBtns !== null) {
     paginationBtns.forEach(btn => {
       if (Number(btn.value) === page) {
-        console.log(btn.value);
         btn.classList.add('active');
       }
     });
@@ -40,7 +39,7 @@ export const pagination = (pages, page) => {
   if (pages === 1) {
     paginationWrp.style = 'display:none';
   } else {
-    paginationWrp.style = 'display:block';
+    paginationWrp.style = 'display:flex';
   }
   let maxLeft = page - Math.floor(visibleButtons / 2);
   let maxRight = page + Math.floor(visibleButtons / 2);

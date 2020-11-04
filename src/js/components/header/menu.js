@@ -6,7 +6,7 @@ import clearContainers from '../../services/clearContainers';
 import { onOpenModalRegistration } from '../../modalRegistration';
 import { currentUser } from '../../firebase';
 import { isDefaultLanguage } from '../../language';
-
+import generateTrendingList from '../../trending-page';
 import { getWatchedMovies, getQueuedMovies } from '../../userLists';
 
 const {
@@ -15,6 +15,8 @@ const {
   listQueueRef,
   mainTitle,
   paginationWrp,
+  logo,
+  homeLink,
 } = refs;
 
 function onMyListClick(e) {
@@ -53,6 +55,14 @@ function onQueueClick(e) {
   }
 }
 
+function onClickLogo(e) {
+  e.preventDefault();
+  generateTrendingList();
+}
+
 myListRef.addEventListener('click', onMyListClick);
 listWatchedRef.addEventListener('click', onWatchedClick);
 listQueueRef.addEventListener('click', onQueueClick);
+logo.addEventListener('click', onClickLogo);
+
+homeLink.addEventListener('click', generateTrendingList);

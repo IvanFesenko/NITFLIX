@@ -45,10 +45,8 @@ function onLoadPage() {
   languageCheckBox.checked = selectedLang.checked;
 
   if (selectedLang.language === 'en-EN') {
-    console.log('en-EN');
     switchToEnLang();
   } else {
-    console.log('ru-RU');
     switchToRusLang();
   }
 }
@@ -59,6 +57,13 @@ function handleLanguageBtn(event) {
   } else {
     switchToEnLang();
   }
+}
+
+export function checkSelectedLanguage() {
+  let language = localStorage.getItem('language');
+  language = JSON.parse(language);
+
+  return !language.checked;
 }
 
 languageCheckBox.addEventListener('change', handleLanguageBtn);

@@ -1,4 +1,5 @@
 import noPosterImg from '../../images/no-poster.jpg';
+import { checkSelectedLanguage } from '../language';
 
 const MovieDetailsCard = ({
   poster_path,
@@ -89,13 +90,17 @@ const MovieDetailsCard = ({
           >
 
           <div class="movie-modal__genres">
-            <h3 class="movie-modal__genres-title">Genres:</h3>
+            <h3 class="movie-modal__genres-title">${
+              checkSelectedLanguage() ? 'Genres:' : 'Жанры:'
+            }</h3>
             <ul class="movie-modal__genres-list">
               ${genresMarkup}
             </ul>
           </div>
           <div class="movie-modal__about">
-            <h3 class="movie-modal__about-title">About</h3>
+            <h3 class="movie-modal__about-title">${
+              checkSelectedLanguage() ? 'About:' : 'О фильме:'
+            }</h3>
             <p class="movie-modal__about-text">${overview}</p>
           </div>
         </div>

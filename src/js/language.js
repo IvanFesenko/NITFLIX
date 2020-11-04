@@ -2,6 +2,34 @@ import refs from './refs';
 
 const { languageCheckBox, rusFlagSvg, usaFlagSvg } = refs;
 
+let selectedLang = {};
+
+function switchFlagToRus() {
+  usaFlagSvg.classList.add('language-hidden');
+  rusFlagSvg.classList.remove('language-hidden');
+}
+
+function switchFlagToEn() {
+  usaFlagSvg.classList.remove('language-hidden');
+  rusFlagSvg.classList.add('language-hidden');
+}
+
+function switchToRusLang() {
+  switchFlagToRus();
+
+  selectedLang.checked = true;
+  selectedLang.language = 'ru-RU';
+  localStorage.setItem('language', JSON.stringify(selectedLang));
+}
+
+function switchToEnLang() {
+  switchFlagToEn();
+
+  selectedLang.checked = false;
+  selectedLang.language = 'en-EN';
+  localStorage.setItem('language', JSON.stringify(selectedLang));
+}
+
 function onLoadPage() {
   if (!localStorage.getItem('language')) {
     const defaultLang = {
@@ -12,46 +40,25 @@ function onLoadPage() {
     localStorage.setItem('language', JSON.stringify(defaultLang));
   }
 
-  let selectedLang = localStorage.getItem('language');
+  selectedLang = localStorage.getItem('language');
   selectedLang = JSON.parse(selectedLang);
-
   languageCheckBox.checked = selectedLang.checked;
-  changeLanguageFlag(selectedLang.checked);
-}
 
-function saveLangToLocalStorage(checkBox) {
-  const selectedLang = {};
-
-  selectedLang.checked = checkBox.checked;
-
-  if (checkBox.checked) {
-    selectedLang.language = 'ru-RU';
+  if (selectedLang.language === 'en-EN') {
+    console.log('en-EN');
+    switchToEnLang();
   } else {
-    selectedLang.language = 'en-EN';
+    console.log('ru-RU');
+    switchToRusLang();
   }
-
-  localStorage.setItem('language', JSON.stringify(selectedLang));
-}
-
-function changeLanguageFlag(check) {
-  if (check) {
-    usaFlagSvg.classList.add('language-hidden');
-    rusFlagSvg.classList.remove('language-hidden');
-  } else {
-    usaFlagSvg.classList.remove('language-hidden');
-    rusFlagSvg.classList.add('language-hidden');
-  }
-}
-
-function changeLanguage(event) {
-  const checkBox = event.target;
-
-  changeLanguageFlag(checkBox.checked);
-  saveLangToLocalStorage(checkBox);
 }
 
 function handleLanguageBtn(event) {
-  changeLanguage(event);
+  if (selectedLang.language === 'en-EN') {
+    switchToRusLang();
+  } else {
+    switchToEnLang();
+  }
 }
 
 languageCheckBox.addEventListener('change', handleLanguageBtn);

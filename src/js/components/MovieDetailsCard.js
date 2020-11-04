@@ -1,4 +1,5 @@
 import noPosterImg from '../../images/no-poster.jpg';
+import { isDefaultLanguage } from '../language';
 
 const MovieDetailsCard = ({
   poster_path,
@@ -74,7 +75,9 @@ const MovieDetailsCard = ({
           <h2 class="movie-modal__title">${title}</h2>
 
           <div class="movie-modal__vote-block">
-            <p class="movie-modal__vote-text">Vote &#8260; Votes:</p>
+            <p class="movie-modal__vote-text">${
+              isDefaultLanguage() ? 'Vote' : 'Рейтинг'
+            } &#8260; ${isDefaultLanguage() ? 'Votes:' : 'Голосов'} </p>
             <p class="movie-modal__vote-block-text">
               <span class="movie-modal__vote-block-averege"
                 >${vote_average}</span
@@ -89,13 +92,17 @@ const MovieDetailsCard = ({
           >
 
           <div class="movie-modal__genres">
-            <h3 class="movie-modal__genres-title">Genres:</h3>
+            <h3 class="movie-modal__genres-title">${
+              isDefaultLanguage() ? 'Genres:' : 'Жанры:'
+            }</h3>
             <ul class="movie-modal__genres-list">
               ${genresMarkup}
             </ul>
           </div>
           <div class="movie-modal__about">
-            <h3 class="movie-modal__about-title">About</h3>
+            <h3 class="movie-modal__about-title">${
+              isDefaultLanguage() ? 'About:' : 'О фильме:'
+            }</h3>
             <p class="movie-modal__about-text">${overview}</p>
           </div>
         </div>

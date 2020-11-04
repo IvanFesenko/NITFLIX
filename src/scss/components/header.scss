@@ -110,7 +110,7 @@ ul li:hover .sub-menu {
   @include for-size(tablet) {
     width: 250px;
     top: 28px;
-    right: 84px;
+    right: 100px;
   }
 
   &:hover .search-form__btn,
@@ -134,7 +134,7 @@ ul li:hover .sub-menu {
     transition: all 0.2s linear;
     border-radius: 15px;
     background-color: #141414;
-    width: 100%;
+    width: 92%;
 
     // @include for-size(tablet) {
     //   width: 227px;
@@ -152,8 +152,8 @@ ul li:hover .sub-menu {
 
   &__btn {
     position: absolute;
-    top: 8px;
-    right: 14px;
+    top: 22%;
+    right: 12%;
     background: transparent;
     border: none;
     cursor: pointer;

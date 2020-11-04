@@ -54,10 +54,20 @@ async function userExists(user) {
   }
 }
 
+function passValidation(value) {
+  const pass = value.trim();
+  if (pass.length < 6) return false;
+  return true;
+}
+
 export async function registration() {
   const email = Refs.inputEmail.value;
   const pass = Refs.inputPassword.value;
-
+  if (!passValidation(pass)) {
+    const passRefSpan = document.querySelector('#pass-span');
+    passRefSpan.classList.add('invalid');
+    return;
+  }
   try {
     const auth = firebase.auth();
     const user = await auth.createUserWithEmailAndPassword(email, pass);
@@ -66,8 +76,6 @@ export async function registration() {
     alert('User with this e-mail already exists');
   }
 }
-
-function passValidation(value) {}
 
 export async function basicAuthorization() {
   try {
@@ -163,11 +171,6 @@ export async function movieInList(id, list) {
   const userID = getCurrentUserID();
   const _id = String(id);
   return movieAdded(userID, _id, list);
-}
-
-async function removeFromDB(path, key) {
-  const db = firebase.database();
-  await db.ref(`${path}/${key}`).remove();
 }
 
 async function findMovieKey(id, list, userID) {

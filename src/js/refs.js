@@ -37,9 +37,9 @@ export default {
   cleanBoxWrp: document.querySelector('.clean-box'),
 
   // Spiner
-  spiner: document.querySelector('.spiner'),
+  spiner: document.querySelector('.spiner-wrap'),
 
-  //lang
+   //lang
   languageCheckBox: document.querySelector('#language__input'),
   usaFlagSvg: document.querySelector('#language__usa-icon'),
   rusFlagSvg: document.querySelector('#language__rus-icon'),

@@ -24,7 +24,7 @@ const MovieDetailsCard = ({
       <div class="movie-modal__top-block">
         <div class="movie-modal__image-wrapper">
           <img src=${poster_path !== null ? poster_path : noPosterImg}
-          alt=${title}$ class="movie-modal__image">
+          alt=${title}$ class="movie-modal__image effect2">
 
           <div class="movie-modal__btn-wrapper">
             
@@ -39,12 +39,12 @@ const MovieDetailsCard = ({
                 }"
                 data-release_date="${release_date}"
                 data-vote_average="${vote_average}"
-              ></span>
-              <button class="movie-modal__trailers-btn">
-              <i class="fab fa-youtube">
+              ></span>                           
+              <button class="movie-modal__trailers-btn">              
+              <i class="fab fa-youtube movie-modal__icon">
               <span class="notify__trailer">Trailers</span>
-              </i>
-            </button>
+              </i>            
+            </button>            
               <button
                 class="watched-btn movie-modal__watched-btn"
                 data-active="${InWatched}"

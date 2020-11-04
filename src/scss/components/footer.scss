@@ -1,6 +1,6 @@
 .footer {
   position: relative;
-  padding: 0 0 30px 0;
+  // padding: 0 0 30px 0;
 
   font-size: 12px;
   text-align: center;
@@ -44,22 +44,23 @@
   }
 }
 
-.development {
-  position: absolute;
-  top: 35%;
-  right: 30px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  font-size: 20px;
-  transition: color 0.2s linear;
+// .development {
+//   position: absolute;
+//   top: 35%;
+//   right: 30px;
+//   transform: translateY(-50%);
+//   cursor: pointer;
+//   font-size: 20px;
+//   transition: color 0.2s linear;
 
-  &:hover,
-  &:focus {
-    color: #e40000;
-  }
-}
+//   &:hover,
+//   &:focus {
+//     color: #e40000;
+//   }
+// }
 
 .footer-container {
-  padding: 30px 0 0 0;
+  padding: 30px 0 30px 0;
   border-top: 1px solid rgb(255, 0, 0);
+  box-shadow: inset 1px 9px 15px 5px rgba(0, 0, 0, 0.72);
 }

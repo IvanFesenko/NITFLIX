@@ -4,6 +4,7 @@ import screenSize from './services/screenSize';
 import MoviesCards from './components/MoviesCards';
 import clearMovieList from './services/clearMovieList';
 import refs from './refs';
+import { isDefaultLanguage } from './language';
 
 const { paginationWrp, movieContainer } = refs;
 
@@ -68,14 +69,18 @@ export const pagination = (pages, page) => {
   if (page != 1) {
     paginationWrp.insertAdjacentHTML(
       'afterbegin',
-      `<button value=${1} class="pagination__page-btn">&#171; First</button>`,
+      `<button value=${1} class="pagination__page-btn">&#171; ${
+        isDefaultLanguage() ? 'first' : 'Первая'
+      }</button>`,
     );
   }
 
   if (page != pages) {
     paginationWrp.insertAdjacentHTML(
       'beforeend',
-      `<button value=${pages} class="pagination__page-btn">Last &#187;</button>`,
+      `<button value=${pages} class="pagination__page-btn">${
+        isDefaultLanguage() ? 'Last' : 'Последняя'
+      } &#187;</button>`,
     );
   }
 };

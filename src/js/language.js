@@ -99,7 +99,7 @@ function changeUI() {
     '.copyright',
   ).childNodes[0].textContent = defaultLanguage
     ? `Made with love, by `
-    : `Сделано с любовью `;
+    : `Сделано с любовью командой `;
   document.querySelector(
     '.copyright__description',
   ).textContent = defaultLanguage

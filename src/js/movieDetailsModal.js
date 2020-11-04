@@ -187,9 +187,9 @@ async function onOpenMovieModal(id) {
   await getTrailers(id);
 }
 
-function addRefsForModal() {
+function addRefsForModal() {  
   const closeBtnRef = document.getElementById('close-movie-modal');
-  const backdrop = document.querySelector('.js-movie-modal__overlay');
+  const backdrop = document.querySelector('.js-movie-modal__overlay'); 
   //Add to user list
   const addToWatchedBtn = document.querySelector('.movie-modal__watched-btn');
   const addToQueueBtn = document.querySelector('.movie-modal__queue-btn');
@@ -204,6 +204,7 @@ function addRefsForModal() {
 }
 
 function onClickOnBackDrop(event) {
+  console.log(event);
   if (event.target === event.currentTarget) {
     onCloseMovieModal();
   }

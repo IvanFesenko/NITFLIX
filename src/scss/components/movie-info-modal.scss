@@ -45,7 +45,7 @@
   transition: opacity 1000ms linear;
   z-index: 10;
 
-  color: #000000;
+  color: #ffffff;
 
   &__overlay {
     width: 100vw;
@@ -59,13 +59,14 @@
 
   &__content {
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 6px;
 
-    padding: 15px;
+    padding: 40px;
 
     overflow: hidden;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
 
     &::-webkit-scrollbar {
       width: 10px;
@@ -84,10 +85,11 @@
     @include for-size(mobile) {
       max-width: 90%;
       max-height: 78%;
+      padding: 30px;
     }
 
     @include for-size(tablet) {
-      max-width: 65%;
+      max-width: 80%;
       max-height: 70%;
     }
 
@@ -99,10 +101,11 @@
   &__close {
     position: sticky;
     top: 0;
-    left: 100%;
+    left: 115%;
     background-color: transparent;
     outline: none;
     border: none;
+    color: #fff;
 
     width: 48px;
     height: 48px;
@@ -150,34 +153,46 @@
   }
 
   &__image-wrapper {
+    width: 250px;
     margin-bottom: 15px;
+
+    @include for-size(mobile) {
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     @include for-size(tablet) {
       margin-right: 30px;
     }
-  }
-
-  &__image {
-    width: 250px;
 
     @include for-size(hd-desktop) {
       max-width: 320px;
     }
   }
 
+  &__image {
+    margin-bottom: 10px;
+  }
+
   &__vote-block {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
 
   &__vote-text {
     display: inline-block;
-    margin-right: 25px;
+    margin-right: 20px;
+    color: #20bec6;
+    width: 100px;
   }
 
   &__vote-block-text {
     display: inline-block;
+    font-size: 14px;
     font-weight: 500;
-    color: rgba(194, 0, 0, 1);
+    padding: 2px 15px;
+    background: white;
+    border-radius: 20px;
+    color: #000000;
   }
 
   &__overview {
@@ -186,7 +201,7 @@
 
   &__title {
     font-size: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
 
     @include for-size(desktop) {
       font-size: 40px;
@@ -197,7 +212,7 @@
       display: block;
       width: 100%;
       height: 2px;
-      background-color: rgb(212, 0, 0);
+      background-color: #20bec6;
       margin-top: 10px;
       animation: redline 5s;
     }
@@ -222,39 +237,73 @@
     margin-bottom: 15px;
   }
 
-  &__genres-title {
-    color: #ffffff;
-    padding: 1px 1px 1px 5px;
-    background: linear-gradient(
-      270deg,
-      rgba(0, 0, 0, 0) 63%,
-      rgba(194, 0, 0, 1) 87%
-    );
-    margin-bottom: 5px;
+  &__genres {
+    display: flex;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+
+    @include for-size(tablet) {
+      align-items: flex-start;
+    }
 
     @include for-size(desktop) {
-      margin-bottom: 10px;
+      align-items: center;
     }
   }
 
-  &__genres {
-    margin-bottom: 15px;
+  &__genres-title {
+    color: #20bec6;
+    margin-right: 20px;
+    width: 100px;
+    // background: linear-gradient(
+    //   270deg,
+    //   rgba(0, 0, 0, 0) 50%,
+    //   rgba(32, 190, 198, 0.5) 60%,
+    //   rgba(32, 190, 198, 1) 87%
+    // );
   }
 
   &__genres-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     margin: 5px;
-    font-style: italic;
+  }
+
+  &__genres-item {
+    font-size: 14px;
+    padding: 2px 15px;
+    background-color: #fff;
+    border-radius: 20px;
+    color: #000;
+
+    @include for-size(tablet) {
+      margin-bottom: 4px;
+    }
+
+    @include for-size(desktop) {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__genres-item:not(:last-child) {
+    margin-right: 7px;
+  }
+
+  &__about {
   }
 
   &__about-title {
+    color: #20bec6;
+    margin-right: 20px;
     margin-bottom: 5px;
-    color: #ffffff;
-    padding: 1px 1px 1px 5px;
-    background: linear-gradient(
-      270deg,
-      rgba(0, 0, 0, 0) 63%,
-      rgba(194, 0, 0, 1) 87%
-    );
+
+    // background: linear-gradient(
+    //   270deg,
+    //   rgba(0, 0, 0, 0) 50%,
+    //   rgba(32, 190, 198, 0.5) 60%,
+    //   rgba(32, 190, 198, 1) 87%
+    // );
 
     @include for-size(desktop) {
       margin-bottom: 10px;
@@ -262,7 +311,17 @@
   }
 
   &__about-text {
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1.4em;
+  }
+
+  &__icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 25px;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -286,7 +345,7 @@
       display: block;
       width: 100%;
       height: 1px;
-      background-color: rgba(194, 0, 0, 1);
+      background-color: #20bec6;
       margin-top: 10px;
     }
   }
@@ -427,7 +486,7 @@
   box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.61);
   border-color: transparent;
   background-color: transparent;
-  margin-right: 20px;
+  margin-right: 10px;
   cursor: pointer;
 
   &:hover {
@@ -460,13 +519,29 @@
 
 .movie-modal__trailers-btn {
   position: relative;
-  padding: 3px;
-  border-radius: 7px;
-  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.61);
-  border-color: transparent;
+  border: none;
   background-color: transparent;
-  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  color: #fff;
   cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(95, 95, 95);
+    border-radius: 50%;
+    background-color: rgba(42, 42, 42, 0.6);
+  }
 
   &:hover {
     color: rgba(194, 0, 0, 1);
@@ -477,17 +552,8 @@
   }
 }
 
-.fa-bookmark {
-  font-size: 30px;
-}
-
 .fa-video {
-  font-size: 30px;
   text-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.61);
-}
-
-.fa-youtube {
-  font-size: 30px;
 }
 
 .data-atr {

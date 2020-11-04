@@ -61,6 +61,18 @@ function handleLanguageBtn(event) {
   }
 }
 
+export function isDefaultLanguage() {
+  const selectedLang = localStorage.getItem('language');
+  const current = JSON.parse(selectedLang);
+  return !current.checked;
+}
+
+export function getLanguageCode() {
+  const result = localStorage.getItem('language');
+  const current = JSON.parse(result);
+  return current.language;
+}
+
 languageCheckBox.addEventListener('change', handleLanguageBtn);
 
 onLoadPage();

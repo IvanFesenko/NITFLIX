@@ -42,9 +42,12 @@ const spiner = {
 
   show() {
     // event.target.id === 'inputEmail'
-    refs.cleanBoxWrp.insertAdjacentHTML('beforebegin', spinerMarkup);  
-    this.spinerWrap = document.querySelector('.spiner-wrap');
-    this.spinerWrap.classList.remove('is-hidden');
+    if(!this.spinerWrap){
+      refs.cleanBoxWrp.insertAdjacentHTML('beforebegin', spinerMarkup);
+      this.spinerWrap = document.querySelector('.spiner-wrap');
+      this.spinerWrap.classList.remove('is-hidden');
+    } 
+    return;   
   },
 
   hide(){    

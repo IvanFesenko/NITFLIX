@@ -2,6 +2,8 @@ export default {
   body: document.querySelector('body'),
 
   // HEADER
+  logo: document.querySelector('.logo'),
+  homeLink: document.querySelector('.home-link'),
   accBtn: document.querySelector('.account-wrap'),
   accInBtn: document.querySelector('#singIn'),
   myListRef: document.querySelector('.sub-menu__wr'),
@@ -39,7 +41,7 @@ export default {
   // Spiner
   spiner: document.querySelector('.spiner-wrap'),
 
-   //lang
+  //lang
   languageCheckBox: document.querySelector('#language__input'),
   usaFlagSvg: document.querySelector('#language__usa-icon'),
   rusFlagSvg: document.querySelector('#language__rus-icon'),

@@ -25,7 +25,49 @@ const MovieDetailsCard = ({
         <div class="movie-modal__image-wrapper">
           <img src=${poster_path !== null ? poster_path : noPosterImg}
           alt=${title}$ class="movie-modal__image">
-          <button class="movie-modal__trailers-btn">Show Trailers</button>
+
+          <div class="movie-modal__btn-wrapper">
+            
+            <div class="movie-modal__my-list">
+              <span
+                id="dataAtr"
+                class="data-atr"
+                data-id="${id}"
+                data-title="${title}"
+                data-poster_path="${
+                  poster_path !== null ? poster_path : noPosterImg
+                }"
+                data-release_date="${release_date}"
+                data-vote_average="${vote_average}"
+              ></span>
+              <button class="movie-modal__trailers-btn">
+              <i class="fab fa-youtube">
+              <span class="notify__trailer">Trailers</span>
+              </i>
+            </button>
+              <button
+                class="watched-btn movie-modal__watched-btn"
+                data-active="${InWatched}"
+                type="button"
+              >
+                <i class="fas fa-video"></i>
+                <span class="notify__watched" id="notify__watched"
+                  >${InWatched ? 'Delete from watched' : 'Add to watched'}</span
+                >
+              </button>
+
+              <button
+                class="queue-btn movie-modal__queue-btn"
+                data-active="${InQueue}"
+                type="button"
+              >
+                <i class="far fa-bookmark"></i>
+                <span class="notify__queue" id="notify__queue"
+                  >${InQueue ? 'Delete from queue' : 'Add to queue'}</span
+                >
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="movie-modal__overview">
@@ -40,33 +82,6 @@ const MovieDetailsCard = ({
               &#8260;
               <span class="movie-modal__vote-block-count">${vote_count}</span>
             </p>
-          </div>
-
-          <div class="movie-modal__my-list">
-            <span
-              id="dataAtr"
-              data-id="${id}"
-              data-title="${title}"
-              data-poster_path="${
-                poster_path !== null ? poster_path : noPosterImg
-              }"
-              data-release_date="${release_date}"
-              data-vote_average="${vote_average}"
-            ></span>
-            <button
-              class="movie-modal__watched-btn movie-modal__btn"
-              data-active="${InWatched}"
-              type="button"
-            >
-              ${InWatched ? 'Delete from watched' : 'Add to watched'}
-            </button>
-            <button
-              class="movie-modal__queue-btn movie-modal__btn"
-              data-active="${InQueue}"
-              type="button"
-            >
-              ${InQueue ? 'Delete from queue' : 'Add to queue'}
-            </button>
           </div>
 
           <a href="${homepage}" class="movie-modal__homepage" target="_blank"
@@ -93,7 +108,8 @@ const MovieDetailsCard = ({
       <button class="movie-modal__scrollUp scrollUp"></button>
     </div>
   </div>
-</div>`;
+</div>
+`;
 };
 
 export default MovieDetailsCard;

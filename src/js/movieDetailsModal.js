@@ -12,6 +12,8 @@ import {
   deleteFromWatched,
   deleteFromQueue,
 } from './userLists';
+import { currentUser } from './firebase';
+import { onOpenModalRegistration } from './modalRegistration';
 
 movieChangeBackground('navigation');
 
@@ -27,7 +29,12 @@ function addBackgroundForModal(url) {
 //adds to user lists
 function onClickAddToWatched(e) {
   e.preventDefault();
+  if (!currentUser()) {
+    onOpenModalRegistration();
+    return;
+  }
   const addToWatchedBtn = document.querySelector('.movie-modal__watched-btn');
+  const notifyWatched = document.querySelector('#notify__watched');
   const dataAtr = document.querySelector('#dataAtr');
   const {
     id,
@@ -38,19 +45,26 @@ function onClickAddToWatched(e) {
   } = dataAtr.dataset;
   if (addToWatchedBtn.dataset.active === 'true') {
     deleteFromWatched(id);
-    addToWatchedBtn.textContent = 'Add to watched';
+    notifyWatched.textContent = 'Add to watched';
     addToWatchedBtn.dataset.active = 'false';
+    addToWatchedBtn.classList.remove('movie-modal__btn--red');
   } else if (addToWatchedBtn.dataset.active === 'false') {
     const movie = { id, title, poster_path, release_date, vote_average };
     addMovieToWatched(movie);
-    addToWatchedBtn.textContent = 'Delete from watched';
+    notifyWatched.textContent = 'Delete from watched';
     addToWatchedBtn.dataset.active = 'true';
+    addToWatchedBtn.classList.add('movie-modal__btn--red');
   }
 }
 
 function onClickAddToQueueList(e) {
   e.preventDefault();
+  if (!currentUser()) {
+    onOpenModalRegistration();
+    return;
+  }
   const addToQueueBtn = document.querySelector('.movie-modal__queue-btn');
+  const notifyQueue = document.querySelector('#notify__queue');
   const dataAtr = document.querySelector('#dataAtr');
   const {
     id,
@@ -61,13 +75,15 @@ function onClickAddToQueueList(e) {
   } = dataAtr.dataset;
   if (addToQueueBtn.dataset.active === 'true') {
     deleteFromQueue(id);
-    addToQueueBtn.textContent = 'Add to queue';
+    notifyQueue.textContent = 'Add to queue';
     addToQueueBtn.dataset.active = 'false';
+    addToQueueBtn.classList.remove('movie-modal__btn--red');
   } else if (addToQueueBtn.dataset.active === 'false') {
     const movie = { id, title, poster_path, release_date, vote_average };
     addMovieToQueue(movie);
-    addToQueueBtn.textContent = 'Delete from queue';
+    notifyQueue.textContent = 'Delete from queue';
     addToQueueBtn.dataset.active = 'true';
+    addToQueueBtn.classList.add('movie-modal__btn--red');
   }
 }
 
@@ -108,8 +124,8 @@ const getTrailers = id => {
           movieTrailers.scrollIntoView({ block: 'start', behavior: 'smooth' });
         };
 
-        movieModalTrailersBtn.style = 'display:block';
-        movieTrailersTitle.style = 'display:block';
+        // movieModalTrailersBtn.style = 'display:block';
+        // movieTrailersTitle.style = 'display:block';
         movieTrailers.insertAdjacentHTML('beforeend', trailers);
 
         movieModalTrailersBtn.addEventListener('click', handleTrailersBtnClick);
@@ -241,4 +257,4 @@ function handleOpenModal(event) {
 
 refs.movieContainer.addEventListener('click', handleOpenModal);
 
-// onOpenMovieModal(590223);
+//onOpenMovieModal(590223);

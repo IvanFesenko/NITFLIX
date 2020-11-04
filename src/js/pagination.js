@@ -7,6 +7,20 @@ import refs from './refs';
 
 const { paginationWrp, movieContainer } = refs;
 
+const addActiveBtn = page => {
+  const paginationBtns = paginationWrp.querySelectorAll(
+    '.pagination__page-btn',
+  );
+  if (paginationBtns.length && paginationBtns !== null) {
+    paginationBtns.forEach(btn => {
+      if (Number(btn.value) === page) {
+        console.log(btn.value);
+        btn.classList.add('active');
+      }
+    });
+  }
+};
+
 const pageButtonsHandler = e => {
   e.preventDefault();
   if (e.target.classList.contains('pagination__page-btn')) {
@@ -76,4 +90,5 @@ export const buildPage = (querySet, page, totalPages) => {
   });
   renderMarkup(movieList, MoviesCards, movieContainer);
   pagination(totalPages, page);
+  addActiveBtn(page);
 };

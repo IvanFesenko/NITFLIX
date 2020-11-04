@@ -1,7 +1,9 @@
 import refs from './refs';
 import apiService from './APIservice';
 import { pagination, buildPage } from './pagination';
-import clearContainers from './services/clearContainers'
+import clearContainers from './services/clearContainers';
+import { isDefaultLanguage, getLanguageCode } from './language';
+
 const {
   searchForm,
   searchFormInput,
@@ -15,17 +17,22 @@ const onSearch = e => {
   const value = searchFormInput.value.trim();
   if (value) {
     clearContainers();
-    apiService.getSearchResult(value).then(({ data }) => {
+    const lang = getLanguageCode();
+    apiService.getSearchResult(value, lang).then(({ data }) => {
       if (data.results.length) {
         buildPage(data.results, data.page, data.total_pages);
         pagination(data.total_pages, data.page);
-        mainTitle.textContent = `Results for ${value}`;
+        mainTitle.textContent = isDefaultLanguage()
+          ? `Results for "${value}"`
+          : `Результат поиска по: "${value}"`;
         const main = document.querySelector('.main');
         main.removeAttribute('style');
       } else {
-        mainTitle.textContent = `No results were found for ${value}. Try again!`;
+        mainTitle.textContent = isDefaultLanguage()
+          ? `No results were found for "${value}". Try again!`
+          : `По запросу: "${value}" ничего не найдено. Попробуйте снова!`;
         const main = document.querySelector('.main');
-        main.style.height = '80vh';        
+        main.style.height = '80vh';
       }
       return data.results;
     });

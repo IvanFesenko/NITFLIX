@@ -14,6 +14,7 @@ import {
 } from './userLists';
 import { currentUser } from './firebase';
 import { onOpenModalRegistration } from './modalRegistration';
+import { getLanguageCode } from './language';
 
 movieChangeBackground('navigation');
 
@@ -120,9 +121,9 @@ const getTrailers = id => {
           .join(' ');
 
         const movieTrailers = document.querySelector('.movie-trailers-list');
-        const movieTrailersTitle = document.querySelector(
-          '.movie-trailers__title',
-        );
+        // const movieTrailersTitle = document.querySelector(
+        //   '.movie-trailers__title',
+        // );
         const movieModalTrailersBtn = document.querySelector(
           '.movie-modal__trailers-btn',
         );
@@ -142,9 +143,10 @@ const getTrailers = id => {
 
 const getMovieDetails = (id, listed) => {
   const size = screenSize();
+  const lang = getLanguageCode();
 
   return apiService
-    .getMovieInfo(id)
+    .getMovieInfo(id, lang)
     .then(({ data }) => data)
     .then(res => {
       res.backdrop_path = apiService.makeImagePath(res.backdrop_path, size);
@@ -167,11 +169,8 @@ const getMovieDetails = (id, listed) => {
       const scrollFunction = () => {
         if (movieContent.scrollTop > 20) {
           movieModalScrollUp.style = 'opacity:1';
-
-          console.log('show');
         } else {
           movieModalScrollUp.style = 'opacity:0';
-          console.log('hide');
         }
       };
 

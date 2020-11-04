@@ -36,19 +36,19 @@ class APIService {
     }
   };
 
-  getTrending = () => {
-    this.temp = `${this.baseURL}/trending/movie/day?api_key=${this.API_KEY}`;
+  getTrending = lang => {
+    this.temp = `${this.baseURL}/trending/movie/day?api_key=${this.API_KEY}&language=${lang}`;
 
     return this.getData(this.temp);
   };
 
-  getMovieInfo = id =>
+  getMovieInfo = (id, lang) =>
     this.getData(
-      `${this.baseURL}/movie/${id}?api_key=${this.API_KEY}&append_to_response=videos`,
+      `${this.baseURL}/movie/${id}?api_key=${this.API_KEY}&append_to_response=videos&language=${lang}`,
     );
 
-  getSearchResult = query => {
-    this.temp = `${this.baseURL}/search/movie?api_key=${this.API_KEY}&language=en-US&include_adult=true&query=${query}`;
+  getSearchResult = (query, lang) => {
+    this.temp = `${this.baseURL}/search/movie?api_key=${this.API_KEY}&language=${lang}&include_adult=true&query=${query}`;
 
     return this.getData(this.temp);
   };

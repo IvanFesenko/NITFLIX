@@ -44,9 +44,8 @@ const MovieDetailsCard = ({
                 data-vote_average="${vote_average}"
               ></span>                           
               <button class="movie-modal__trailers-btn">              
-              <i class="fab fa-youtube movie-modal__icon">
-              <span class="notify">Trailers</span>
-              </i>            
+              <i class="fab fa-youtube movie-modal__icon"></i>
+              <span class="notify">Trailers</span>            
             </button>            
               <button
                 class="movie-modal__trailers-btn movie-modal__watched-btn"

@@ -13,24 +13,23 @@ const MovieDetailsCard = ({
   vote_count,
   InWatched,
   InQueue,
-  popularity,
+  popularity,  
 }) => {
   const genresMarkup = genres
     .map(({ name }) => `<li class="movie-modal__genres-item">${name}</li>`)
     .join(' ');
   return `<div class="movie-modal js-movie-modal">
-  <div class="movie-modal__overlay js-movie-modal__overlay">  
-    <div class="movie-modal__content animate-modal">
-      <button class="movie-modal__close" id="close-movie-modal"></button>
-
+  <div class="movie-modal__container animate-modal">
+  <button class="movie-modal__close" id="close-movie-modal"></button>
+  <button class="movie-modal__scrollUp scrollUp"></button>
+    
+    <div class="movie-modal__content">
       <div class="movie-modal__top-block">
         <div class="movie-modal__image-wrapper">
           <img src=${poster_path !== null ? poster_path : noPosterImg}
           alt=${title}$ class="movie-modal__image effect2">
 
-          <div class="movie-modal__btn-wrapper">
-            
-            <div class="movie-modal__my-list">
+          <div class="movie-modal__btn-wrapper">            
               <span
                 id="dataAtr"
                 class="data-atr"
@@ -71,8 +70,7 @@ const MovieDetailsCard = ({
               <a href="${homepage}" class="movie-modal__trailers-btn" target="_blank"
               >
               <i class="fas fa-link movie-modal__icon"></i>              
-              </a>
-            </div>
+              </a>            
           </div>
         </div>
 
@@ -123,10 +121,9 @@ const MovieDetailsCard = ({
       <div class="movie-trailers-wrp">
         <h3 class="movie-trailers__title">Trailers</h3>
         <ul class="movie-trailers-list"></ul>
-      </div>
-      <button class="movie-modal__scrollUp scrollUp"></button>
-    </div>    
-  </div>
+      </div>        
+    </div>
+    </div>
 </div>
 `;
 };

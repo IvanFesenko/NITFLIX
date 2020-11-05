@@ -1,15 +1,16 @@
 .scrollUp {
   color: red;
   opacity: 0;
-
   width: 42px;
   height: 42px;
   bottom: 26px;
+  right: 15px;
   cursor: pointer;
   background-color: transparent;
   border: none;
   display: inline-block; /* or block */
-  position: sticky;
+  position: absolute;
+  z-index: 1;
   border-color: red;
   text-decoration: none;
   transition: all 0.3s ease-out;

@@ -19,7 +19,7 @@ import { getLanguageCode } from './language';
 movieChangeBackground('navigation');
 
 function addBackgroundForModal(url) {
-  const content = document.querySelector('.movie-modal__content');
+  const content = document.querySelector('.movie-modal__container');
   content.style.backgroundImage = `linear-gradient(
     180deg,
     rgba(24, 41, 54, 0.4) 10%,
@@ -188,8 +188,10 @@ async function onOpenMovieModal(id) {
 }
 
 function addRefsForModal() {  
-  const closeBtnRef = document.getElementById('close-movie-modal');
-  const backdrop = document.querySelector('.js-movie-modal__overlay'); 
+  const closeBtnRef = document.getElementById('close-movie-modal'); 
+  const backdrop = document.querySelector('.js-movie-modal');
+  
+
   //Add to user list
   const addToWatchedBtn = document.querySelector('.movie-modal__watched-btn');
   const addToQueueBtn = document.querySelector('.movie-modal__queue-btn');
@@ -204,7 +206,7 @@ function addRefsForModal() {
 }
 
 function onClickOnBackDrop(event) {
-  console.log(event);
+  console.log(event.target);  
   if (event.target === event.currentTarget) {
     onCloseMovieModal();
   }

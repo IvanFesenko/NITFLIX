@@ -89,19 +89,19 @@ const ourTeam = `
         <ul class="social-icons">
           <li>
             <a
-              href="https://www.linkedin.com/in/maxim-kozlov/"
+              href="https://www.linkedin.com/in/vadym-yevlanov"
               target="_blank"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
           </li>          
           <li>
-            <a href="https://github.com/Maximusvin" target="_blank">
+            <a href="https://github.com/Google-Barma" target="_blank">
               <i class="fab fa-github"></i>
             </a>
           </li>
           <li>
-            <a href="https://t.me/maximusvin" target="_blank">
+            <a href="https://t.me/barma_de_ley" target="_blank">
               <i class="fab fa-telegram-plane"></i>
             </a>
           </li>

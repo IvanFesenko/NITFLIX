@@ -1,5 +1,9 @@
 import noPosterImg from '../../images/no-poster.jpg';
-import { isDefaultLanguage } from '../language';
+import {
+  isDefaultLanguage,
+  translateNotifyWatched,
+  translateNotifyQueue,
+} from '../language';
 
 const MovieDetailsCard = ({
   poster_path,
@@ -45,7 +49,9 @@ const MovieDetailsCard = ({
               ></span>                           
               <button class="movie-modal__trailers-btn">              
               <i class="fab fa-youtube movie-modal__icon"></i>
-              <span class="notify">Trailers</span>            
+              <span class="notify">${
+                isDefaultLanguage() ? 'Trailers' : 'Трейлер'
+              }</span>            
             </button>            
               <button
                 class="movie-modal__trailers-btn movie-modal__watched-btn"
@@ -53,8 +59,11 @@ const MovieDetailsCard = ({
                 type="button"
               >
                 <i class="fas fa-video movie-modal__icon"></i>
-                <span class="notify" id="notify__watched"
-                  >${InWatched ? 'Delete from watched' : 'Add to watched'}</span
+                <span class="notify notify__watched" id="notify__watched"
+                  >${translateNotifyWatched(
+                    isDefaultLanguage(),
+                    InWatched,
+                  )}</span
                 >
               </button>
 
@@ -65,13 +74,15 @@ const MovieDetailsCard = ({
               >
                 <i class="far fa-bookmark movie-modal__icon"></i>
                 <span class="notify" id="notify__queue"
-                  >${InQueue ? 'Delete from queue' : 'Add to queue'}</span
+                  >${translateNotifyQueue(isDefaultLanguage(), InQueue)}</span
                 >
               </button>            
               <a href="${homepage}" class="movie-modal__trailers-btn" target="_blank"
               >
               <i class="fas fa-link movie-modal__icon"></i> 
-              <span class="notify">Watch movie</span>            
+              <span class="notify">${
+                isDefaultLanguage() ? 'Watch movie' : 'Смотреть фильм'
+              }</span>            
               </a>            
           </div>
         </div>

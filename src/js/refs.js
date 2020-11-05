@@ -45,4 +45,7 @@ export default {
   languageCheckBox: document.querySelector('#language__input'),
   usaFlagSvg: document.querySelector('#language__usa-icon'),
   rusFlagSvg: document.querySelector('#language__rus-icon'),
+
+  //preloader
+  preContainer: document.querySelector('.preloader__container'),
 };

@@ -19,10 +19,6 @@
 
     transition: transform 0.3s linear;
 
-    // &:not(:last-child) {
-    //   margin-bottom: 15px;
-    // }
-
     @include for-size(mobile) {
       flex-basis: 300px;
     }
@@ -33,14 +29,15 @@
 
     @include for-size(desktop) {
       flex-basis: 260px;
-      &:hover .movie__image,
-      &:focus .movie__image {
-        transform: scale(1.2);
-      }
     }
 
     @include for-size(hd-desktop) {
       flex-basis: 230px;
+    }
+
+    &:hover .movie__image,
+    &:focus .movie__image {
+      transform: scale(1.2);
     }
   }
 
@@ -125,7 +122,7 @@
   width: 100%;
   display: grid;
   grid-gap: 20px;
-  // padding: 0 10px 0 0;
+
   @media (min-width: 520px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -142,9 +139,3 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
-
-// .movie-grid {
-//   display: grid;
-//   grid-template-columns: 1fr;
-//   grid-template-rows: 80% auto;
-// }

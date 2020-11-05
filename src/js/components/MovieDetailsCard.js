@@ -45,7 +45,7 @@ const MovieDetailsCard = ({
               ></span>                           
               <button class="movie-modal__trailers-btn">              
               <i class="fab fa-youtube movie-modal__icon">
-              <span class="notify__trailer">Trailers</span>
+              <span class="notify">Trailers</span>
               </i>            
             </button>            
               <button
@@ -54,7 +54,7 @@ const MovieDetailsCard = ({
                 type="button"
               >
                 <i class="fas fa-video movie-modal__icon"></i>
-                <span class="notify__watched" id="notify__watched"
+                <span class="notify" id="notify__watched"
                   >${InWatched ? 'Delete from watched' : 'Add to watched'}</span
                 >
               </button>
@@ -65,13 +65,16 @@ const MovieDetailsCard = ({
                 type="button"
               >
                 <i class="far fa-bookmark movie-modal__icon"></i>
-                <span class="notify__queue" id="notify__queue"
+                <span class="notify" id="notify__queue"
                   >${InQueue ? 'Delete from queue' : 'Add to queue'}</span
                 >
               </button>            
               <a href="${homepage}" class="movie-modal__trailers-btn" target="_blank"
               >
-              <i class="fas fa-link movie-modal__icon"></i>              
+              <i class="fas fa-link movie-modal__icon"></i> 
+              <span class="notify" id="notify__queue"
+                  >${InQueue ? 'Delete from queue' : 'Add to queue'}</span
+                >             
               </a>            
           </div>
         </div>

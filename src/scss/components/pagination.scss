@@ -5,18 +5,45 @@
     padding: 10px 6px;
     margin: 0 auto;
     justify-content: center;
+
+    @media (min-width: 420px) {
+      max-width: 420px;
+    }
+
+    @media (min-width: 460px) {
+      max-width: 460px;
+    }
+
+    @media (min-width: 521px) {
+      max-width: 520px;
+    }
   }
 
   &__page-btn {
     cursor: pointer;
-    padding: 5px 10px;
-    font-size: 14px;
+
+    padding: 5px 5px;
+    font-size: 12px;
     line-height: 1.5;
     border-radius: 7px;
     color: #fff;
     background-color: rgb(233, 34, 34);
     border-color: black;
     transition: transform 0.25s linear;
+
+    @media (min-width: 420px) {
+      padding: 6px 8px;
+    }
+
+    @media (min-width: 460px) {
+      font-size: 14px;
+      padding: 6px 8px;
+      font-size: 14px;
+    }
+
+    @media (min-width: 521px) {
+      padding: 6px 12px;
+    }
 
     &.active {
       filter: sepia(50%);

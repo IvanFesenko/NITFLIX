@@ -55,6 +55,7 @@
     height: 95%;
     padding: 60px 40px 40px;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
+    border-radius: 15px;
   }
 
   &__close {
@@ -436,11 +437,9 @@
   border-color: transparent;
   background-color: transparent;
   cursor: pointer;
-
   &:hover {
     color: rgba(194, 0, 0, 1);
   }
-
   &:hover .notify__queue {
     display: inline-block;
   }

@@ -24,6 +24,11 @@
   height: 520px;
   animation: 4s fadein;
   animation: 7s fadeout;
+
+  @media (max-width: 767px) {
+    width: 280px;
+    height: 400px;
+  }
 }
 .preloader__logo::before {
   display: block;
@@ -47,6 +52,10 @@
   width: 120px;
   height: 100%;
   background: #b00612;
+
+  @media (max-width: 767px) {
+    width: 95px;
+  }
 }
 .uno {
   left: 0;

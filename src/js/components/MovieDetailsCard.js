@@ -26,8 +26,10 @@ const MovieDetailsCard = ({
     <div class="movie-modal__content">
       <div class="movie-modal__top-block">
         <div class="movie-modal__image-wrapper">
+        <div class="movie-modal__image-box-shadov">
           <img src=${poster_path !== null ? poster_path : noPosterImg}
-          alt=${title}$ class="movie-modal__image effect2">
+          alt=${title}$ class="movie-modal__image">
+          </div>
 
           <div class="movie-modal__btn-wrapper">            
               <span
@@ -42,9 +44,8 @@ const MovieDetailsCard = ({
                 data-vote_average="${vote_average}"
               ></span>                           
               <button class="movie-modal__trailers-btn">              
-              <i class="fab fa-youtube movie-modal__icon">
-              <span class="notify__trailer notify-btn">Trailers</span>
-              </i>            
+              <i class="fab fa-youtube movie-modal__icon"></i>
+              <span class="notify">Trailers</span>            
             </button>            
               <button
                 class="movie-modal__trailers-btn movie-modal__watched-btn"
@@ -52,7 +53,7 @@ const MovieDetailsCard = ({
                 type="button"
               >
                 <i class="fas fa-video movie-modal__icon"></i>
-                <span class="notify__watched notify-btn" id="notify__watched"
+                <span class="notify" id="notify__watched"
                   >${InWatched ? 'Delete from watched' : 'Add to watched'}</span
                 >
               </button>
@@ -63,13 +64,14 @@ const MovieDetailsCard = ({
                 type="button"
               >
                 <i class="far fa-bookmark movie-modal__icon"></i>
-                <span class="notify__queue notify-btn" id="notify__queue"
+                <span class="notify" id="notify__queue"
                   >${InQueue ? 'Delete from queue' : 'Add to queue'}</span
                 >
               </button>            
               <a href="${homepage}" class="movie-modal__trailers-btn" target="_blank"
               >
-              <i class="fas fa-link movie-modal__icon"></i>              
+              <i class="fas fa-link movie-modal__icon"></i> 
+              <span class="notify">Watch movie</span>            
               </a>            
           </div>
         </div>

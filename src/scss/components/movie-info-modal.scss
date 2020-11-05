@@ -32,80 +32,40 @@
 }
 
 .movie-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
   position: fixed;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
-
-  width: 100vw;
-  height: 100vh;
-
-  pointer-events: none;
-
-  opacity: 0;
-  transition: opacity 1000ms linear;
+  background-color: rgba(255, 255, 255, 0.3);
   z-index: 10;
-
+  overflow: auto;
+  transition: all 0.1s linear;
+  pointer-events: none;
+  opacity: 0;
   color: #ffffff;
 
-  &__overlay {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.3);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &__content {
-    background-color: #fff;
-    border-radius: 6px;
-
-    padding: 40px;
-
-    overflow: hidden;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
+  &__container {
+    position: relative;
+    max-width: 900px;
+    height: 95%;
+    padding: 60px 40px 40px;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
-
-    &::-webkit-scrollbar {
-      width: 10px;
-      background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
-
-    @include for-size(mobile) {
-      max-width: 90%;
-      max-height: 78%;
-      padding: 30px;
-    }
-
-    @include for-size(tablet) {
-      max-width: 80%;
-      max-height: 70%;
-    }
-
-    @include for-size(desktop) {
-      max-width: 55%;
-    }
   }
 
   &__close {
-    position: sticky;
-    top: 0;
-    left: 115%;
+    position: absolute;
+    top: 15px;
+    right: 10px;
     background-color: transparent;
     outline: none;
     border: none;
     color: #fff;
+    z-index: 1;
 
     width: 48px;
     height: 48px;
@@ -124,11 +84,28 @@
     }
   }
 
-  &__my-list {
+  &__content {
+    background: transparent;
     position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    height: 100%;
 
-    display: flex;
-    justify-content: flex-start;
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
   }
 
   &__btn {
@@ -147,14 +124,14 @@
   &__top-block {
     @include for-size(tablet) {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: flex-start;
+      margin-bottom: 50px;
     }
   }
 
   &__image-wrapper {
-    width: 250px;
-    margin-bottom: 15px;
+    width: 40%;
 
     @include for-size(mobile) {
       margin-left: auto;
@@ -162,16 +139,12 @@
     }
 
     @include for-size(tablet) {
-      margin-right: 30px;
-    }
-
-    @include for-size(hd-desktop) {
-      max-width: 320px;
     }
   }
 
   &__image {
     margin-bottom: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
 
   &__vote-block {
@@ -196,7 +169,7 @@
   }
 
   &__overview {
-    margin-bottom: 15px;
+    width: 55%;
   }
 
   &__title {
@@ -215,18 +188,6 @@
       background-color: #20bec6;
       margin-top: 10px;
       animation: redline 5s;
-    }
-  }
-
-  &__scrollUp {
-    left: 97%;
-
-    @include for-size(tablet) {
-      left: 95%;
-    }
-
-    @include for-size(desktop) {
-      left: 97%;
     }
   }
 
@@ -320,24 +281,17 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 25px;
+    font-size: 20px;
     transform: translate(-50%, -50%);
   }
-}
-
-.movie-trailers-list__item-name {
-  text-align: center;
 }
 
 .movie-trailers {
   margin: 0 auto;
 
   &__title {
-    display: none;
-    margin-bottom: 10px;
-
     @include for-size(desktop) {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     &::after {
@@ -346,7 +300,7 @@
       width: 100%;
       height: 1px;
       background-color: #20bec6;
-      margin-top: 10px;
+      margin-top: 15px;
     }
   }
 
@@ -429,12 +383,6 @@
 .movie-modal__btn-wrapper {
   display: flex;
   justify-content: center;
-  padding: 10px;
-  width: 250px;
-
-  @include for-size(hd-desktop) {
-    max-width: 320px;
-  }
 }
 
 .notify__watched {
@@ -517,12 +465,19 @@
   }
 }
 
+.movie-trailers-wrp {
+  text-align: center;
+  color: #20bec6;
+  text-transform: uppercase;
+}
+
 .movie-modal__trailers-btn {
   position: relative;
+  display: block;
   border: none;
   background-color: transparent;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   color: #fff;
   cursor: pointer;
 
@@ -536,8 +491,8 @@
     left: 0;
     display: block;
     content: '';
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border: 2px solid rgb(95, 95, 95);
     border-radius: 50%;
     background-color: rgba(42, 42, 42, 0.6);

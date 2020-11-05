@@ -13,7 +13,7 @@ const MovieDetailsCard = ({
   vote_count,
   InWatched,
   InQueue,
-  popularity,  
+  popularity,
 }) => {
   const genresMarkup = genres
     .map(({ name }) => `<li class="movie-modal__genres-item">${name}</li>`)

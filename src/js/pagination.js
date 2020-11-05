@@ -70,7 +70,7 @@ export const pagination = (pages, page) => {
     paginationWrp.insertAdjacentHTML(
       'afterbegin',
       `<button value=${1} class="pagination__page-btn">&#171; ${
-        isDefaultLanguage() ? 'first' : 'Первая'
+        isDefaultLanguage() ? 'First' : 'Первая'
       }</button>`,
     );
   }

@@ -13,7 +13,7 @@ const MovieDetailsCard = ({
   vote_count,
   InWatched,
   InQueue,
-  popularity,  
+  popularity,
 }) => {
   const genresMarkup = genres
     .map(({ name }) => `<li class="movie-modal__genres-item">${name}</li>`)
@@ -43,7 +43,7 @@ const MovieDetailsCard = ({
               ></span>                           
               <button class="movie-modal__trailers-btn">              
               <i class="fab fa-youtube movie-modal__icon">
-              <span class="notify__trailer">Trailers</span>
+              <span class="notify__trailer notify-btn">Trailers</span>
               </i>            
             </button>            
               <button
@@ -52,7 +52,7 @@ const MovieDetailsCard = ({
                 type="button"
               >
                 <i class="fas fa-video movie-modal__icon"></i>
-                <span class="notify__watched" id="notify__watched"
+                <span class="notify__watched notify-btn" id="notify__watched"
                   >${InWatched ? 'Delete from watched' : 'Add to watched'}</span
                 >
               </button>
@@ -63,7 +63,7 @@ const MovieDetailsCard = ({
                 type="button"
               >
                 <i class="far fa-bookmark movie-modal__icon"></i>
-                <span class="notify__queue" id="notify__queue"
+                <span class="notify__queue notify-btn" id="notify__queue"
                   >${InQueue ? 'Delete from queue' : 'Add to queue'}</span
                 >
               </button>            

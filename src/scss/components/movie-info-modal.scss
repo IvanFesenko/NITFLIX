@@ -385,7 +385,7 @@
   justify-content: center;
 }
 
-.notify__watched {
+.notify-btn {
   display: none;
   width: 125px;
   position: absolute;
@@ -395,36 +395,17 @@
   padding: 5px;
   border-radius: 4px;
   color: #fff;
-
   font-size: 12px;
+  z-index: 5;
+}
+
+.notify__watched {
 }
 
 .notify__queue {
-  display: none;
-  width: 125px;
-  position: absolute;
-  top: -20px;
-  left: -50px;
-  background-color: #5f5f5f;
-  padding: 5px;
-  border-radius: 4px;
-  color: #fff;
-
-  font-size: 12px;
 }
 
 .notify__trailer {
-  display: none;
-  width: 75px;
-  position: absolute;
-  top: -20px;
-  left: -5px;
-  background-color: #5f5f5f;
-  padding: 5px;
-  border-radius: 4px;
-  color: #fff;
-
-  font-size: 12px;
 }
 
 .watched-btn {

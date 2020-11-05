@@ -121,14 +121,6 @@ function changeUI() {
     : 'или войдите с помощью';
 }
 
-// export function translateNotify(callback) {
-//   if (callback) {
-//     return "InQueue ? 'Delete from queue' : 'Add to queue'";
-//   } else {
-//     return "InQueue ? 'Удалить из очереди' : 'добавить в очередь'";
-//   }
-// }
-
 export function defLang() {
   const selectedLang = localStorage.getItem('language');
   const current = JSON.parse(selectedLang);
@@ -146,7 +138,7 @@ export function translateNotifyQueue(lang, queue) {
     if (queue) {
       return 'Удалить из очереди';
     } else {
-      return 'добавить в очередь';
+      return 'Добавить в очередь';
     }
   }
 }
@@ -162,9 +154,7 @@ export function translateNotifyWatched(lang, watched) {
     if (watched) {
       return 'Удалить из просмотренных';
     } else {
-      return 'добавить в просмотренные';
+      return 'Добавить в просмотренные';
     }
   }
 }
-
-console.log(defLang());

@@ -17,7 +17,7 @@ function switchFlagToEn() {
 
 function switchToRusLang() {
   switchFlagToRus();
-
+  document.lastChild.lang = 'ru';
   selectedLang.checked = true;
   selectedLang.language = 'ru-RU';
   localStorage.setItem('language', JSON.stringify(selectedLang));
@@ -27,7 +27,7 @@ function switchToRusLang() {
 
 function switchToEnLang() {
   switchFlagToEn();
-
+  document.lastChild.lang = 'en';
   selectedLang.checked = false;
   selectedLang.language = 'en-EN';
   localStorage.setItem('language', JSON.stringify(selectedLang));

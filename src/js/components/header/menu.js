@@ -31,10 +31,19 @@ function onWatchedClick(e) {
   } else {
     getWatchedMovies().then(res => {
       clearContainers();
-      mainTitle.textContent = isDefaultLanguage()
-        ? `Watched list`
-        : `Просмотренные`;
-      renderMarkup(res, MoviesCards, refs.movieContainer);
+      if (res.length) {
+        mainTitle.textContent = isDefaultLanguage()
+          ? `Watched list`
+          : `Просмотренные`;
+        renderMarkup(res, MoviesCards, refs.movieContainer);
+        main.removeAttribute('style');
+      } else {
+        mainTitle.textContent = isDefaultLanguage()
+          ? `Watched list`
+          : `Просмотренные`;
+        const main = document.querySelector('.main');
+        main.style.height = '80vh';
+      }
     });
   }
 }
@@ -47,10 +56,18 @@ function onQueueClick(e) {
   } else {
     getQueuedMovies().then(res => {
       clearContainers();
-      mainTitle.textContent = isDefaultLanguage()
-        ? `Queue list`
-        : `Для просмотра`;
-      renderMarkup(res, MoviesCards, refs.movieContainer);
+      if (res.length) {
+        mainTitle.textContent = isDefaultLanguage()
+          ? `Queue list`
+          : `В очереди`;
+        renderMarkup(res, MoviesCards, refs.movieContainer);
+      } else {
+        mainTitle.textContent = isDefaultLanguage()
+          ? `Queue list`
+          : `В очереди`;
+        const main = document.querySelector('.main');
+        main.style.height = '80vh';
+      }
     });
   }
 }

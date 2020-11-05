@@ -515,6 +515,10 @@
   color: #fff;
   cursor: pointer;
 
+  &[data-active='true'] {
+    color: rgba(194, 0, 0, 1);
+  }
+
   &:not(:last-child) {
     margin-right: 10px;
   }

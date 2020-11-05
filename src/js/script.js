@@ -1,6 +1,7 @@
 'use strict';
 //js modules
 
+import './preloader';
 import './firebase';
 import './language';
 import './trending-page';

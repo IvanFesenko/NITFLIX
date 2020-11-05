@@ -14,16 +14,24 @@
     line-height: 1.5;
     border-radius: 7px;
     color: #fff;
-    background-color: red;
+    background-color: rgb(233, 34, 34);
     border-color: black;
     transition: transform 0.25s linear;
 
     &.active {
       filter: sepia(50%);
+      &:hover {
+        transform: scale(1);
+        color: #fff;
+        background-color: rgb(233, 34, 34);
+        cursor: default;
+      }
     }
 
     &:hover {
       transform: scale(1.1);
+      color: rgb(233, 34, 34);
+      background-color: #fff;
     }
   }
 }

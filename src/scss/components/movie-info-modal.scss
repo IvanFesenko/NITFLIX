@@ -55,6 +55,7 @@
     height: 95%;
     padding: 60px 40px 40px;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
+    border-radius: 6px;
   }
 
   &__close {
@@ -87,7 +88,6 @@
   &__content {
     background: transparent;
     position: relative;
-    border-radius: 6px;
     overflow: hidden;
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -142,9 +142,43 @@
     }
   }
 
+  &__image-box-shadov {
+    position: relative;
+
+    &::before,
+    &::after {
+      z-index: 0;
+      position: absolute;
+      content: '';
+      bottom: 8px;
+      left: 10px;
+      width: 50%;
+      top: 80%;
+      max-width: 300px;
+      background: rgb(0, 0, 0);
+      box-shadow: 0 15px 10px rgb(0, 0, 0);
+      -webkit-transform: rotate(-3deg);
+      -moz-transform: rotate(-3deg);
+      -o-transform: rotate(-3deg);
+      -ms-transform: rotate(-3deg);
+      transform: rotate(-3deg);
+    }
+
+    &::after {
+      -webkit-transform: rotate(3deg);
+      -moz-transform: rotate(3deg);
+      -o-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+      transform: rotate(3deg);
+      right: 10px;
+      left: auto;
+    }
+  }
   &__image {
     margin-bottom: 10px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    z-index: 2;
+    // box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
 
   &__vote-block {

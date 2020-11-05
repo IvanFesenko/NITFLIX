@@ -26,8 +26,10 @@ const MovieDetailsCard = ({
     <div class="movie-modal__content">
       <div class="movie-modal__top-block">
         <div class="movie-modal__image-wrapper">
+        <div class="movie-modal__image-box-shadov">
           <img src=${poster_path !== null ? poster_path : noPosterImg}
-          alt=${title}$ class="movie-modal__image effect2">
+          alt=${title}$ class="movie-modal__image">
+          </div>
 
           <div class="movie-modal__btn-wrapper">            
               <span

@@ -57,6 +57,13 @@ function onQueueClick(e) {
 
 function onClickLogo(e) {
   e.preventDefault();
+  clearContainers();
+  generateTrendingList();
+}
+
+function onClickHome(e) {
+  e.preventDefault();
+  clearContainers();
   generateTrendingList();
 }
 
@@ -64,5 +71,4 @@ myListRef.addEventListener('click', onMyListClick);
 listWatchedRef.addEventListener('click', onWatchedClick);
 listQueueRef.addEventListener('click', onQueueClick);
 logo.addEventListener('click', onClickLogo);
-
-homeLink.addEventListener('click', generateTrendingList);
+homeLink.addEventListener('click', onClickHome);

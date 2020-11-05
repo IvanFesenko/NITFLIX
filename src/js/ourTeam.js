@@ -87,14 +87,14 @@ const ourTeam = `
     <div class="team__block">
       <div class="inner-box">
         <ul class="social-icons">
-          <li>
+        <li>
             <a
               href="https://www.linkedin.com/in/vadym-yevlanov"
               target="_blank"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
-          </li>          
+          </li>         
           <li>
             <a href="https://github.com/Google-Barma" target="_blank">
               <i class="fab fa-github"></i>
@@ -123,24 +123,24 @@ const ourTeam = `
     <div class="team__block">
       <div class="inner-box">
         <ul class="social-icons">
-    <li>
-        <a
+          <li>
+            <a
               href="https://www.linkedin.com/in/nikita-samoilenko-5124121a6/"
               target="_blank"
-        >
+            >
               <i class="fab fa-linkedin-in"></i>
-        </a>
+            </a>
           </li>         
           <li>
-        <a href="https://github.com/Bignichok" target="_blank">
+            <a href="https://github.com/Bignichok" target="_blank">
               <i class="fab fa-github"></i>
-        </a>
+            </a>
           </li>
-        <li>
+          <li>
             <a href="https://t.me/Bignichok" target="_blank">
               <i class="fab fa-telegram-plane"></i>
             </a>
-        </li>
+          </li>
         </ul>
         <div class="image">
           <img

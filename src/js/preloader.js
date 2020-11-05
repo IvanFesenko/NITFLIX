@@ -1,9 +1,8 @@
-const preContainer = document.querySelector('.preloader__container');
-const body = document.querySelector('body');
+import refs from '../js/refs';
 
 function deletePreloader() {
-  preContainer.remove();
+  refs.preContainer.remove();
 }
-setTimeout(() => {
-  deletePreloader();
-}, 6300);
+// setTimeout(() => {
+//   deletePreloader();
+// }, 6300);

@@ -14,7 +14,7 @@ import {
 } from './userLists';
 import { currentUser } from './firebase';
 import { onOpenModalRegistration } from './modalRegistration';
-import { getLanguageCode } from './language';
+import { getLanguageCode, isDefaultLanguage } from './language';
 
 movieChangeBackground('navigation');
 
@@ -53,13 +53,17 @@ function onClickAddToWatched(e) {
   } = dataAtr.dataset;
   if (addToWatchedBtn.dataset.active === 'true') {
     deleteFromWatched(id);
-    notifyWatched.textContent = 'Add to watched';
-    addToWatchedBtn.dataset.active = 'false';    
+    notifyWatched.textContent = `${
+      isDefaultLanguage() ? 'Add to watched' : 'Добавить в просмотренные'
+    }`;
+    addToWatchedBtn.dataset.active = 'false';
   } else if (addToWatchedBtn.dataset.active === 'false') {
     const movie = { id, title, poster_path, release_date, vote_average };
     addMovieToWatched(movie);
-    notifyWatched.textContent = 'Delete from watched';
-    addToWatchedBtn.dataset.active = 'true';    
+    notifyWatched.textContent = `${
+      isDefaultLanguage() ? 'Delete from watched' : 'Удалить из просмотренного'
+    }`;
+    addToWatchedBtn.dataset.active = 'true';
   }
 }
 
@@ -81,13 +85,17 @@ function onClickAddToQueueList(e) {
   } = dataAtr.dataset;
   if (addToQueueBtn.dataset.active === 'true') {
     deleteFromQueue(id);
-    notifyQueue.textContent = 'Add to queue';
-    addToQueueBtn.dataset.active = 'false';    
+    notifyQueue.textContent = `${
+      isDefaultLanguage() ? 'Add to queue' : 'Добавить в очередь'
+    }`;
+    addToQueueBtn.dataset.active = 'false';
   } else if (addToQueueBtn.dataset.active === 'false') {
     const movie = { id, title, poster_path, release_date, vote_average };
     addMovieToQueue(movie);
-    notifyQueue.textContent = 'Delete from queue';
-    addToQueueBtn.dataset.active = 'true';    
+    notifyQueue.textContent = `${
+      isDefaultLanguage() ? 'Delete from queue' : 'Удалить из очереди'
+    }`;
+    addToQueueBtn.dataset.active = 'true';
   }
 }
 
@@ -183,10 +191,9 @@ async function onOpenMovieModal(id) {
   await getTrailers(id);
 }
 
-function addRefsForModal() {  
-  const closeBtnRef = document.getElementById('close-movie-modal'); 
+function addRefsForModal() {
+  const closeBtnRef = document.getElementById('close-movie-modal');
   const backdrop = document.querySelector('.js-movie-modal');
-  
 
   //Add to user list
   const addToWatchedBtn = document.querySelector('.movie-modal__watched-btn');
@@ -202,7 +209,6 @@ function addRefsForModal() {
 }
 
 function onClickOnBackDrop(event) {
-  console.log(event.target);  
   if (event.target === event.currentTarget) {
     onCloseMovieModal();
   }

@@ -72,9 +72,7 @@ const MovieDetailsCard = ({
               <a href="${homepage}" class="movie-modal__trailers-btn" target="_blank"
               >
               <i class="fas fa-link movie-modal__icon"></i> 
-              <span class="notify" id="notify__queue"
-                  >${InQueue ? 'Delete from queue' : 'Add to queue'}</span
-                >             
+              <span class="notify">Watch movie</span>            
               </a>            
           </div>
         </div>

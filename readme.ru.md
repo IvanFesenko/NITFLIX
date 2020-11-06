@@ -1,4 +1,4 @@
-**Another language [Русский язык](README.ru.md)**
+**Другой язык [English](README.md)**
 
 # NITFLIX - Помоги себе с выбором фильма
 
@@ -23,9 +23,10 @@
 JS, REST API, WebPack, Firebase, Axios, Git, SaSS, HTML5
 
 ####Команда:
-Scrum Master: [Максим Козлов](https://github.com/Maximusvin)
-Team lead: [Ivan Fesenko](https://github.com/IvanFesenko)
-Leading developers:
-[Nikita Samoilenko](https://github.com/Bignichok)
-[Vadym Yevlanov](https://github.com/Google-Barma)
-[Dima_OS](https://github.com/Dima-Os)
+
+- Scrum Master: [Максим Козлов](https://github.com/Maximusvin)
+- Team lead: [Ivan Fesenko](https://github.com/IvanFesenko)
+- Leading developers:
+  - [Nikita Samoilenko](https://github.com/Bignichok)
+  - [Vadym Yevlanov](https://github.com/Google-Barma)
+  - [Dima_OS](https://github.com/Dima-Os)

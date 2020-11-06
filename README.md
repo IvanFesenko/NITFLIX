@@ -1,3 +1,5 @@
+**Another language [Русский язык](README.ru.md)**
+
 # NITFLIX - Помоги себе с выбором фильма
 
 #### Hackathon team project.
@@ -27,6 +29,6 @@ JS, REST API, WebPack, Firebase, Axios, Git, SaSS, HTML5
 - Scrum Master: [Максим Козлов](https://github.com/Maximusvin)
 - Team lead: [Ivan Fesenko](https://github.com/IvanFesenko)
 - Leading developers:
-  [Nikita Samoilenko](https://github.com/Bignichok)
-  [Vadym Yevlanov](https://github.com/Google-Barma)
-  [Dima_OS](https://github.com/Dima-Os)
+  - [Nikita Samoilenko](https://github.com/Bignichok)
+  - [Vadym Yevlanov](https://github.com/Google-Barma)
+  - [Dima_OS](https://github.com/Dima-Os)

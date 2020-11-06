@@ -92,8 +92,8 @@ function changeUI() {
   const homeLink = document.querySelector('.home-link');
   homeLink.textContent = defaultLanguage ? 'Home' : 'Главная';
   myListRef.textContent = defaultLanguage ? 'My lists' : 'Списки';
-  listWatchedRef.textContent = defaultLanguage ? 'Watched' : 'Просмотренные';
-  listQueueRef.textContent = defaultLanguage ? 'Queue' : 'Очередь';
+  // listWatchedRef.textContent = defaultLanguage ? 'Watched' : 'Просмотренные';
+  // listQueueRef.textContent = defaultLanguage ? 'Queue' : 'Очередь';
   searchFormInput.placeholder = defaultLanguage ? 'Search...' : 'Поиск...';
   document.querySelector(
     '.copyright',
@@ -119,4 +119,42 @@ function changeUI() {
   document.querySelector('.new_login__soc-label').textContent = defaultLanguage
     ? 'or login with'
     : 'или войдите с помощью';
+}
+
+export function defLang() {
+  const selectedLang = localStorage.getItem('language');
+  const current = JSON.parse(selectedLang);
+  return current.language;
+}
+
+export function translateNotifyQueue(lang, queue) {
+  if (lang) {
+    if (queue) {
+      return 'Delete from queue';
+    } else {
+      return 'Add to queue';
+    }
+  } else {
+    if (queue) {
+      return 'Удалить из очереди';
+    } else {
+      return 'Добавить в очередь';
+    }
+  }
+}
+
+export function translateNotifyWatched(lang, watched) {
+  if (lang) {
+    if (watched) {
+      return 'Delete from watched';
+    } else {
+      return 'Add to watched';
+    }
+  } else {
+    if (watched) {
+      return 'Удалить из просмотренных';
+    } else {
+      return 'Добавить в просмотренные';
+    }
+  }
 }

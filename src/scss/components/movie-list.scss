@@ -16,6 +16,9 @@
     overflow: hidden;
 
     outline: none;
+    &:focus {
+      box-shadow: 1px 5px 15px 5px rgba(32, 188, 198, 0.68);
+    }
 
     transition: transform 0.3s linear;
 

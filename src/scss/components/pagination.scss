@@ -55,7 +55,8 @@
       }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       transform: scale(1.1);
       color: rgb(233, 34, 34);
       background-color: #fff;

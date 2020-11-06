@@ -35,6 +35,14 @@
     border-color: red;
   }
   &:hover:before {
-    transform: rotate(360deg);
+    @include for-size(desktop) {
+      transform: rotate(360deg);
+    }
+  }
+  &:focus:before {
+    @include for-size(desktop) {
+      transform: rotate(360deg);
+      box-shadow: 0 0 15px 5px rgba(32, 188, 198, 0.68);
+    }
   }
 }

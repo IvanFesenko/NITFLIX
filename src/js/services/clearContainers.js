@@ -1,12 +1,11 @@
 import refs from '../refs';
 
-const clearContainers = () => { 
+const clearContainers = () => {
   refs.movieContainer.innerHTML = '';
   refs.cleanBoxWrp.innerHTML = '';
-
-  if(refs.paginationWrp.style.display === 'flex') {    
-    refs.paginationWrp.style = 'display:none';    
-  }  
+  if (refs.paginationWrp.style.display === 'flex') {
+    refs.paginationWrp.style = 'display:none';
+  }
 };
 
 export default clearContainers;

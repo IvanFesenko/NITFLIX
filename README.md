@@ -1,4 +1,4 @@
-**Another language [Русский язык](README.ru.md)**
+**Another language [Русский язык](readme.ru.md)**
 
 # NITFLIX - Помоги себе с выбором фильма
 

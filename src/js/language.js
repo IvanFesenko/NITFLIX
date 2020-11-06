@@ -95,8 +95,8 @@ function changeUI() {
   const homeLink = document.querySelector('.home-link');
   homeLink.textContent = defaultLanguage ? 'Home' : 'Главная';
   myListRef.textContent = defaultLanguage ? 'My lists' : 'Списки';
-  // listWatchedRef.textContent = defaultLanguage ? 'Watched' : 'Просмотренные';
-  // listQueueRef.textContent = defaultLanguage ? 'Queue' : 'Очередь';
+  listWatchedRef.textContent = defaultLanguage ? 'Watched' : 'Просмотренные';
+  listQueueRef.textContent = defaultLanguage ? 'Queue' : 'Очередь';
   searchFormInput.placeholder = defaultLanguage ? 'Search...' : 'Поиск...';
   document.querySelector(
     '.copyright',

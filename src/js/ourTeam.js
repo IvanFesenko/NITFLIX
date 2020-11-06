@@ -206,6 +206,8 @@ function onShowTeam(e) {
 
   if (!refs.cleanBoxWrp.children[0]) {
     clearContainers();
+    const main = document.querySelector('.main');
+    main.style.height = '80vh';
     spiner.show();
     refs.mainTitle.innerHTML = 'Our Team';
     refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam);
@@ -217,5 +219,7 @@ function onShowTeam(e) {
 function onVisuallyTeam() {
   const teamWrapRef = document.querySelector('.team-wrap');
   spiner.hide();
+  const main = document.querySelector('.main');
+  main.removeAttribute('style');
   teamWrapRef.classList.remove('visually-hidden');
 }

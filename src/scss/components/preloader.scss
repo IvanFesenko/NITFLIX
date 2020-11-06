@@ -22,14 +22,14 @@
   position: relative;
   width: 360px;
   height: 520px;
-  animation: 4s fadein;
-  animation: 7s fadeout;
+  animation: 7s fadein-fadeout;
 
   @media (max-width: 767px) {
     width: 280px;
     height: 400px;
   }
 }
+
 .preloader__logo::before {
   display: block;
   content: '';
@@ -78,14 +78,30 @@
   animation: 4s name linear;
 }
 
-@keyframes fadein {
+@keyframes fadein-fadeout {
   0% {
     opacity: 0;
     transform: scale(0.8);
   }
-  100% {
+
+  35% {
     opacity: 1;
     transform: scale(1);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
   }
 }
 
@@ -104,29 +120,12 @@
   }
 }
 
-@keyframes fadeout {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  80% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(0);
-  }
-}
-
 @keyframes opacity {
   0% {
     opacity: 1;
   }
 
-  80% {
+  85% {
     opacity: 1;
   }
 

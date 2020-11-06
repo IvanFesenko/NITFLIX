@@ -87,14 +87,14 @@ const ourTeam = `
     <div class="team__block">
       <div class="inner-box">
         <ul class="social-icons">
-          <li>
+        <li>
             <a
               href="https://www.linkedin.com/in/vadym-yevlanov"
               target="_blank"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
-          </li>          
+          </li>         
           <li>
             <a href="https://github.com/Google-Barma" target="_blank">
               <i class="fab fa-github"></i>
@@ -125,19 +125,19 @@ const ourTeam = `
         <ul class="social-icons">
           <li>
             <a
-              href="https://www.linkedin.com/in/vadym-yevlanov"
+              href="https://www.linkedin.com/in/nikita-samoilenko-5124121a6/"
               target="_blank"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
           </li>         
           <li>
-            <a href="https://github.com/Google-Barma" target="_blank">
+            <a href="https://github.com/Bignichok" target="_blank">
               <i class="fab fa-github"></i>
             </a>
           </li>
           <li>
-            <a href="https://t.me/barma_de_ley" target="_blank">
+            <a href="https://t.me/Bignichok" target="_blank">
               <i class="fab fa-telegram-plane"></i>
             </a>
           </li>
@@ -206,6 +206,8 @@ function onShowTeam(e) {
 
   if (!refs.cleanBoxWrp.children[0]) {
     clearContainers();
+    const main = document.querySelector('.main');
+    main.style.height = '80vh';
     spiner.show();
     refs.mainTitle.innerHTML = 'Our Team';
     refs.cleanBoxWrp.insertAdjacentHTML('beforeend', ourTeam);
@@ -217,5 +219,7 @@ function onShowTeam(e) {
 function onVisuallyTeam() {
   const teamWrapRef = document.querySelector('.team-wrap');
   spiner.hide();
+  const main = document.querySelector('.main');
+  main.removeAttribute('style');
   teamWrapRef.classList.remove('visually-hidden');
 }

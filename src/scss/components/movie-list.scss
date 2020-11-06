@@ -29,15 +29,15 @@
 
     @include for-size(desktop) {
       flex-basis: 260px;
+
+      &:hover .movie__image,
+      &:focus .movie__image {
+        transform: scale(1.2);
+      }
     }
 
     @include for-size(hd-desktop) {
       flex-basis: 230px;
-    }
-
-    &:hover .movie__image,
-    &:focus .movie__image {
-      transform: scale(1.2);
     }
   }
 
@@ -104,6 +104,7 @@
       right: -20px;
       height: 60px;
       width: 60px;
+      top: -15px;
 
       transform: skewY(20deg);
       background-color: rgb(229, 9, 22);

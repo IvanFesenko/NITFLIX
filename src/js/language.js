@@ -1,5 +1,6 @@
 import refs from './refs';
 import generateTrendingList from './trending-page';
+import clearContainers from './services/clearContainers';
 
 const { languageCheckBox, rusFlagSvg, usaFlagSvg } = refs;
 
@@ -22,6 +23,7 @@ function switchToRusLang() {
   selectedLang.language = 'ru-RU';
   localStorage.setItem('language', JSON.stringify(selectedLang));
   changeUI();
+  clearContainers();
   generateTrendingList();
 }
 
@@ -32,6 +34,7 @@ function switchToEnLang() {
   selectedLang.language = 'en-EN';
   localStorage.setItem('language', JSON.stringify(selectedLang));
   changeUI();
+  clearContainers();
   generateTrendingList();
 }
 

@@ -15,7 +15,7 @@ Place where you may feel disconnected from reality
 - Multilingual site(English,Russian)
 - Work with The Movie Database API themoviedb.org
 - Multilingual search
-- Authorized users can add films to the two lists: 1.Watched list; 2.Queue list;
+- Authorized users can add films to the two lists: Watched list & Queue list;
 - Popup with details about film: rating, popularity, genres, description, trailers, official page of film
 - Pagination with Vanilla JS(pages navigation).
 - Responsive design of site, custom scroll

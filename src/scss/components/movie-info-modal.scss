@@ -32,6 +32,10 @@
       max-width: 900px;
       padding: 60px 40px 40px;
     }
+
+    @include for-size(desktop) {
+      padding: 57px 40px 40px;
+    }
   }
 
   &__close {
@@ -436,8 +440,8 @@
   text-align: center;
 }
 
-.notify__watched {
-  width: 170px;
+.notify.notify__watched {
+  width: 175px;
   z-index: 1;
 }
 

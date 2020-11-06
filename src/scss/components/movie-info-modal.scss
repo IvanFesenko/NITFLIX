@@ -32,6 +32,10 @@
       max-width: 900px;
       padding: 60px 40px 40px;
     }
+
+    @include for-size(desktop) {
+      padding: 57px 40px 40px;
+    }
   }
 
   &__close {

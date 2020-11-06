@@ -2,10 +2,11 @@
 
 #### Hackathon team project.
 
-####Main idea:
+#### Main idea:
+
 Place where you may feel disconnected from reality
 
-####Функционал Nitflix:
+#### Функционал Nitflix:
 
 - User registration(additional registration and authorization with google account)
 - remote DATA-base(firebase)
@@ -17,13 +18,15 @@ Place where you may feel disconnected from reality
 - Pagination with Vanilla JS(pages navigation).
 - Responsive design of site, custom scroll
 
-####Technologies stack:
+#### Technologies stack:
+
 JS, REST API, WebPack, Firebase, Axios, Git, SaSS, HTML5
 
-####Team:
-Scrum Master: [Максим Козлов](https://github.com/Maximusvin)
-Team lead: [Ivan Fesenko](https://github.com/IvanFesenko)
-Leading developers:
-[Nikita Samoilenko](https://github.com/Bignichok)
-[Vadym Yevlanov](https://github.com/Google-Barma)
-[Dima_OS](https://github.com/Dima-Os)
+#### Team:
+
+- Scrum Master: [Максим Козлов](https://github.com/Maximusvin)
+- Team lead: [Ivan Fesenko](https://github.com/IvanFesenko)
+- Leading developers:
+  [Nikita Samoilenko](https://github.com/Bignichok)
+  [Vadym Yevlanov](https://github.com/Google-Barma)
+  [Dima_OS](https://github.com/Dima-Os)

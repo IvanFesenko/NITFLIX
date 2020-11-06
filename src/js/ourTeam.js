@@ -161,19 +161,19 @@ const ourTeam = `
         <ul class="social-icons">
           <li>
             <a
-              href="https://www.linkedin.com/in/nikita-samoilenko-5124121a6/"
+              href="https://www.linkedin.com/in/dmytro-osipov-ba032b177/"
               target="_blank"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
           </li>         
           <li>
-            <a href="https://github.com/Bignichok" target="_blank">
+            <a href="https://github.com/Dima-Os" target="_blank">
               <i class="fab fa-github"></i>
             </a>
           </li>
           <li>
-            <a href="https://t.me/Bignichok" target="_blank">
+            <a href="https://t.me/Dimas_Osipov" target="_blank">
               <i class="fab fa-telegram-plane"></i>
             </a>
           </li>

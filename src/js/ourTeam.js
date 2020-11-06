@@ -125,7 +125,7 @@ const ourTeam = `
         <ul class="social-icons">
           <li>
             <a
-              href="https://www.linkedin.com/in/nikita-samoilenko-5124121a6/"
+              href="www.linkedin.com/in/bignichok"
               target="_blank"
             >
               <i class="fab fa-linkedin-in"></i>
